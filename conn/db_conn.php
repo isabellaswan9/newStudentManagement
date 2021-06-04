@@ -5,14 +5,14 @@
 	$DB_NAME	= "xk";           //数据库名称
 
 	$conn = mysql_connect($DB_HOST, $DB_LOGIN, $DB_PASSWORD);
-/* 	if($conn)           //检测数据库是否连接成功
+/* if($conn)           //检测数据库是否连接成功
 	{
 		echo "数据库连接成功！";
 	}
 	else
 	{
 		echo "数据库没有连接成功！";
-	} */
+	} 	*/
 	mysql_select_db($DB_NAME);
         mysql_query("SET NAMES UTF8");	
 ?>
