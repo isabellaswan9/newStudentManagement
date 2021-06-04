@@ -5,10 +5,13 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>登录界面</title>
-  <link rel="stylesheet" href="./bootstrap/bootstrap1.css" />
-  <link rel="stylesheet" href="./bootstrap/css/bootstrap-theme.css" />
+  <link rel="stylesheet" href="./bootstrap/bootstrap.css" />
   <link rel="stylesheet" href="./css/style.css" />
-  <script type="text/javascript" src="./bootstrap/js/bootstrap.js"></script>
+  <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
@@ -16,7 +19,7 @@
     <div class="header">
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">学生管理系统</a>
+          <a class="navbar-brand" href="#">学生管理系统（用户端）</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
             aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -28,14 +31,6 @@
                 <a class="nav-link active" href="#">登录页
                   <span class="visually-hidden">(current)</span>
                 </a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                  aria-expanded="false">切换身份</a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">学生或教师</a>
-                  <a class="dropdown-item" href="#">管理员</a>
-                </div>
               </li>
             </ul>
           </div>
