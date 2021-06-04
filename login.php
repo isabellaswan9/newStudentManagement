@@ -1,52 +1,87 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>登录界面</title>
-<link rel="stylesheet" href="style.css" />
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>登录界面</title>
+  <link rel="stylesheet" href="./bootstrap/bootstrap1.css" />
+  <link rel="stylesheet" href="./bootstrap/css/bootstrap-theme.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <script type="text/javascript" src="./bootstrap/js/bootstrap.js"></script>
 </head>
+
 <body>
-<div id="center">
-  <form method="post" action="ChkLogin.php">
-    <table>
-      <caption>
-        用户登录
-      </caption>
-      <tr>
-        <td  class="input-group-addon">用户名：</td>
-        <td ><label for="textfield"></label>
-        <input name="username" type="text" id="textfield" size="15" class="form-control"/></td>
-      </tr>
-      <tr>
-        <td class="input-group-addon">密码：</td>
-        <td><label for="textfield2"></label>
-        <input name="userpwd" type="password" id="textfield2" size="15" class="form-control"/></td>
-      </tr>
-      <tr>
-        <td class="input-group-addon">身份：</td>
-        <td><label for="select">
-          <select name="role" size="1" class="btn btn-default dropdown-toggle">
-            
-            <option value="student">学生</option>
-            <option value="teacher">教师</option>
-            
-          </select>
-        </label></td>
-      </tr>
-    </table>
-    <div class="btn-group" role="group" aria-label="...">
-    <input type="submit" name="button" id="button" value="提交" class="btn btn-default"/>  
-          </td>     
-          <td >  
-          <input type="reset" name="button2" id="button2" value="重置" class="btn btn-default"/>
+  <div class="wrap">
+    <div class="header">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">学生管理系统</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">登录页
+                  <span class="visually-hidden">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                  aria-expanded="false">切换身份</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">学生或教师</a>
+                  <a class="dropdown-item" href="#">管理员</a>
+                </div>
+              </li>
+            </ul>
           </div>
-  </form>
-  <p>管理员？请点击<a href="admin.php">这里登陆</a></p>
-</center>
+        </div>
+      </nav>
+    </div>
+    <div class="contain-wrap">
+      <div id="myForm" class="myForm">
+        <form method="post" action="ChkLogin.php">
+          <fieldset>
+            <legend>用户登录</legend>
+            <div class="form-group">
+              <label for="exampleInputEmail1" class="form-label mt-4">用户名</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="请输入学号或工号" name="username">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1" class="form-label mt-4">密码</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入密码" name="userpwd">
+            </div>
+            <div class="form-group">
+              <label for="exampleSelect1" class="form-label mt-4">身份</label>
+              <select class="form-select" id="exampleSelect1" name="role">
+                <option value="teacher">老师</option>
+                <option value="student">学生</option>
+              </select>
+            </div>
+            <hr>
+            <div class="form-group set-center">
+              <button type="submit" name="button" id="button" class="btn btn-primary set-padding">提交</button>
+              <button type="reset" name="button" id="button" class="btn btn-primary set-padding">重置</button>
+            </div>
+          </fieldset>
+        </form>
+        <hr>
+        <div class="alert alert-dismissible alert-light">
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          <strong>管理员？</strong>请点击<a href="admin.php" class="alert-link">这里</a>登陆
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+    </div>
+  </div>
+
+
 </body>
+
 </html>

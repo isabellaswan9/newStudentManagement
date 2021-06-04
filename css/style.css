@@ -1,0 +1,59 @@
+@charset "utf-8";
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#center {
+  font-family: "宋体";
+  font-size: 16px;
+  color: #000;
+  border: 1px dotted #ccc;
+  width: 300px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.wrap{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 3fr ;
+    grid-template-rows: minmax(auto,auto) minmax(auto,auto) minmax(auto,auto);
+    grid-template-areas: 
+    "top"
+    "content"
+    "ft";
+
+}
+.contain-wrap{
+    grid-area: content;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 700px;
+}
+.myForm{
+  padding:20px;
+  border: 1px solid lightslategray;
+  border-radius: 5px;
+  box-shadow: 1px 2px 3px #ddd;
+  width:400px;
+}
+
+hr{
+    border: 1px dashed #ddd;
+}
+.header{
+    grid-area: top;
+}
+.set-center{
+  display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.set-padding{
+  margin:10px
+}
