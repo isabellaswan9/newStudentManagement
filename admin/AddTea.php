@@ -14,7 +14,6 @@
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
 <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
 
-
 <title>添加教师</title>
 </head>
 
@@ -31,48 +30,50 @@ if(! isset($_SESSION["username"])){
 		exit();
 		}
 ?>
-<center>
-请输入教师信息
-<form method="post" action="AddTea1.php" enctype="multipart/fromdata">
-<table>
-<tr>
-<td>编号</td>
-<?php
-include("../conn/db_conn.php");
-include("../conn/db_func.php");
-$adminNo=$_SESSION['username'];
-$ShowTeacher_sql="select * from teacher order by TeaNo desc";
-$ShowTeacherResult=db_query($ShowTeacher_sql);
-$row=db_fetch_array($ShowTeacherResult);
-$TeaNo=''. strval(intval($row['TeaNo'])+1);
-?>
-<td><input name="TeaNo" type="text" value="<?php echo $TeaNo?>" size="15"></td>
-</tr>
-<tr>
-<td>教师名字</td>
-<td><input type="text" name="TeaName" size="30"></td>
-</tr>
-<tr>
-<td>教师部门</td>
-<td>
-  <select name="DepartNo">
-     <option value="00">00通信工程</option>
-     <option value="01">01自动化</option>
-     <option value="02">02信息工程</option>
-     <option value="03">03电子科学与技术</option>
-	 <option value="04">04电气工程及其自动化</option>
-  </select>
-</td>
-</tr>
-<tr>
-<td>密码</td>
-<td><input type="password" name="Pwd" size="8" /></td><td><font color="red">注意：密码为8位数字</font></td>
-</tr>
-<tr>
-</table>
-<input type="submit" value="确定" name="B1">
-<input type="reset" value="重置" name="B2">
-</form>
-</center>
+
+
+<div class="contain-wrap">
+	<div class="myForm">
+		<form method="get" action="AddTea1.php">
+			<fieldset>
+			<legend>请输入教师信息</legend>
+			<div class="form-group">
+			<label for="exampleSelect1" class="form-label mt-4">编号：</label>
+			<?php
+			include("../conn/db_conn.php");
+			include("../conn/db_func.php");
+			$adminNo=$_SESSION['username'];
+			$ShowTeacher_sql="select * from teacher order by TeaNo desc";
+			$ShowTeacherResult=db_query($ShowTeacher_sql);
+			$row=db_fetch_array($ShowTeacherResult);
+			$TeaNo=''. strval(intval($row['TeaNo'])+1);
+			?>
+			<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="TeaNo"/>
+
+			<label for="exampleSelect1" class="form-label mt-4">教师名字：</label>
+			<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="TeaName"/>
+
+			<label for="exampleSelect1" class="form-label mt-4">教师部门：</label>
+			<select id="exampleSelect1" name="DepartNo">
+			<option value="CouNo">00通信工程</option>
+			<option value="CouName">01自动化</option>
+			<option value="Kind">02信息工程</option>
+			<option value="Credit">03电子科学与技术</option>
+			<option value="Credit">04电气工程及其自动化</option>
+			</select>
+			</br>
+			<label for="exampleSelect1" class="form-label mt-4">密码：</label>
+			<input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="Pwd">
+			<label class="form-label mt-4"><font color="red">注意：密码为8位数字</font></label>
+			<div class="form-group set-center">
+			<button type="submit" name="B1" id="button" class="btn btn-primary set-padding">确定</button>
+			<button type="reset" name="B2" id="button" class="btn btn-primary set-padding">重置</button>
+			</div>
+			</div>
+			</fieldset>
+		</form>
+	</div>
+</div>
+
 </body>
 </html>

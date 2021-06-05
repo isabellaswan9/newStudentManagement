@@ -35,31 +35,33 @@ $ShowDetail_sql="select * from teacher where TeaNo='$TeaNo'";
 $ShowDetailResult=db_query($ShowDetail_sql);
 $row=db_fetch_array($ShowDetailResult);
 ?>
-<center>
-<form method="post" action="ModifyTeacher1.php"enctype="multipart/fromdata">
-<table width="378">
-<tr bgcolor="#0066CC">
-  <td colspan="3" columspan="2"><div align="center"><font color="#FFFFFF">教师信息细节</font></div></td>
-</tr>
-<tr>
-   <td width="89" bgcolor='#DDDDDD'>教师ID</td>
-   <td width="237"><input name="TeaNo" type="text" value="<?php echo $row['TeaNo']?>" size="20"></td>
-</tr>
-<tr>
-   <td>教师名字</td>
-   <td><input name="TeaName" type="text" value="<?php echo $row['TeaName']?>" size="20" /></td>
-</tr>
-<tr>
-   <td bgcolor='#DDDDDD'>教师部门</td>
-   <td><input name="DepartNo" type="text" value="<?php echo $row['DepartNo']?>" size="20"></td>
-</tr>
- <tr align="center">
-    <td><input name="B1" type="submit" value="确定" /></td>
-    <td><input name="B2" type="reset" value="重置" /></td>
- </tr>
-</table>
-</form>
-</center>
+
+
+<div class="contain-wrap">
+  <div class="myForm">
+    <form method="get" action="ModifyCourse1.php">
+        <fieldset>
+          <legend>教师信息细节</legend>
+          <div class="form-group">
+          <label for="exampleSelect1" class="form-label mt-4">教师ID</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder=""  name="TeaNo" value="<?php echo $row['TeaNo']?>"/>
+
+          <label for="exampleSelect1" class="form-label mt-4">教师名字:</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="TeaName" value="<?php echo $row['TeaName']?>" />
+
+          <label for="exampleSelect1" class="form-label mt-4">教师部门:</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="DepartNo" value="<?php echo $row['DepartNo']?>"/>
+
+          <div class="form-group set-center">
+          <button type="submit" name="B1" id="button" class="btn btn-primary set-padding">确定</button>
+          <button type="reset" name="B2" id="button" class="btn btn-primary set-padding">重置</button>
+        </div>
+          </div>
+         </div>
+        </fieldset>
+    </form>
+ </div>
+</div>
 <?php include("../footer.php"); ?>  
 </body>
 </html>

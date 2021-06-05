@@ -17,6 +17,7 @@
 </head>
 
 <body>
+<?php include("header.php"); ?>
 <?php
 session_start();
 if(!isset($_SESSION['username']))
@@ -44,7 +45,7 @@ switch($ColumnName)
 $result=db_query($sql);
 ?>
 
-<?php include("header.php"); ?>
+
 <table width="650"  align="center" >
   <tr  bgcolor="#0066CC">
     <td width="80"><font color="#FFFFFF">学生ID</font></td>

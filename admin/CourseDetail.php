@@ -18,6 +18,7 @@
 
 <title>显示课程信息</title>
 </head>
+
 <body>
 <?php include("header.php"); ?>
 <?php
@@ -35,45 +36,89 @@ $ShowDetail_sql="select * from course,department where CouNo='$CouNo' and course
 $ShowDetailResult=db_query($ShowDetail_sql);
 $row=db_fetch_array($ShowDetailResult);
 ?>
-<center>
-<table width="300">
-<tr bgcolor="#0066CC">
-  <td colspan="3" columspan="2"><div align="center"><font color="#FFFFFF">课程细节</font></div></td>
-</tr>
-<tr>
-   <td width="81" rowspan="8"><img width='80' height='120' img src="../uploadpics/<?php echo $CouNo.'.jpg'?>" border="0" ></td>
-   <td width="89" bgcolor='#DDDDDD'>编号</td>
-   <td width="114" bgcolor='#DDDDDD'><?php echo $row['CouNo']?></td>
-</tr>
-<tr>
-   <td>名称</td>
-   <td><?php echo $row['CouName']?></td>
-</tr>
-<tr>
-   <td bgcolor='#DDDDDD'> 类型</td>
-   <td bgcolor='#DDDDDD'><?php echo $row['Kind']?></td>
-</tr>
-<tr>
-   <td>学分</td>
-   <td><?php echo $row['Credit']?></td>
-</tr>
-<tr>
-    <td bgcolor='#DDDDDD'>教师</td>
-    <td bgcolor='#DDDDDD'><?php echo $row['Teacher']?></td>
-</tr>
-<tr>
-    <td>开课系部</td>
-    <td><?php echo $row['DepartName']?></td>
-</tr>
-<tr>
-    <td bgcolor='#DDDDDD'>上课时间</td>
-    <td bgcolor='#DDDDDD'><?php echo $row['SchoolTime']?></td>
-</tr>
-<tr>
-    <td>限定人数</td>
-    <td><?php echo $row['LimitNum']?></td>
-</tr>
-</table>
+
+<div class="contain-wrap">
+  <div class="myTable">
+    <table  class="table table-hover" width="500" border="0" align="center" cellpadding="0" cellspacing="1" >
+      <thead>
+        <tr class="table-primary" bgcolor="#0066CC">
+          <th align="center" colspan="3" columspan="2"><div align="center"><font color="#FFFFFF">课程细节</font></div>
+          </th>
+        </tr>
+        <tr class="table-active">
+          <th width="100" rowspan="9">
+            <div align="center"><img width='90'  img src="../uploadpics/<?php echo $CouNo.'.jpg'?>" border="0" ></div>
+          </th>
+        </tr>
+        <tr class="table-active">
+          <th width="125" align="center">
+            <font>编号</font>
+          </th>
+          <th width="125" align="center">
+            <font><?php echo $row['CouNo']?></font>
+          </th>
+        </tr>
+        <tr>
+          <th align="center">
+            <font>名称</font>
+          </th>
+          <th  align="center">
+            <font><?php echo $row['CouName']?></font>
+          </th>
+        </tr>
+          <tr class="table-active">
+          <th  align="center">
+            <font>类型</font>
+          </th>
+          <th  align="center">
+            <font><?php echo $row['Kind']?></font>
+          </th>
+        </tr>
+          <tr>
+          <th  align="center">
+            <font>学分</font>
+          </th>
+          <th align="center">
+            <font><?php echo $row['Credit']?></font>
+          </th>
+        </tr>
+          <tr class="table-active">
+          <th  align="center">
+            <font>教师</font>
+          </th>
+          <th  align="center">
+            <font><?php echo $row['Teacher']?></font>
+          </th>
+        </tr>
+        <tr>
+          <th align="center">
+            <font>开课系部</font>
+          </th>
+          <th align="center">
+            <font><?php echo $row['DepartName']?></font>
+          </th>
+        </tr>
+        <tr class="table-active">
+          <th align="center">
+            <font>上课时间</font>
+          </th>
+          <th align="center">
+            <font><?php echo $row['SchoolTime']?></font>
+          </th>
+        </tr>
+        <tr>
+          <th align="center">
+            <font>限定人数</font>
+          </th>
+          <th align="center">
+            <font><?php echo $row['LimitNum']?></font>
+          </th>
+        </tr>
+
+      </thead>
+    </table>
+
+<br>
 <?php
 $StuNo=$_SESSION["username"];
 $GetTotal_SQL="select * from stucou where StuNo='$StuNo'";
@@ -85,6 +130,8 @@ if(db_num_rows($GetTotalResult)<5){
 <?php
 }
 ?>
-</center>
+  </div>
+</div>
+
 </body>
 </html>

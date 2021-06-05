@@ -29,26 +29,28 @@ if(! isset($_SESSION["username"])){
 		exit();
 		}
 ?>
-<div class="contain-pd">
-	<div class="myFormPd" >
-		<form method="post" action="Changepwd1.php" enctype="multipart/fromdata">
-			<div class="form-group" >
-				<label class="form-label mt-4" >修改密码</label>
 
-				<div class="form-floating">
-					<input type="password" name="Pwd" class="form-control" id="floatingPassword" placeholder="Password">
-					<label for="floatingPassword">password</label>
-				</div>
-
-			  	<label class="form-label mt-4"><font color="red">注意：密码为8位数字</font></label>
-
-				<div class="form-floating">
-					<input type="submit" value="确定" name="B1">
-					<input type="reset" value="重置" name="B2">
-				</div>
-
-			</div>
-		</form>
+<div class="wrap">
+	<div class="contain-wrap">
+  		<div id="myForm" class="myForm">
+			<form method="post" action="Changepwd1.php" enctype="multipart/fromdata">
+      			<fieldset>
+        			<legend>修改密码</legend>
+					<div class="form-group">
+						<label for="exampleInputEmail1" class="form-label mt-4">请输入新密码：</label>
+						<input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+							placeholder="请输入新密码" name="Pwd">
+					</div>
+					<div class="alert">
+						<font color="red">注意：密码为8位数字</font></td>
+					</div>
+					<div class="form-group set-center">
+						<button type="submit" name="B1" id="button" class="btn btn-primary set-padding">提交</button>
+						<button type="reset" name="B2" id="button" class="btn btn-primary set-padding">重置</button>
+					</div>
+				</fieldset>
+			</form>
+		</div>
 	</div>
 </div>
 

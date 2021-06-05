@@ -17,6 +17,7 @@
 <title>查询学生-超级管理员</title>
 </head>
 <body>
+	<?php include("header.php"); ?>
 <?php
 session_start();
 if(! isset($_SESSION['username']))
@@ -28,21 +29,34 @@ if(! isset($_SESSION['username']))
 	include("../conn/db_func.php");
 	$adminNo=$_SESSION['username'];
 ?>
-<?php include("header.php"); ?>
-<form method="get" action="SearchStudent1.php">
-<h2 align="center">请输入查询信息</h2>
-<p align="center">查询&nbsp;<select name="ColumnName">
-  <option value="StuNo">学生编号</option>
-  <option value="StuName">学生名字</option>
-  <option value="ClassNo">班级编号</option>
-</select>&nbsp;为&nbsp;
-	<input type="text" name="keyWord" />的学生
-</p>
-<p align="center">
-<input type="submit" value="确定" />&nbsp;
-<input type="reset" value="重置" />
-</p>
-</form>
+
+  <div class="contain-wrap">
+    <div class="myForm">
+      <form method="get" action="SearchStudent1.php">
+          <fieldset>
+            <legend>请输入查询信息</legend>
+            <div class="form-group">
+              <label for="exampleSelect1" class="form-label mt-4">查询：</label>
+              <select id="exampleSelect1" name="ColumnName">
+                <option value="StuNo">学生编号</option>
+                <option value="StuName">学生名字</option>
+                <option value="ClassNo">班级编号</option>
+              </select>
+            </div>    
+            <div class="form-group">
+              <label for="exampleInputEmail1" class="form-label mt-4">学生信息：</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                  placeholder="" name="keyWord">
+            </div>
+            <div class="form-group set-center">
+              <button type="submit" name="button" id="button" class="btn btn-primary set-padding">确定</button>
+                <button type="reset" name="button" id="button" class="btn btn-primary set-padding">重置</button>
+            </div>
+          </fieldset>
+      </form>
+   </div>
+  </div>
+
 <?php include("../footer.php"); ?>
 </body>
 </html>

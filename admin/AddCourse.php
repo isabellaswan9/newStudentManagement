@@ -31,62 +31,114 @@ if(! isset($_SESSION["username"])){
 		exit();
 		}
 ?>
-<center>
-请输入课程信息
-<form method="post" action="AddCourse1.php" enctype="multipart/fromdata">
-<table>
-<tr>
-<td>编号</td>
-<?php
-include("../conn/db_conn.php");
-include("../conn/db_func.php");
-$adminNo=$_SESSION['username'];
-$ShowCourse_sql="select * from course order by CouNo desc";
-$ShowCourseResult=db_query($ShowCourse_sql);
-$row=db_fetch_array($ShowCourseResult);
-$CouNo='0'. strval(intval($row['CouNo'])+1);
-?>
-<td><input name="CouNo" type="text" value="<?php echo $CouNo?>" size="3"></td>
-</tr>
-<tr>
-<td>名称</td>
-<td><input type="text" name="CouName" size="30"></td>
-</tr>
-<tr>
-<td>类型</td>
-<td>
-  <select name="Kind">
-     <option value="信息技术">信息技术</option>
-     <option value="工程技术">工程技术</option>
-     <option value="人文">人文</option>
-     <option value="管理">管理</option>
-  </select>
-</td>
-</tr>
-<tr>
-<td>学分</td>
-<td><input type="text" name="Credit" size="2" /></td>
-</tr>
-<tr>
-<td>教师</td>
-<td><input type="text" name="Teacher" size="20" /></td>
-</tr>
-<tr>
-<td>上课时间</td>
-<td><input type="text" name="SchoolTime" size="20" /></td>
-</tr>
-<tr>
-<td>限定人数</td>
-<td><input type="text" name="LimitNum" size="20" /></td>
-</tr>
-<tr>
-<td>图片</td>
-<td><input type="text" name="photo" size="20" /></td>
-</tr>
-</table>
-<input type="submit" value="确定" name="B1">
-<input type="reset" value="重置" name="B2">
-</form>
-</center>
+
+<div class="contain-wrap">
+    <div class="myForm">
+        <form method="post" action="AddCourse1.php">
+            <fieldset>
+                <legend>请输入课程信息</legend>
+                <div class="form-group">
+                    <label for="exampleSelect1" class="form-label mt-4">课程编号：</label>
+                    <?php
+                    include("../conn/db_conn.php");
+                    include("../conn/db_func.php");
+                    $adminNo=$_SESSION['username'];
+                    $ShowCourse_sql="select * from course order by CouNo desc";
+                    $ShowCourseResult=db_query($ShowCourse_sql);
+                    $row=db_fetch_array($ShowCourseResult);
+                    $CouNo='0'. strval(intval($row['CouNo'])+1);
+                    ?>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="CouNo"/>
+
+                    <label for="exampleSelect1" class="form-label mt-4">课程名称：</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="CouName"/>
+
+                    <label for="exampleSelect1" class="form-label mt-4">课程类型：</label>
+                    <select id="exampleSelect1" name="Kind">
+                    <option value="信息技术">信息技术</option>
+                    <option value="工程技术">工程技术</option>
+                    <option value="人文">人文</option>
+                    <option value="管理">管理</option>
+                    </select>
+                    </br>
+
+                    <label for="exampleSelect1" class="form-label mt-4">学分：</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="Credit">
+                    <label for="exampleSelect1" class="form-label mt-4">课程所属学院编号：</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="DepartNo">
+                    <label for="exampleSelect1" class="form-label mt-4">教师姓名：</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="Teacher">
+
+                    <label for="exampleSelect1" class="form-label mt-4">上课时间：</label>
+                  <p>每周第一次课时间：
+                    <select id="exampleSelect1" name="week1">
+                        <option value="1">周一</option>
+                        <option value="2">周二</option>
+                        <option value="3">周三</option>
+                        <option value="4">周四</option>
+                        <option value="5">周五</option>
+                    </select>
+                    <select id="exampleSelect1" name="time1">
+                        <option value="1">第一大节</option>
+                        <option value="2">第二大节</option>
+                        <option value="3">第三大节</option>
+                        <option value="4">第四大节</option>
+                        <option value="5">第五大节</option>
+                    </select>
+                  </p>
+                  <p>每周第二次课时间：
+                    <select id="exampleSelect1" name="week2">
+                        <option value="0">无</option>
+                        <option value=1>周一</option>
+                        <option value="2">周二</option>
+                        <option value="3">周三</option>
+                        <option value="4">周四</option>
+                        <option value="5">周五</option>
+                    </select>
+                    <select id="exampleSelect1" name="time2">
+                        <option value="0">无</option>
+                        <option value=1>第一大节</option>
+                        <option value="2">第二大节</option>
+                        <option value="3">第三大节</option>
+                        <option value="4">第四大节</option>
+                        <option value="5">第五大节</option>
+                    </select>
+                    </p>
+                    <p>每周第三次课时间：
+                    <select id="exampleSelect1" name="week3">
+                        <option value="0">无</option>
+                        <option value="1">周一</option>
+                        <option value="2">周二</option>
+                        <option value="3">周三</option>
+                        <option value="4">周四</option>
+                        <option value="5">周五</option>
+                    </select>
+                    <select id="exampleSelect1" name="time3">
+                        <option value="0">无</option>
+                        <option value="1">第一大节</option>
+                        <option value="2">第二大节</option>
+                        <option value="3">第三大节</option>
+                        <option value="4">第四大节</option>
+                        <option value="5">第五大节</option>
+                    </select>
+                    </p>
+                    <label for="exampleSelect1" class="form-label mt-4">上课地点：</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="Classroom">
+                    <label for="exampleSelect1" class="form-label mt-4">限定人数：</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="LimitNum">
+
+                    <div class="form-group set-center">
+                      <button type="submit" name="B1" id="button" class="btn btn-primary set-padding">确定</button>
+                      <button type="reset" name="B2" id="button" class="btn btn-primary set-padding">重置</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+</br>
+</br>
+</br>
+
 </body>
 </html>
