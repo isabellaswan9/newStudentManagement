@@ -34,16 +34,41 @@ $CouName=$_POST['CouName'];
 $Kind=$_POST['Kind'];
 $Credit=$_POST['Credit'];
 $Teacher=$_POST['Teacher'];
-$SchoolTime=$_POST['SchoolTime'];
+$SchoolTime=0;
+
+$week1=$_POST['week1'];
+$time1=$_POST['time1'];
+$Time1=($week1-1)*5+$time1;
+$week2=$_POST['week2'];
+$time2=$_POST['time2'];
+if($week2!=0 and $time2!=0){
+	$Time2=($week2-1)*5+$time2;
+}
+else{
+	$Time2=0;
+}
+$week3=$_POST['week3'];
+$time3=$_POST['time3'];
+if($week3!=0 and $time3!=0){
+	$Time3=($week3-1)*5+$time3;
+}
+else{
+	$Time3=0;
+}
+
+
+$Classroom=$_POST['Classroom'];
 $LimitNum=$_POST['LimitNum'];
 $CouNo=trim($CouNo);
 $CouName=trim($CouName);
 $Kind=trim($Kind);
 $Teacher=trim($Teacher);
-$DepartNo=$_SESSION['departno'];
+$DepartNo=trim($_POST['DepartNo']);
 $SchoolTime=trim($SchoolTime);
 $LimitNum=trim($LimitNum);
-$AddCourse_SQL="insert into Course values('$CouNo','$CouName','$Kind','$Credit','$Teacher','$DepartNo','$SchoolTime','$LimitNum',0,0)";
+
+
+$AddCourse_SQL="insert into course (CouNo,CouName,Kind,Credit,Teacher,DepartNo,SchoolTime,time1,time2,time3,LimitNum,WillNum,ChooseNum,Classroom)values('$CouNo','$CouName','$Kind','$Kind','$Teacher','$DepartNo','$SchoolTime','$Time1','$Time2','$Time3','$LimitNum',0,0,'$Classroom')";
 $AddCourse_Result=db_query($AddCourse_SQL);
 
 

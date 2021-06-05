@@ -3,9 +3,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>查看所任教课程-教师端页面</title>
+	<link rel="stylesheet" href="../bootstrap/bootstrap.css" />
+	<link rel="stylesheet" href="../css/style.css" />
+	<link rel="stylesheet" href="../css/footer.css" />
 </head>
 
 <body>
+
+<?php include("header.php");?>
 <?php
 session_start();
 if(! isset($_SESSION['username']))
@@ -19,16 +24,31 @@ if(! isset($_SESSION['username']))
 	$ShowCourse_sql="select * from course where Teacher=(select TeaName from Teacher) ORDER BY CouNo";
 	$ShowCourseResult=db_query($ShowCourse_sql);
 ?>
-<?php include("header.php");?>
-<table width="620" border="0" align="center" cellpadding="0" cellspacing="1">
-     <tr bgcolor="#0066CC">
-         <td width="80" align="center"><font color="#FFFFFF">课程编码</font></td>
-         <td width="220" align="center"><font color="#FFFFFF">课程名称</font></td>
-         <td width="80"><font color="#FFFFFF" align="center">课程类型</font></td>
-         <td width="50"><font color="#FFFFFF" align="center">学分</font></td>
-         <td width="80"><font color="#FFFFFF" align="center">任课教师</font></td>
-         <td width="100"><font color="#FFFFFF" align="center">上课时间</font></td>
-     </tr>
+<div class="contain-wrap">
+<div class="myTable">
+<table class="table table-hover" width="610" border="0" align="center" cellpadding="0" cellspacing="1">
+					<thead>
+						<tr class="table-primary" bgcolor="#0066CC">
+							<th width="80" align="center">
+								<font color="#FFFFFF">课程编码</font>
+							</th>
+							<th width="220" align="center">
+								<font color="#FFFFFF">课程名称</font>
+							</th>
+							<th width="80">
+								<font color="#FFFFFF" align="center">课程类型</font>
+							</th>
+							<th width="50">
+								<font color="#FFFFFF" align="center">学分</font>
+							</th> 
+							<th width="80">
+								<font color="#FFFFFF" align="center">任课教师</font>
+							</th>
+							<th width="100">
+								<font color="#FFFFFF" align="center">上课时间</font>
+							</th>
+						</tr>
+					</thead>
 <?php
 if(db_num_rows($ShowCourseResult)>0){
 	$number=db_num_rows($ShowCourseResult);
@@ -56,41 +76,44 @@ if(db_num_rows($ShowCourseResult)>0){
 	}
 ?>
 </table>
-<table width="400" border="0" align="center">
-  <tr>
-      <td align="center"><a href="ShowCourse.php? p=0">第一页</a></td>
-      <td align="center">
-	  <?php
-	  if($p>9){
-		  $last=(floor($p/10)*10)-10;
-		  echo"<a href='ShowCourse.php? p=$last'>上一页</a>";
-		  }
-		  else
-		    echo"上一页";
-      ?>
-      </td>
-      <td align="center">
-      <?php
-	  if($i>9 and $number>$check)
-	     echo"<a href='ShowCourse.php?p=$j'>下一页</a>";
-	  else
-	     echo"下一页";
-      ?>
-      </td>
-      <td align="center">
-      <?php
-      if($i>9)
-      {
-      $final=floor($number/10)*10;
-      echo"<a href='ShowCourse.php? p=$final'>最后一页</a>";
-      }
-      else
-        echo"最后一页";
-		?>
-       
-      </td>
-  </tr>
-</table> 
+
+<div class="set-center">
+					<ul class="pagination">
+						<li class="page-item">
+							<a class="page-link" href="ShowTeached.php? p=0">第一页</a>
+						</li>
+						<?php
+						if($p>9){
+							$last=(floor($p/10)*10)-10;
+							echo "<li class='page-item'><a href='ShowTeached.php? p=$last' class='page-link'>上一页</a></li>";
+							}
+							else
+							echo "<li class='page-item disabled'><a href='' class='page-link'>上一页</a></li>";
+						?>
+						<li class="page-item">
+							<?php
+								if($i>9 and $number>$check){
+										echo"<li class='page-item'><a href='ShowTeached.php? p=$j' class='page-link'>下一页</a></li>";
+									}
+								else
+									echo"<li class='page-item disabled'><a href='ShowCourse.php? p=$j' class='page-link'>下一页</a></li>";
+								?>
+						</li>
+						<li class="page-item">
+							<?php
+				      if($i>9)
+				      {
+				      $final=floor($number/10)*10;
+				      echo"<a class='page-link' href='ShowTeached.php? p=$final'>最后一页</a>";
+				      }
+				      else
+				        echo"<li class='page-item disabled'><a href='' class='page-link'>最后一页</a></li>";
+						?>
+						</li>
+					</ul>
+				</div>
+				</div>
+					</div>
 <?php include("../footer.php"); ?>         
 </body>
 </html>

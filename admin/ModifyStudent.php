@@ -35,31 +35,34 @@ $ShowDetail_sql="select * from student where StuNo='$StuNo'";
 $ShowDetailResult=db_query($ShowDetail_sql);
 $row=db_fetch_array($ShowDetailResult);
 ?>
-<center>
-<form method="post" action="ModifyStudent1.php"enctype="multipart/fromdata">
-<table width="378">
-<tr bgcolor="#0066CC">
-  <td colspan="3" columspan="2"><div align="center"><font color="#FFFFFF">学生信息细节</font></div></td>
-</tr>
-<tr>
-   <td width="89" bgcolor='#DDDDDD'>学生ID</td>
-   <td width="237"><input name="StuNo" type="text" value="<?php echo $row['StuNo']?>" size="20"></td>
-</tr>
-<tr>
-   <td>学生名字</td>
-   <td><input name="StuName" type="text" value="<?php echo $row['StuName']?>" size="20" /></td>
-</tr>
-<tr>
-   <td bgcolor='#DDDDDD'>所在班级</td>
-   <td><input name="ClassNo" type="text" value="<?php echo $row['ClassNo']?>" size="20"></td>
-</tr>
- <tr align="center">
-    <td><input name="B1" type="submit" value="确定" /></td>
-    <td><input name="B2" type="reset" value="重置" /></td>
- </tr>
-</table>
-</form>
-</center>
+
+
+<div class="contain-wrap">
+  <div class="myForm">
+    <form method="get" action="ModifyCourse1.php">
+        <fieldset>
+          <legend>修改学生信息</legend>
+          <div class="form-group">
+          <label for="exampleSelect1" class="form-label mt-4">学生ID:</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder=""  name="StuNo" value="<?php echo $row['StuNo']?>"/>
+
+          <label for="exampleSelect1" class="form-label mt-4">学生名字:</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="StuName" value="<?php echo $row['StuName']?>" />
+
+          <label for="exampleSelect1" class="form-label mt-4">所在班级:</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="ClassNo" value="<?php echo $row['ClassNo']?>"/>
+
+          <div class="form-group set-center">
+          <button type="submit" name="B1" id="button" class="btn btn-primary set-padding">确定</button>
+          <button type="reset" name="B2" id="button" class="btn btn-primary set-padding">重置</button>
+        </div>
+          </div>
+         </div>
+        </fieldset>
+    </form>
+ </div>
+</div>
+
 <?php include("../footer.php"); ?>  
 </body>
 </html>

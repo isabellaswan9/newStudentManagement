@@ -18,6 +18,7 @@
 </head>
 
 <body>
+	<?php include("header.php"); ?>
 <?php
 session_start();
 if(! isset($_SESSION['username']))
@@ -31,15 +32,31 @@ if(! isset($_SESSION['username']))
 	$ShowStudent_sql="select * from student";
 	$ShowStudentResult=db_query($ShowStudent_sql);
 ?>
-<?php include("header.php"); ?>
-<table width="620" border="0" align="center" cellpadding="0" cellspacing="1">
-     <tr bgcolor="#0066CC">
-         <td width="80" align="center"><font color="#FFFFFF">学生ID</font></td>
-         <td width="220" align="center"><font color="#FFFFFF">学生名字</font></td>
-         <td width="80"><font color="#FFFFFF" align="center">班级编号</font></td>
-         <td width="100"><font color="#FFFFFF" align="center">操作</font></td>
-         <td width="100"><font color="#FFFFFF" align="center">操作</font></td>
-     </tr>
+
+
+
+
+<div class="contain-wrap">
+	<div class="myTable">
+		<table  class="table table-hover" width="810" border="0" align="center" cellpadding="0" cellspacing="1" >
+			<thead>
+				<tr class="table-primary" bgcolor="#0066CC">
+					<th width="80" align="center">
+						<font color="#FFFFFF">学生ID</font>
+					</th>
+					<th width="220" align="center">
+						<font color="#FFFFFF">学生名字</font>
+					</th>
+					<th width="110" align="center">
+						<font color="#FFFFFF">班级编号</font>
+					</th>
+					<th width="50" align="center">
+						<font color="#FFFFFF">操作</font>
+					</th>
+					<th width="80" align="center">
+						<font color="#FFFFFF">操作</font>
+					</th>
+				</tr>
 <?php
 if(db_num_rows($ShowStudentResult)>0){
 	$number=db_num_rows($ShowStudentResult);
@@ -65,7 +82,11 @@ if(db_num_rows($ShowStudentResult)>0){
 		}
 	}
 ?>
-</table>
+
+			</thead>
+		</table>
+
+<br>
 <table width="400" border="0" align="center">
   <tr>
       <td align="center"><a href="Showstudent.php? p=0">第一页</a></td>
@@ -101,5 +122,8 @@ if(db_num_rows($ShowStudentResult)>0){
       </td>
   </tr>
 </table>           
+	</div>
+</div>
+      
 </body>
 </html>

@@ -34,6 +34,15 @@
     align-items: center;
     min-height: 700px;
 }
+.contain-wrap2{
+    grid-area: content;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 700px;
+    margin:20px;
+}
 .myTable{
   min-width: 1000px;
 }

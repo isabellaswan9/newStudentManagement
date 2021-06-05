@@ -29,25 +29,38 @@ if(! isset($_SESSION['username']))
 	include("../conn/db_func.php");
 	$adminNo=$_SESSION['username'];
 ?>
+  <div class="contain-wrap">
+    <div class="myForm">
+      <form method="get" action="SearchCourse1.php">
+          <fieldset>
+            <legend>请输入查询信息</legend>
+            <div class="form-group">
+              <label for="exampleSelect1" class="form-label mt-4">查询类型：</label>
+              <select id="exampleSelect1" name="ColumnName">
+                <option value="CouNo">课程编号</option>
+                <option value="CouName">课程名称</option>
+                <option value="Kind">类型</option>
+                <option value="Credit">学分</option>
+                <option value="Teacher">教师</option>
+                <option value="DepartName">开课系部</option>
+                <option value="SchoolTime">上课时间</option>
+              </select>
+            </div>    
+            <div class="form-group">
+              <label for="exampleInputEmail1" class="form-label mt-4">课程信息：</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                  placeholder="" name="keyWord">
+            </div>
+            <div class="form-group set-center">
+              <button type="submit" name="button" id="button" class="btn btn-primary set-padding">确定</button>
+                <button type="reset" name="button" id="button" class="btn btn-primary set-padding">重置</button>
+            </div>
+          </fieldset>
+      </form>
+   </div>
+  </div>
 
-<form method="get" action="SearchCourse1.php">
-<h2 align="center">请输入查询信息</h2>
-<p align="center">查询&nbsp;<select name="ColumnName">
-  <option value="CouNo">课程编号</option>
-  <option value="CouName">课程名称</option>
-  <option value="Kind">类型</option>
-  <option value="Credit">学分</option>
-  <option value="Teacher">教师</option>
-  <option value="DepartName">开课系部</option>
-  <option value="SchoolTime">上课时间</option>
-</select>&nbsp;为&nbsp;
-	<input type="text" name="keyWord" />的课程
-</p>
-<p align="center">
-<input type="submit" value="确定" />&nbsp;
-<input type="reset" value="重置" />
-</p>
-</form>
+
 <?php include("../footer.php"); ?>
 </body>
 </html>

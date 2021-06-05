@@ -79,3 +79,21 @@ hr{
 .set-padding{
   margin:10px
 }
+
+.searchCourse{
+  width:60px;
+}
+
+.contain_wrap1{
+  grid-area: content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 600px;
+}
+
+.myTable1{
+  width:350px;
+}
+
