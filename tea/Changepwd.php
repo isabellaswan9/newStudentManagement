@@ -120,7 +120,6 @@ if(!isset($_SESSION['username']))
 								$("#Pwdalert").remove();
 								$("#Pwd").removeClass("is-invalid");
 								$("#Pwd").addClass("is-valid");
-								$("#Pwd").after("<div class='valid-feedback' id='Pwdalert'>密码只能包含数字、字母、下滑线</div>");
 								valid = true;
 							}
 						}
