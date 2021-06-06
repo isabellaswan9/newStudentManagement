@@ -1,6 +1,4 @@
-<ul class="linkes">
-	<li><a href="javascript:;">关于我们</a></li>
-	<li><a href="javascript:;">加入我们</a></li>
-	<li><a href="javascript:;">联系我们</a></li>
-	<li><a href="javascript:;">隐私声明</a></li>
-</ul>
+<footer class="footer mt-auto py-3 bg-light">
+	<p class="float-end"><a href="#">Back to top</a></p>
+		<p>&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+</footer>
