@@ -36,6 +36,17 @@ if(isset($_POST['temporary'])){
 	}
 
 }
+if($UpdateScore_Result){
+	echo"<script>";
+	echo"alert(\"保存成绩成功\");";
+	echo"location. href='".$_SERVER["HTTP_REFERER"]."'";
+	echo"</script>";
+	}else{
+	echo"<script>";
+	echo"alert(\"保存成绩失败，请重新修改\");";
+	echo"location. href='".$_SERVER["HTTP_REFERER"]."";
+	echo"</script>";
+		}
 }
 
 
@@ -48,23 +59,24 @@ if(isset($_POST['permanent'])){
 		$UpdateScore_Result=db_query($UpdateScore_SQL);
 	}
 }
-		$UpdateScore_SQL="Update Score set flag=1";
+		$UpdateScore_SQL="Update Score set flag=1 where CouNo=".$CouNo;
 		$UpdateScore_Result=db_query($UpdateScore_SQL);
-}
-
-
-
-if($UpdateScore_Result){
+	if($UpdateScore_Result){
 	echo"<script>";
-	echo"alert(\"修改成绩成功\");";
+	echo"alert(\"提交成绩成功\");";
 	echo"location. href='".$_SERVER["HTTP_REFERER"]."'";
 	echo"</script>";
 	}else{
 	echo"<script>";
-	echo"alert(\"修改成绩失败，请重新修改\");";
+	echo"alert(\"提交成绩失败，请重新修改\");";
 	echo"location. href='".$_SERVER["HTTP_REFERER"]."";
 	echo"</script>";
 		}
+}
+
+
+
+
 ?>
 
 
