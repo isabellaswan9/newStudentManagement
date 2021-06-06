@@ -14,7 +14,7 @@ if(!isset($_SESSION['username']))
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/footer.css" />
   <script type="text/javascript" src="../bootstrap/js/jquery.min.js"></script>
-  <script type="text/javascript" src="./bootstrap/js/bootstrap.bundle.js"></script>
+  <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
 <title>修改密码</title>
 </head>
 

@@ -7,6 +7,8 @@
 
   <link rel="stylesheet" href="./bootstrap/css/bootstrap.css" />
   <link rel="stylesheet" href="./css/style.css" />
+    <script type="text/javascript" src="./bootstrap/js/bootstrap.buddle.js"></script>
+
 </head>
 <body>
 

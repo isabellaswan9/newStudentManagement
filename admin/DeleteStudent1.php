@@ -36,4 +36,3 @@ if($DeleteStudent_Result){
 ?>
 </body>
 </html>
-

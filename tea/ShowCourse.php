@@ -24,6 +24,7 @@ if(! isset($_SESSION['username']))
 	$ShowCourse_sql="select * from course where CouNo not in(select CouNo from stucou where StuNo='$StuNo')ORDER BY CouNo";
 	$ShowCourseResult=db_query($ShowCourse_sql);
 ?>
+
 <div class="contain-wrap">
 <div class="myTable">
 				<table class="table table-hover" width="610" border="0" align="center" cellpadding="0" cellspacing="1">

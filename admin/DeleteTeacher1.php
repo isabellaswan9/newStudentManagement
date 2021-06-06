@@ -36,4 +36,3 @@ if($DeleteTeacher_Result){
 ?>
 </body>
 </html>
-
