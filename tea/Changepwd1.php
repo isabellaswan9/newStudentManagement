@@ -15,23 +15,41 @@ if(!isset($_SESSION['username']))
 }
 include("../conn/db_conn.php");
 include("../conn/db_func.php");
+
 $Pwd=$_POST['Pwd'];
+$oldPwd=$_POST['oldPwd'];
+
 $Pwd=trim($Pwd);
-$UpdateTeacher_SQL="Update teacher set Pwd='$Pwd' where 1";
-$UpdateTeacher_Result=db_query($UpdateTeacher_SQL); 
-if($UpdateTeacher_Result){
+$oldPwd=trim($oldPwd);
+
+$username=$_SESSION["username"];
+$userpwd=$oldPwd;
+
+$ChkLogin="select * from teacher where TeaNo='$username' and Pwd='$userpwd'";
+$ChkLoginResult=db_query($ChkLogin);
+$number=db_num_rows($ChkLoginResult);
+$row=db_fetch_array($ChkLoginResult);
+if($number<=0){
 	echo"<script>";
-	echo"alert(\"修改密码成功\");";
-	echo"location. href=\"ShowCourse.php\"";
+	echo"alert(\"旧密码错误\");";
+	echo"location. href=\"Changepwd.php?flag=false\"";
 	echo"</script>";
-	}else{
-	echo"<script>";
-	echo"alert(\"修改密码失败，请重新修改\");";
-	echo"location. href=\"Changepwd.php\"";
-	echo"</script>";
-		}
- 
- 
+}else{
+	$UpdateTeacher_SQL="Update teacher set Pwd='$Pwd' where 1";
+	$UpdateTeacher_Result=db_query($UpdateTeacher_SQL); 
+	if($UpdateTeacher_Result){
+		echo"<script>";
+		echo"alert(\"修改密码成功\");";
+		echo"location. href=\"Changepwd.php?flag=ok\"";
+		echo"</script>";
+		}else{
+		echo"<script>";
+		echo"alert(\"修改密码失败，请重新修改\");";
+		echo"location. href=\"Changepwd.php?flag=no\"";
+		echo"</script>";
+			}
+}
+
 ?>
 </body>
 </html>

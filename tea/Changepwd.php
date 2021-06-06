@@ -12,67 +12,7 @@
 <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
-$(document).ready(function(){
-  $("#hide").click(function(){
-  $("p").hide();
-  });
-  $("#show").click(function(){
-  $("p").show();
-  });
-  $("#Pwd").on('input',function(){
-		const value = $("#Pwd").val();
-		const pattern1 = /\d+/;
-		const result1=value.search(pattern1);
 
-		if(result1==-1){
-		  	$("#Pwdalert").remove();
-			$("#Pwd").addClass("is-invalid");
-			$("#Pwd").after("<div class='invalid-feedback' id='Pwdalert'>密码需要包含数字</div>");
-		}
-		else{
-			const value = $("#Pwd").val();
-			const pattern2 = /[a-z]/;
-			const result2=value.search(pattern2);
-			if(result2==-1){
-				$("#Pwdalert").remove();
-				$("#Pwd").addClass("is-invalid");
-				$("#Pwd").after("<div class='invalid-feedback' id='Pwdalert'>密码需要包含小写字母</div>");
-			}
-			else{
-				const value = $("#Pwd").val();
-				const pattern2 = /[A-Z]/;
-				const result2=value.search(pattern2);
-				if(result2==-1){
-					$("#Pwdalert").remove();
-					$("#Pwd").addClass("is-invalid");
-					$("#Pwd").after("<div class='invalid-feedback' id='Pwdalert'>密码需要包含大写字母</div>");
-				}
-				else{
-					const value = $("#Pwd").val();
-					if(value.length < 8){
-						$("#Pwdalert").remove();
-						$("#Pwd").addClass("is-invalid");
-						$("#Pwd").after("<div class='invalid-feedback' id='Pwdalert'>密码大于8位</div>");
-					}
-					else{
-						const value = $("#Pwd").val();
-						const pattern = /^\w+$/;
-						const result=pattern.test(value);
-						if(result!=true){
-							$("#Pwdalert").remove();
-							$("#Pwd").addClass("is-invalid");
-							$("#Pwd").after("<div class='invalid-feedback' id='Pwdalert'>密码只能包含数字、字母、下滑线</div>");
-						}
-						else{
-							$("#Pwdalert").remove();
-							$("#Pwd").removeClass("is-invalid");
-						}
-					}
-				}
-			}
-		}	
-  });
-});
 </script>
 
 <title>修改密码</title>
@@ -108,7 +48,7 @@ if(!isset($_SESSION['username']))
 							<input type="password" class="form-control" id="repPwd" aria-describedby="emailHelp"
 								placeholder="请再次输入新密码" name="repPwd">
 						</div>
-						<div class="form-group set-center">
+						<div class="form-group set-center" id="buttons">
 							<button type="submit" name="B1" id="B1" class="btn btn-primary set-padding" >提交</button>
 							<button type="reset" name="B2" id="B2" class="btn btn-primary set-padding">重置</button>
 						</div>
@@ -116,53 +56,100 @@ if(!isset($_SESSION['username']))
 				</form>
 			</div>
 		</div>
-		<p id="p1">如果点击“隐藏”按钮，我就会消失。</p>
-	<button id="hide" type="button">隐藏</button>
-	<button id="show" type="button">显示</button>	
 <?php include("../footer.php"); ?>
 <script>
+	const url = location.search;//获取url中"?"符后的字串 ('?modFlag=business&role=1')
+	if (url.indexOf('?') != -1) {
+		const str = url.substr(1);//去掉？
+		const state = str.split("=")[1];
+		if(state == "ok"){
+			$("#buttons").after("<div class=\"alert alert-dismissible alert-success\" id='sucMod'>修改密码成功</div>");
+		}
+		else if(state == "false"){
+			$("#oldPwd").addClass("is-invalid");
+			$("#oldPwd").after("<div class=\"invalid-feedback\" id='oldPwdalert'>旧密码错误</div>");
+		}
+	}
+	let valid = false;
+	$(document).ready(function(){
+		$("#oldPwd").on('input',function(){
+			$("#oldPwd").removeClass("is-invalid");
+			$("#oldPwdalert").remove();	
+			$("#sucMod").remove();
+		});
+		$("#Pwd").on('input',function(){
+			const value = $("#Pwd").val();
+			const pattern1 = /\d+/;
+			const result1=value.search(pattern1);
+			$("#sucMod").remove();
+			if(result1==-1){
+				$("#Pwdalert").remove();
+				$("#Pwd").addClass("is-invalid");
+				$("#Pwd").after("<div class='invalid-feedback' id='Pwdalert'>密码需要包含数字</div>");
+			}
+			else{
+				const value = $("#Pwd").val();
+				const pattern2 = /[a-z]/;
+				const result2=value.search(pattern2);
+				if(result2==-1){
+					$("#Pwdalert").remove();
+					$("#Pwd").addClass("is-invalid");
+					$("#Pwd").after("<div class='invalid-feedback' id='Pwdalert'>密码需要包含小写字母</div>");
+				}
+				else{
+					const value = $("#Pwd").val();
+					const pattern2 = /[A-Z]/;
+					const result2=value.search(pattern2);
+					if(result2==-1){
+						$("#Pwdalert").remove();
+						$("#Pwd").addClass("is-invalid");
+						$("#Pwd").after("<div class='invalid-feedback' id='Pwdalert'>密码需要包含大写字母</div>");
+					}
+					else{
+						const value = $("#Pwd").val();
+						if(value.length < 8){
+							$("#Pwdalert").remove();
+							$("#Pwd").addClass("is-invalid");
+							$("#Pwd").after("<div class='invalid-feedback' id='Pwdalert'>密码大于8位</div>");
+						}
+						else{
+							const value = $("#Pwd").val();
+							const pattern = /^\w+$/;
+							const result=pattern.test(value);
+							if(result!=true){
+								$("#Pwdalert").remove();
+								$("#Pwd").addClass("is-invalid");
+								$("#Pwd").after("<div class='invalid-feedback' id='Pwdalert'>密码只能包含数字、字母、下滑线</div>");
+							}
+							else{
+								$("#Pwdalert").remove();
+								$("#Pwd").removeClass("is-invalid");
+								$("#Pwd").addClass("is-valid");
+								$("#Pwd").after("<div class='valid-feedback' id='Pwdalert'>密码只能包含数字、字母、下滑线</div>");
+								valid = true;
+							}
+						}
+					}
+				}
+			}	
+		});
+		
+	});
     function validate()
     {
-        var pwd=document.getElementById("Pwd").value;
-		var repPwd=document.getElementById("repPwd").value;
-		var pattern = /^\w+$/;
-		var result=pattern.test(pwd);
-		//var pattern = /^\w+$/i;
-		//var result=pwd.match(pattern);
-		/*
-        var shortname=username.value.substring(0,4);
-        var result=/^[a-zA-Z]+$/.test(shortname);
-
-        if(username.value.length==0){
-            alert("Input cannot be blank!");
-            return false;
-        }
-
-        if(username.value.length<6||username.value.length>10)
-        {
-            alert("The input length is limited to 6~10!");
-            return false;
-        }
-        if(result!=true){
-            alert("The first four digits of a string can only be letters!");
-            return false;
-        }
-		*/
-		$("#Pwdalert").remove();
-		$("#Pwd").removeClass("is-invalid");
-		$("#Pwdalert2").remove();
-		$("#repPwd").removeClass("is-invalid");
-		if(result!=true){
-			$("#Pwd").addClass("is-invalid");
-			$("#Pwd").after("<div class='invalid-feedback' id='Pwdalert'>密码只能包含数字、字母、下滑线</div>");
+		if(valid!=true){
 			return false;
 		}
+        var pwd=document.getElementById("Pwd").value;
+		var repPwd=document.getElementById("repPwd").value;
+		$("#Pwdalert2").remove();
+		$("#repPwd").removeClass("is-invalid");
+		
 		if(pwd!==repPwd){
 			$("#repPwd").addClass("is-invalid");
 			$("#repPwd").after("<div class='invalid-feedback' id='Pwdalert2'>请输入相同的新密码</div>");
 			return false;
 		}
-
         return true;
     }
 </script>
