@@ -3,14 +3,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<link rel="stylesheet" href="../bootstrap/bootstrap.css">
 <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
 <link rel="stylesheet" href="../style.css">
+<script type="text/javascript" src="../bootstrap/js/jquery.min.js"></script>
+<script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
 
-<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
-<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
-<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
 
 
 <title>学生选课系统（管理员）</title>+
@@ -34,7 +31,6 @@ if(! isset($_SESSION['username']))
 	$ShowCourse_sql="select * from course where CouNo not in(select CouNo from stucou where StuNo='$StuNo')ORDER BY CouNo";
 	$ShowCourseResult=db_query($ShowCourse_sql);
 ?>
-
 
 <div class="contain-wrap">
 	<div class="myTable">

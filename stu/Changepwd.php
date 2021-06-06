@@ -11,10 +11,11 @@ if(!isset($_SESSION['username']))
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../bootstrap/bootstrap.css" />
-	<link rel="stylesheet" href="../css/style.css" />
-	<link rel="stylesheet" href="../css/footer.css" />
-	<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <script type="text/javascript" src="../bootstrap/js/jquery.min.js"></script>
+  <script type="text/javascript" src="./bootstrap/js/bootstrap.bundle.js"></script>
 <title>修改密码</title>
 </head>
 

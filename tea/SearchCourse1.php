@@ -6,9 +6,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>无标题文档</title>
 </head>
-<link rel="stylesheet" href="../bootstrap/bootstrap.css" />
-<link rel="stylesheet" href="../css/style.css" />
-<link rel="stylesheet" href="../css/footer.css" />
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <script type="text/javascript" src="./bootstrap/js/bootstrap.bundle.js"></script>
 
 <body>
 	<div class="wrap">

@@ -2,17 +2,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-
-<link rel="stylesheet" href="../bootstrap/bootstrap.css">
-<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-<link rel="stylesheet" href="../style.css">
-
-<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
-<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
-<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
-
 <title>完成修改密码操作</title>
 </head>
 
@@ -28,22 +17,43 @@ if(! isset($_SESSION["username"])){
 		}
 include("../conn/db_conn.php");
 include("../conn/db_func.php");
+
 $Pwd=$_POST['Pwd'];
 $Pwd=trim($Pwd);
-$UpdateAdmin_SQL="Update admin set Pwd='$Pwd' where 1";
-$UpdateAdmin_Result=db_query($UpdateAdmin_SQL); 
-if($UpdateAdmin_Result){
+
+$Pwd=$_POST['Pwd'];
+$oldPwd=$_POST['oldPwd'];
+
+$Pwd=trim($Pwd);
+$oldPwd=trim($oldPwd);
+
+$username=$_SESSION["username"];
+$userpwd=$oldPwd;
+
+$ChkLogin="select * from admin where adminNo='$username' and Pwd='$userpwd'";
+$ChkLoginResult=db_query($ChkLogin);
+$number=db_num_rows($ChkLoginResult);
+$row=db_fetch_array($ChkLoginResult);
+if($number<=0){
 	echo"<script>";
-	echo"alert(\"修改密码成功\");";
-	echo"location. href=\"ShowCourse.php\"";
+	echo"alert(\"旧密码错误\");";
+	echo"location. href=\"Changepwd.php?flag=false\"";
 	echo"</script>";
+}else{
+	$UpdateAdmin_SQL="Update admin set Pwd='$Pwd' where 1";
+	$UpdateAdmin_Result=db_query($UpdateAdmin_SQL); 
+	if($UpdateAdmin_Result){
+		echo"<script>";
+		echo"alert(\"修改密码成功\");";
+		echo"location. href=\"ShowCourse.php?flag=ok\"";
+		echo"</script>";
 	}else{
-	echo"<script>";
-	echo"alert(\"修改密码失败，请重新修改\");";
-	echo"location. href=\"Changepwd.php\"";
-	echo"</script>";
-		}
- 
+		echo"<script>";
+		echo"alert(\"修改密码失败，请重新修改\");";
+		echo"location. href=\"Changepwd.php?flag=no\"";
+		echo"</script>";
+	}
+}
  
 ?>
 </body>

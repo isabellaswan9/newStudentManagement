@@ -4,11 +4,10 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="stylesheet" href="../bootstrap/bootstrap.css" />
-	<link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.css" />
-	<link rel="stylesheet" href="../css/style.css" />
-	<link rel="stylesheet" href="../css/footer.css" />
-	<script type="text/javascript" src="./bootstrap/js/bootstrap.js"></script>
+	<link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <script type="text/javascript" src="./bootstrap/js/bootstrap.bundle.js"></script>
 	<title>学生端页面</title>
 </head>
 
