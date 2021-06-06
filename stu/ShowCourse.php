@@ -7,13 +7,7 @@
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/footer.css" />
-<<<<<<< HEAD
   <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
-||||||| b7d1a14
-  <script type="text/javascript" src="./bootstrap/js/bootstrap.bundle.js"></script>
-=======
-<script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
->>>>>>> e1ea8e3ca5ff509c418abe9d7368c46f40c15966
 	<title>学生端页面</title>
 </head>
 

@@ -13,14 +13,7 @@
 
 <?php include("header.php");?>
 <?php
-<<<<<<< HEAD
 if (!session_id()) session_start();
-||||||| b7d1a14
-session_start();
-=======
-
-if (!session_id()) session_start();
->>>>>>> e1ea8e3ca5ff509c418abe9d7368c46f40c15966
 if(! isset($_SESSION['username']))
 {
 	header("Location:../login.php");

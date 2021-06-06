@@ -10,7 +10,6 @@
 <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
 </head>
 
-<<<<<<< HEAD
 <body class="d-flex flex-column h-100">
 <?php include("header.php");?>
 <?php
