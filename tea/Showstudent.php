@@ -24,10 +24,9 @@ if(! isset($_SESSION['username']))
 	include("../conn/db_conn.php");
 	include("../conn/db_func.php");
 	$StuNo=$_SESSION['username'];/*教师编号*/
-	$StuName=$_GET['StuNo'];/*教师名字*/
 	$CouNo=$_GET['CouNo'];/*课程编号*/
 	$_SESSION['CouNo'] = $CouNo;
-	$ShowCourse_sql=" select student.StuNo,student.StuName,student.ClassNo,score.score,score.CouNo,course.CouName
+	$ShowCourse_sql=" select student.StuNo,student.StuName,student.ClassNo,score.score,score.CouNo,score.flag,course.CouName
 	from student join score 
 	on student.StuNo=score.StuNo join course on course.CouNo=score.CouNo where score.CouNo='$CouNo'";
 	$ShowCourseResult=db_query($ShowCourse_sql);
@@ -74,7 +73,7 @@ if(db_num_rows($ShowCourseResult)>0){
 		if($i>=$p && $i < $check){
 			if($i%2 ==0)
 			  echo"<tr bgcolor='#DDDDDD'>";
-		else
+			else
 			  echo"<tr>";
 			  echo"<td width='80' align='center'>".$row['CouNo']."</td>";
 			  echo"<td width='320'>".$row['CouName']."</td>";
@@ -86,18 +85,23 @@ if(db_num_rows($ShowCourseResult)>0){
 			 echo"<td width='55'><form method='POST' action='ChangeAllScore.php'>       					 	
 			 <input type='text' name='CJ[]'/>
         	</a></td>
-
-
         	";
 			  echo"</tr>";
 			  $j=$i+1; 
 		 }
 		}
-		$_SESSION['data'] = $data;
+		if($row['flag'] == 0){
+					$_SESSION['data'] = $data;
 		    echo"                <div class='form-group set-center'>
-                      <button type='submit' name='B1' id='button' class='btn btn-primary set-padding'>提交</button>
+                      <button type='submit' name='temporary' id='button' class='btn btn-primary set-padding'>保存</button>
+                      <button type='submit' name='permanent' id='button' class='btn btn-primary set-padding'>提交</button>
                       <button type='reset' name='B2' id='button' class='btn btn-primary set-padding'>重置</button>
                     </div></form>";
+		}
+		else{
+			echo "<p>成绩已提交</p>";
+		}
+
 	}
 ?>
 
@@ -124,16 +128,19 @@ if(db_num_rows($ShowCourseResult)>0){
         }
     }
 ?>
+
 <!--翻页功能尚未实现-->
 <div class="set-center">
 					<ul class="pagination">
 						<li class="page-item">
-							<a class="page-link" href="Showstudent.php? p=0StuNo=".$row['StuNo']."&CouNo=".$row['CouNo']."">第一页</a>
+							<?php 
+							echo"<a class='page-link' href='Showstudent.php?p=0&CouNo=".$row['CouNo']."'>第一页</a>"
+							?>
 						</li>
 						<?php
 						if($p>9){
 							$last=(floor($p/10)*10)-10;
-							echo "<li class='page-item'><a href='Showstudent.php? p=$last' class='page-link'>上一页</a></li>";
+							echo "<li class='page-item'><a href='Showstudent.php? p=$last & CouNo=".$row['CouNo']."' class='page-link'>上一页</a></li>";
 							}
 							else
 							echo "<li class='page-item disabled'><a href='' class='page-link'>上一页</a></li>";
@@ -141,7 +148,7 @@ if(db_num_rows($ShowCourseResult)>0){
 						<li class="page-item">
 							<?php
 								if($i>9 and $number>$check){
-										echo"<li class='page-item'><a href='Showstudent.php? p=$j' class='page-link'>下一页</a></li>";
+										echo"<li class='page-item'><a href='Showstudent.php?p=$j & CouNo=".$row['CouNo']."' class='page-link'>下一页</a></li>";
 									}
 								else
 									echo"<li class='page-item disabled'><a href='ShowCourse.php? p=$j' class='page-link'>下一页</a></li>";
@@ -152,7 +159,7 @@ if(db_num_rows($ShowCourseResult)>0){
 				      if($i>9)
 				      {
 				      $final=floor($number/10)*10;
-				      echo"<a class='page-link' href='Showstudent.php? p=$final'>最后一页</a>";
+				      echo"<a class='page-link' href='Showstudent.php? p=$final& CouNo=".$row['CouNo']."'>最后一页</a>";
 				      }
 				      else
 				        echo"<li class='page-item disabled'><a href='' class='page-link'>最后一页</a></li>";
@@ -160,6 +167,7 @@ if(db_num_rows($ShowCourseResult)>0){
 						</li>
 					</ul>
 				</div>
+
 				</div>
 					</div>
 <?php include("../footer.php"); ?>   

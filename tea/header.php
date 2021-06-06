@@ -18,9 +18,6 @@
         <li class="nav-item">
           <a class="nav-link" href="ShowTeached.php">所教课程</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="changescore.php">更改成绩</a>
-        </li>
       </ul>
       <form class="d-flex">
            <ul class="navbar-nav me-auto">

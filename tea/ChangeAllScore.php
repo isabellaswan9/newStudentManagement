@@ -25,9 +25,31 @@ echo($CJ);
 $n = count($CJ);
 echo $n;
 */
-for($i=0;$i<count($CJ);$i++){
-	$UpdateScore_SQL="Update Score set Score='$CJ[$i]' where StuNo='$StuNo[$i]' and CouNo='$CouNo'";
-	$UpdateScore_Result=db_query($UpdateScore_SQL);
+
+if(isset($_POST['temporary'])){
+	for($i=0;$i<count($CJ);$i++){
+	if($CJ[$i]==null){
+
+	}else{
+		$UpdateScore_SQL="Update Score set Score='$CJ[$i]' where StuNo='$StuNo[$i]' and CouNo='$CouNo'";
+		$UpdateScore_Result=db_query($UpdateScore_SQL);
+	}
+
+}
+}
+
+
+if(isset($_POST['permanent'])){
+		for($i=0;$i<count($CJ);$i++){
+	if($CJ[$i]==null){
+
+	}else{
+		$UpdateScore_SQL="Update Score set Score='$CJ[$i]',flag=1 where StuNo='$StuNo[$i]' and CouNo='$CouNo'";
+		$UpdateScore_Result=db_query($UpdateScore_SQL);
+	}
+}
+		$UpdateScore_SQL="Update Score set flag=1";
+		$UpdateScore_Result=db_query($UpdateScore_SQL);
 }
 
 

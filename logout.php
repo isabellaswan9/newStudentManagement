@@ -6,6 +6,5 @@
 <title>退出登录</title>
 </head>
 <body>
-<center><a>你已经安全退出，如果需要重新登陆，请点击</a><a href="login.php"><strong>重新登陆</strong></a></center>
 </body>
 </html>
