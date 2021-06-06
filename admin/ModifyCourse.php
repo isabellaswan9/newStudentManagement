@@ -18,7 +18,7 @@
 <body>
 <?php include("header.php") ?>
 <?php
-session_start();
+if (!session_id()) session_start();
 if(! isset($_GET['CouNo']))
   {$CouNo=001;}
  else{$CouNo=$_GET['CouNo'];} 

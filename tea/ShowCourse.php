@@ -6,13 +6,13 @@
 <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/footer.css" />
-  <script type="text/javascript" src="./bootstrap/js/bootstrap.bundle.js"></script>
+  <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
 </head>
 
 <body>
 <?php include("header.php");?>
 <?php
-session_start();
+if (!session_id()) session_start();
 if(! isset($_SESSION['username']))
 {
 	header("Location:../login.php");
@@ -24,6 +24,7 @@ if(! isset($_SESSION['username']))
 	$ShowCourse_sql="select * from course where CouNo not in(select CouNo from stucou where StuNo='$StuNo')ORDER BY CouNo";
 	$ShowCourseResult=db_query($ShowCourse_sql);
 ?>
+
 <div class="contain-wrap">
 <div class="myTable">
 				<table class="table table-hover" width="610" border="0" align="center" cellpadding="0" cellspacing="1">

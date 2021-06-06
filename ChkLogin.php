@@ -6,7 +6,7 @@
 </head>
 <body>
 <?php
-session_start();
+if (!session_id()) session_start();
 include("conn/db_conn.php");
 include("conn/db_func.php");
 $role=$_POST['role'];

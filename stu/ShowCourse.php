@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/footer.css" />
-  <script type="text/javascript" src="./bootstrap/js/bootstrap.bundle.js"></script>
+<script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
 	<title>学生端页面</title>
 </head>
 
@@ -43,7 +43,7 @@
 						</tr>
 					</thead>
 					<?php
-					session_start();
+					if (!session_id()) session_start();
 					//检测是否登录，若没登录则转向登录界面
 					if(!isset($_SESSION["username"]))
 					{

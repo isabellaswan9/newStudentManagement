@@ -23,15 +23,17 @@
         </li>
       </ul>
       <form class="d-flex">
-           <ul class="navbar-nav me-auto">
-                
-          <li class="nav-item">
-               <a href="changepwd.php" class="nav-link">修改密码</a>
-          </li>
-          <li class="nav-item">
-               <a href="../logout.php" class="nav-link">退出系统</a>
-          </li>
-          </ul>
+           <ul class="navbar-nav me-auto">  
+              <li class="nav-item dropdown">
+                  <a href="changepwd.php" class="nav-link  dropdown-toggle" data-bs-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">你好！
+<?php if (!session_id()) session_start();echo $_SESSION['username']?></a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="Changepwd.php">修改密码</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="../logout.php">退出系统</a>
+                  </div>
+              </li>
+            </ul>
       </form>
     </div>
   </div>

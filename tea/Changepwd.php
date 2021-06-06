@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="../bootstrap/bootstrap.css" />
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
 	<link rel="stylesheet" href="../css/style.css" />
 	<link rel="stylesheet" href="../css/footer.css" />
 <script type="text/javascript" src="../bootstrap/js/jquery.min.js"></script>
@@ -15,7 +15,7 @@
 <body>
 <?php include("header.php"); ?>
 <?php
-@session_start();
+if (!session_id()) session_start();
 if(!isset($_SESSION['username']))
 {
 	header("Location:../login.php");
