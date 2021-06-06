@@ -47,6 +47,9 @@ if(! isset($_SESSION['username']))
 							<th width="100">
 								<font color="#FFFFFF" align="center">上课时间</font>
 							</th>
+							<th width="100">
+								<font color="#FFFFFF" align="center">学生名单</font>
+							</th>
 						</tr>
 					</thead>
 <?php
@@ -69,6 +72,8 @@ if(db_num_rows($ShowCourseResult)>0){
 			  echo"<td width='50'>".$row['Credit']."</td>";
 			  echo"<td width='80'>".$row['Teacher']."</td>";
 			  echo"<td width='100'>".$row['SchoolTime']."</td>";
+		 	  /*点击查看可以查看学生名单以及录入成绩*/		  
+			  echo"<td width='80'><a href='Showstudent.php?StuNo=".$row['Teacher']."&CouNo=".$row['CouNo']."'>查看学生</a></td>";
 			  echo"</tr>";
 			  $j=$i+1; 
 		 }
