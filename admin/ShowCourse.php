@@ -2,15 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
 <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
 <link rel="stylesheet" href="../style.css">
 <script type="text/javascript" src="../bootstrap/js/jquery.min.js"></script>
 <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
-
-
-
-<title>学生选课系统（管理员）</title>+
+<title>学生选课系统（管理员）</title>
 
 
 </head>
