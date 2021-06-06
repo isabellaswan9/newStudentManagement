@@ -10,7 +10,7 @@
 
 
 
-<title>学生选课系统（管理员）</title>
+<title>学生选课系统（管理员）</title>+
 
 
 </head>

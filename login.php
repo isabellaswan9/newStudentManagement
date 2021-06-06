@@ -7,8 +7,7 @@
   <title>登录界面</title>
   <link rel="stylesheet" href="./bootstrap/css/bootstrap.css" />
   <link rel="stylesheet" href="./css/style.css" />
-    <script type="text/javascript" src="./bootstrap/js/bootstrap.js"></script>
-
+  <script type="text/javascript" src="./bootstrap/js/bootstrap.js"></script>
 </head>
 
 <body>
