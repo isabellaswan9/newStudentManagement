@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/footer.css" />
-  <script type="text/javascript" src="./bootstrap/js/bootstrap.bundle.js"></script>
+  <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
   <title>浏览已选课程</title>
 </head>
 
@@ -18,7 +18,7 @@
       <hr>
     </div>
     <?php
-      session_start();
+      if (!session_id()) session_start();
       if(!isset($_SESSION['username']))
       {
         header("Location:../login.php");

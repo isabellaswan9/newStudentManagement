@@ -15,7 +15,7 @@
 		<div class="header">
 			<?php include("header.php"); ?>
 			<?php
-				session_start();
+				if (!session_id()) session_start();
 				if(!isset($_SESSION['username']))
 				{
 					header("Location:../login.php");

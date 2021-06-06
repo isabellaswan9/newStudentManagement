@@ -6,14 +6,14 @@
 <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/footer.css" />
-  <script type="text/javascript" src="./bootstrap/js/bootstrap.bundle.js"></script>
+  <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
 </head>
 
 <body class="d-flex flex-column h-100">
 
 <?php include("header.php");?>
 <?php
-session_start();
+if (!session_id()) session_start();
 if(! isset($_SESSION['username']))
 {
 	header("Location:../login.php");

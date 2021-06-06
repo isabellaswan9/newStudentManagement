@@ -16,7 +16,7 @@
 <body>
 <?php include("header.php") ?>
 <?php
-session_start();
+if (!session_id()) session_start();
 if(! isset($_GET['TeaNo']))
   {$TeaNo=001;}
  else{$TeaNo=$_GET['TeaNo'];} 

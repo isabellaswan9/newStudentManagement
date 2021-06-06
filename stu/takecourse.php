@@ -6,7 +6,7 @@
 </head>
 <body>
 <?php
-session_start();
+if (!session_id()) session_start();
 if(! isset($_SESSION["username"])){//会话不存在就回去登录
 	header("Location:../login.php");
 	exit();
