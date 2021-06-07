@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50538
 File Encoding         : 65001
 
-Date: 2021-06-07 09:32:26
+Date: 2021-06-07 14:18:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -98,7 +98,6 @@ INSERT INTO `course` VALUES ('007', 'Delphi初级程序员', '信息技术', '2'
 INSERT INTO `course` VALUES ('008', 'ASP.NET应用', '信息技术', '3', '曾建华', '01', '15', '0', '0', '10', '45', '0', '');
 INSERT INTO `course` VALUES ('009', '水资源利用管理与保护', '工程技术', '2', '叶艳茵', '02', '0', '0', '0', '10', '31', '0', '');
 INSERT INTO `course` VALUES ('010', '中级电工理论2', '工程技术', '3', '范敬丽', '02', '0', '0', '0', '5', '24', '0', '');
-INSERT INTO `course` VALUES ('011', '中级电工理论', '工程技术', '3', '范敬丽', 'De', '0', '0', '0', '5', '27', '0', '');
 INSERT INTO `course` VALUES ('012', '智能建筑', '工程技术', '2', '王娜', '02', '0', '0', '0', '10', '21', '0', '');
 INSERT INTO `course` VALUES ('013', '房地产漫谈', '人文', '2', '黄强', '02', '0', '0', '0', '10', '36', '0', '');
 INSERT INTO `course` VALUES ('014', '科技与探索', '人文', '2', '顾苑玲', '02', '0', '0', '0', '10', '24', '0', '');
@@ -191,23 +190,24 @@ CREATE TABLE `score` (
   `StuNo` char(8) CHARACTER SET utf8 NOT NULL,
   `CouNo` char(3) CHARACTER SET utf8mb4 NOT NULL,
   `score` char(5) CHARACTER SET utf8mb4 NOT NULL,
+  `flag` int(3) DEFAULT NULL,
   PRIMARY KEY (`StuNo`,`CouNo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of score
 -- ----------------------------
-INSERT INTO `score` VALUES ('12345677', '001', '1');
-INSERT INTO `score` VALUES ('12345678', '001', '11');
-INSERT INTO `score` VALUES ('12345679', '001', '23');
-INSERT INTO `score` VALUES ('12345680', '001', '35');
-INSERT INTO `score` VALUES ('12345690', '001', '45');
-INSERT INTO `score` VALUES ('12345691', '001', '56');
-INSERT INTO `score` VALUES ('12345692', '001', '67');
-INSERT INTO `score` VALUES ('12345693', '001', '79');
-INSERT INTO `score` VALUES ('12345694', '001', '80');
-INSERT INTO `score` VALUES ('12345695', '001', '88');
-INSERT INTO `score` VALUES ('12345696', '001', '94');
+INSERT INTO `score` VALUES ('12345677', '001', '1', '1');
+INSERT INTO `score` VALUES ('12345678', '001', '1', '1');
+INSERT INTO `score` VALUES ('12345679', '001', '33', '1');
+INSERT INTO `score` VALUES ('12345680', '001', '35', '1');
+INSERT INTO `score` VALUES ('12345690', '001', '33', '1');
+INSERT INTO `score` VALUES ('12345691', '001', '33', '1');
+INSERT INTO `score` VALUES ('12345692', '001', '33', '1');
+INSERT INTO `score` VALUES ('12345693', '001', '79', '1');
+INSERT INTO `score` VALUES ('12345694', '001', '80', '1');
+INSERT INTO `score` VALUES ('12345695', '001', '88', '1');
+INSERT INTO `score` VALUES ('12345696', '001', '94', '1');
 
 -- ----------------------------
 -- Table structure for stucou
@@ -260,6 +260,7 @@ INSERT INTO `student` VALUES ('12345698', '1', '郭晶晶', '12345678');
 INSERT INTO `student` VALUES ('12345680', '1', '马小远', '0');
 INSERT INTO `student` VALUES ('12345699', '2', '苏韩希', '12345678');
 INSERT INTO `student` VALUES ('12345700', '2', '上官仪', '12345678');
+INSERT INTO `student` VALUES ('12345701', '2', '林思玲', '00000000');
 
 -- ----------------------------
 -- Table structure for teacher
@@ -267,7 +268,7 @@ INSERT INTO `student` VALUES ('12345700', '2', '上官仪', '12345678');
 DROP TABLE IF EXISTS `teacher`;
 CREATE TABLE `teacher` (
   `TeaNo` char(8) NOT NULL,
-  `DepartNo` char(2) NOT NULL,
+  `DepartNo` char(20) NOT NULL,
   `TeaName` char(10) NOT NULL,
   `Pwd` char(20) NOT NULL DEFAULT '0',
   PRIMARY KEY (`TeaNo`),
@@ -277,9 +278,12 @@ CREATE TABLE `teacher` (
 -- ----------------------------
 -- Records of teacher
 -- ----------------------------
-INSERT INTO `teacher` VALUES ('80881234', '03', '林睿', '80881234');
-INSERT INTO `teacher` VALUES ('17152000', '02', '黄龙', '12345678');
-INSERT INTO `teacher` VALUES ('17152001', '01', '梁燕', '12345678');
+INSERT INTO `teacher` VALUES ('80881234', '通信工程', '林睿', '80881234');
+INSERT INTO `teacher` VALUES ('17152000', '通信工程', '黄龙', '12345678');
+INSERT INTO `teacher` VALUES ('17152002', '通信工程', '梁与', '00000000');
+INSERT INTO `teacher` VALUES ('17152001', '通信工程', '梁燕', '12345678');
+INSERT INTO `teacher` VALUES ('17152003', '通信工程', '黄其', '00000000');
+INSERT INTO `teacher` VALUES ('17152004', '通信工程', '杨晓', '00000000');
 
 -- ----------------------------
 -- View structure for coursetable
