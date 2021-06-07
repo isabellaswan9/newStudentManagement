@@ -20,13 +20,13 @@ $ShowDetail_sql="select * from stucou where StuNo='$StuNo' and CouNo='$CouNo'";
 $ShowDetailResult=db_query($ShowDetail_sql);
 $row=db_fetch_array($ShowDetailResult);
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" class="h-100">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>添加成绩</title>
 </head>
 
-<body>
+<body class="d-flex flex-column h-100">
 <center>
 <?php include("header.php"); ?>
 <br>

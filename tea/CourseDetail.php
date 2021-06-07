@@ -14,12 +14,12 @@ $ShowDetail_sql="select * from course,department where CouNo='$CouNo' and course
 $ShowDetailResult=db_query($ShowDetail_sql);
 $row=db_fetch_array($ShowDetailResult);
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" class="h-100">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>显示课程信息</title>
 </head>
-<body>
+<body class="d-flex flex-column h-100">
 <?php include("header.php"); ?>
 <center>
 <table width="300">

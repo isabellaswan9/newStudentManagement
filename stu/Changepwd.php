@@ -7,7 +7,7 @@ if(!isset($_SESSION['username']))
 	exit();
 }
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" class="h-100">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
@@ -18,7 +18,7 @@ if(!isset($_SESSION['username']))
 <title>修改密码</title>
 </head>
 
-<body>
+<body class="d-flex flex-column h-100">
 	<div class="wrap">
 		<div class="header">
 			<?php include("header.php"); ?>

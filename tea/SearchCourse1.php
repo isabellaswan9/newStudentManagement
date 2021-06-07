@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="../css/footer.css" />
   <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
 
-<body>
+<body class="d-flex flex-column h-100">
 	<div class="wrap">
 		<div class="header">
 			<?php include("header.php"); ?>
