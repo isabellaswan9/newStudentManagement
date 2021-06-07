@@ -27,10 +27,11 @@ if(! isset($_SESSION['username']))
 	$StuNo=$_SESSION['username'];/*教师编号*/
 	$CouNo=$_GET['CouNo'];/*课程编号*/
 	$_SESSION['CouNo'] = $CouNo;
-	$ShowCourse_sql=" select student.StuNo,student.StuName,student.ClassNo,score.score,score.CouNo,score.flag,course.CouName
+	$ShowCourse_sql="select student.StuNo,student.StuName,student.ClassNo,score.score,score.CouNo,score.flag,course.CouName
 	from student join score 
 	on student.StuNo=score.StuNo join course on course.CouNo=score.CouNo where score.CouNo='$CouNo' order by student.StuNo asc";
 	$ShowCourseResult=db_query($ShowCourse_sql);
+
 ?>
 <div class="contain-wrap">
 <div class="myTable">

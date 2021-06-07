@@ -1,24 +1,17 @@
 <!DOCTYPE html
 	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" class="h-100">
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/footer.css" />
-
   <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
-
-  <script type="text/javascript" src="./bootstrap/js/bootstrap.bundle.js"></script>
-
-<script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
 
 	<title>学生端页面</title>
 </head>
-
-<<<<<<< HEAD
-<body>
+<body class="d-flex flex-column h-100">
 	<div class="wrap">
 		<div class="header">
 			<?php include("header.php"); ?>
@@ -49,9 +42,7 @@
 							</th>
 						</tr>
 					</thead>
-=======
-<body class="d-flex flex-column h-100">
-<?php include("header.php");?>
+
 <?php
 if (!session_id()) session_start();
 if(! isset($_SESSION['username']))
@@ -65,47 +56,7 @@ if(! isset($_SESSION['username']))
 	$ShowCourse_sql="select * from course where CouNo not in(select CouNo from stucou where StuNo='$StuNo')ORDER BY CouNo";
 	$ShowCourseResult=db_query($ShowCourse_sql);
 ?>
-	<div class="contain-wrap">
-		<div class="myTable">
-			<table class="table table-hover" width="610" border="0" align="center" cellpadding="0" cellspacing="1">
-				<thead>
-					<tr class="table-primary" bgcolor="#0066CC">
-						<th width="80" align="center">
-							<font color="#FFFFFF">课程编码</font>
-						</th>
-						<th width="220" align="center">
-							<font color="#FFFFFF">课程名称</font>
-						</th>
-						<th width="80">
-							<font color="#FFFFFF" align="center">课程类型</font>
-						</th>
-						<th width="50">
-							<font color="#FFFFFF" align="center">学分</font>
-						</th> 
-						<th width="80">
-							<font color="#FFFFFF" align="center">任课教师</font>
-						</th>
-						<th width="100">
-							<font color="#FFFFFF" align="center">上课时间</font>
-						</th>
-					</tr>
-				</thead>
->>>>>>> 4f66894a46707504c7443af13597aa8929527b58
-					<?php
-					if (!session_id()) session_start();
-					//检测是否登录，若没登录则转向登录界面
-					if(!isset($_SESSION["username"]))
-					{
-						header("Location:../login.php");
-						exit();
-					}
-					//包含数据库连接文件 
-						include("../conn/db_conn.php");
-						include("../conn/db_func.php");
-						$StuNo=$_SESSION['username'];
-						$ShowCourse_sql="select * from course where CouNo not in(select CouNo from stucou where StuNo='$StuNo')ORDER BY CouNo";
-						$ShowCourseResult=db_query($ShowCourse_sql);
-					?>
+
 					<?php
 					function chinese($num){
 						$chinese='';
