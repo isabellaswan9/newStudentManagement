@@ -12,10 +12,7 @@
 
 <title>学生选课系统（管理员）</title>
 
-
 </head>
-
-
 <body class="d-flex flex-column h-100">
 	<?php include("header.php"); ?>
 <?php

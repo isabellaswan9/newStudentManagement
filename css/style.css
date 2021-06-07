@@ -32,7 +32,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    min-height: 700px;
+        min-height: 700px;
 }
 .contain-wrap2{
     grid-area: content;
