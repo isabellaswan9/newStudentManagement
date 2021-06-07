@@ -32,12 +32,12 @@ include("../conn/db_func.php");
 $TeaNo=$_POST['TeaNo'];
 $TeaName=$_POST['TeaName'];
 $DepartNo=$_POST['DepartNo'];
-$Pwd=$_POST['Pwd'];
+
 
 $TeaNo=trim($TeaNo);
 $TeaName=trim($TeaName);
 $DepartNo=trim($DepartNo);
-$Pwd=trim($Pwd);
+
 $AddTeacher_SQL="insert into Teacher values('$TeaNo','$DepartNo','$TeaName','00000000')";
 $AddTeacher_Result=db_query($AddTeacher_SQL);
 

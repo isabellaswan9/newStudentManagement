@@ -74,12 +74,49 @@ $result=db_query($sql);
 						</tr>
 					</thead>
 <?php
+function chinese($num){
+						$chinese='';
+						switch ($num){
+							case 1:
+							$chinese='一';
+							break;
+							case 2:
+							$chinese='二';
+							break;
+							case 3:
+							$chinese='三';
+							break;
+							case 4:
+							$chinese='四';
+							break;
+							case 5:
+							$chinese='五';
+							break;
+							default:
+							$chinese='';
+							
+						}
+						return $chinese;
+					}
 if(db_num_rows($result)>0){
 	$number=db_num_rows($result);
 for($i=0;$i<$number;$i++)
 	{
 		$row=db_fetch_array($result);
-		
+	$num1=($row['time1']%5==0)?5:($row['time1']%5);
+							$schooltime1="周".chinese(floor($row['time1']/6+1))."第".chinese($num1)."节<br>";
+							
+							if($row['time2']){
+							$num2=($row['time2']%5==0)?5:($row['time2']%5);
+							$schooltime2="周".chinese(floor($row['time2']/6+1))."第".chinese($num2)."节<br>";
+							}
+							else $schooltime2='';
+						
+							if($row["time3"]){
+							$num3=($row['time3']%5==0)?5:($row['time3']%5);
+							$schooltime3="周".chinese(floor($row['time3']/6+1))."第".chinese($num3)."节<br>";
+							}
+							else $schooltime3='';		
 		if($i%2==0)
 			echo "<tr bgcolor='#dddddd'>";
 		else
@@ -91,7 +128,7 @@ for($i=0;$i<$number;$i++)
     <td width="80"><?php echo $row['Kind']  ?></td>
     <td width="50"><?php echo $row['Credit']  ?></td>
     <td width="80"><?php echo $row['Teacher'] ?></td>
-    <td width="120"><?php echo $row['SchoolTime']  ?></td>
+    <td width="120"><?php echo $schooltime1.$schooltime2.$schooltime3  ?></td>
     </tr>
   
   <?php

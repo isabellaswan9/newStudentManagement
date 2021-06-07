@@ -49,15 +49,15 @@ if(! isset($_SESSION["username"])){
 
 			<label for="exampleSelect1" class="form-label mt-4">教师部门：</label>
 			<select id="exampleSelect1" name="DepartNo">
-			<option value="CouNo">00通信工程</option>
-			<option value="CouName">01自动化</option>
-			<option value="Kind">02信息工程</option>
-			<option value="Credit">03电子科学与技术</option>
-			<option value="Credit">04电气工程及其自动化</option>
+			<option value="通信工程">通信工程</option>
+			<option value="自动化">自动化</option>
+			<option value="信息工程">信息工程</option>
+			<option value="电子科学与技术">电子科学与技术</option>
+			<option value="电气工程及其自动化">电气工程及其自动化</option>
 			</select>
 			</br>
-			<label for="exampleSelect1" class="form-label mt-4">密码：</label>
-			<!--<input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="Pwd">
+			<!--<label for="exampleSelect1" class="form-label mt-4">密码：</label>
+			<input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="Pwd">
 			<label class="form-label mt-4"><font color="red">注意：密码为8位数字</font></label>-->
 			<div class="form-group set-center">
 			<button type="submit" name="B1" id="button" class="btn btn-primary set-padding">确定</button>
