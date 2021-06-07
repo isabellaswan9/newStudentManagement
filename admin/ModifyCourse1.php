@@ -36,13 +36,35 @@ $Credit=$_POST['Credit'];
 $Teacher=$_POST['Teacher'];
 $SchoolTime=$_POST['SchoolTime'];
 $LimitNum=$_POST['LimitNum'];
+//上课时间
+$week1=$_POST['week1'];
+$time1=$_POST['time1'];
+$Time1=($week1-1)*5+$time1;
+$week2=$_POST['week2'];
+$time2=$_POST['time2'];
+if($week2!=0 and $time2!=0){
+	$Time2=($week2-1)*5+$time2;
+}
+else{
+	$Time2=0;
+}
+$week3=$_POST['week3'];
+$time3=$_POST['time3'];
+if($week3!=0 and $time3!=0){
+	$Time3=($week3-1)*5+$time3;
+}
+else{
+	$Time3=0;
+}
+
 $CouNo=trim($CouNo);
 $CouName=trim($CouName);
 $Kind=trim($Kind);
 $Teacher=trim($Teacher);
 $SchoolTime=trim($SchoolTime);
 $LimitNum=trim($LimitNum);
-$UpdateCourse_SQL="update course set CouNo='$CouNo',CouName='$CouName',Kind='$Kind',Credit='$Credit',Teacher='$Teacher',SchoolTime='$SchoolTime',LimitNum='$LimitNum' where Course.CouNo='$CouNo'";
+
+$UpdateCourse_SQL="update course set CouNo='$CouNo',CouName='$CouName',Kind='$Kind',Credit='$Credit',Teacher='$Teacher',time1='$Time1',time2='$Time2',time3='$Time3',LimitNum='$LimitNum' where Course.CouNo='$CouNo'";
 $UpdateCourse_Result=db_query($UpdateCourse_SQL);
 
 if($UpdateCourse_Result){

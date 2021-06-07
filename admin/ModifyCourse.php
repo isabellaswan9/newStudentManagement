@@ -37,7 +37,6 @@ $Kind='Kind'. strval(intval($row['Kind']));
 $Credit='Credit'. strval(intval($row['Credit']));
 $Teacher='Teacher'. strval(intval($row['Teacher']));
 $DepartName='DepartName'. strval(intval($row['DepartName']));
-$SchoolTime='SchoolTime'. strval(intval($row['SchoolTime']));
 $LimitNum='LimitNum'. strval(intval($row['LimitNum']));
 ?>
 
@@ -62,8 +61,59 @@ $LimitNum='LimitNum'. strval(intval($row['LimitNum']));
           <label for="exampleSelect1" class="form-label mt-4">教师:</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="Teacher" value="<?php echo $row['Teacher']?>"/>
 
-          <label for="exampleSelect1" class="form-label mt-4">上课时间:</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="SchoolTime" value="<?php echo $row['SchoolTime']?>"/>
+          <label for="exampleSelect1" class="form-label mt-4">上课时间：</label>
+                  <p>每周第一次课时间：
+                    <select id="exampleSelect1" name="week1">
+                        <option value="1">周一</option>
+                        <option value="2">周二</option>
+                        <option value="3">周三</option>
+                        <option value="4">周四</option>
+                        <option value="5">周五</option>
+                    </select>
+                    <select id="exampleSelect1" name="time1">
+                        <option value="1">第一大节</option>
+                        <option value="2">第二大节</option>
+                        <option value="3">第三大节</option>
+                        <option value="4">第四大节</option>
+                        <option value="5">第五大节</option>
+                    </select>
+                  </p>
+                  <p>每周第二次课时间：
+                    <select id="exampleSelect1" name="week2">
+                        <option value="0">无</option>
+                        <option value=1>周一</option>
+                        <option value="2">周二</option>
+                        <option value="3">周三</option>
+                        <option value="4">周四</option>
+                        <option value="5">周五</option>
+                    </select>
+                    <select id="exampleSelect1" name="time2">
+                        <option value="0">无</option>
+                        <option value=1>第一大节</option>
+                        <option value="2">第二大节</option>
+                        <option value="3">第三大节</option>
+                        <option value="4">第四大节</option>
+                        <option value="5">第五大节</option>
+                    </select>
+                    </p>
+                    <p>每周第三次课时间：
+                    <select id="exampleSelect1" name="week3">
+                        <option value="0">无</option>
+                        <option value="1">周一</option>
+                        <option value="2">周二</option>
+                        <option value="3">周三</option>
+                        <option value="4">周四</option>
+                        <option value="5">周五</option>
+                    </select>
+                    <select id="exampleSelect1" name="time3">
+                        <option value="0">无</option>
+                        <option value="1">第一大节</option>
+                        <option value="2">第二大节</option>
+                        <option value="3">第三大节</option>
+                        <option value="4">第四大节</option>
+                        <option value="5">第五大节</option>
+                    </select>
+                    </p>
 
           <label for="exampleSelect1" class="form-label mt-4">限定人数:</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="LimitNum" value="<?php echo $row['LimitNum']?>"/>
