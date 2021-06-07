@@ -32,7 +32,7 @@ if(! isset($_SESSION["username"])){
 			<fieldset>
 			<legend>请输入教师信息</legend>
 			<div class="form-group">
-			<label for="exampleSelect1" class="form-label mt-4">编号：</label>
+			<label for="exampleSelect1" class="form-label mt-4">工号：</label>
 			<?php
 			include("../conn/db_conn.php");
 			include("../conn/db_func.php");
@@ -42,7 +42,7 @@ if(! isset($_SESSION["username"])){
 			$row=db_fetch_array($ShowTeacherResult);
 			$TeaNo=''. strval(intval($row['TeaNo'])+1);
 			?>
-			<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="TeaNo"/>
+			<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="TeaNo" value="<?php echo $TeaNo?>"/>
 
 			<label for="exampleSelect1" class="form-label mt-4">教师名字：</label>
 			<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="TeaName"/>
