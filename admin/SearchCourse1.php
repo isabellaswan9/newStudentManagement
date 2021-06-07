@@ -1,5 +1,6 @@
 <!DOCTYPE html
 	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<<<<<<< HEAD
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 
@@ -25,10 +26,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
+=======
+<html xmlns="http://www.w3.org/1999/xhtml" class="h-100">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>无标题文档</title>
+>>>>>>> 4f66894a46707504c7443af13597aa8929527b58
 <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
 <link rel="stylesheet" href="../style.css">
 <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
 
+<<<<<<< HEAD
 <title>查找课程</title>
 </head>
 <link rel="stylesheet" href="../bootstrap/bootstrap.css" />
@@ -36,6 +44,10 @@
 <link rel="stylesheet" href="../css/footer.css" />
 
 <body>
+=======
+</head>
+<body class="d-flex flex-column h-100">
+>>>>>>> 4f66894a46707504c7443af13597aa8929527b58
 	<div class="wrap">
 		<div class="header">
 			<?php include("header.php"); ?>
@@ -116,6 +128,7 @@
 									echo "<tr>";
 								echo "<td width='80'><a href='CourseDetail.php?CouNo=".$row['CouNo']."'>".$row['CouNo']."</a></td>";
 						?>
+<<<<<<< HEAD
 
 <?php include("header.php"); ?>
 <?php
@@ -197,6 +210,8 @@ $result=db_query($sql);
 ?>
 
 
+=======
+>>>>>>> 4f66894a46707504c7443af13597aa8929527b58
 					<td width="220" align="center">
 						<?php echo $row['CouName'] ?>
 					</td>

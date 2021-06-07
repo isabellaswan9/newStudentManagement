@@ -1,12 +1,13 @@
 <!DOCTYPE html
 	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" class="h-100">
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/footer.css" />
+<<<<<<< HEAD
 
   <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
 
@@ -14,10 +15,13 @@
 
 <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
 
+=======
+  <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
+>>>>>>> 4f66894a46707504c7443af13597aa8929527b58
 	<title>学生端页面</title>
 </head>
 
-<body>
+<body class="d-flex flex-column h-100">
 	<div class="wrap">
 		<div class="header">
 			<?php include("header.php"); ?>

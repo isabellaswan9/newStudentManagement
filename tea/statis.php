@@ -43,7 +43,7 @@ th{
 </style>
 
 </head>
-<body>
+<body class="d-flex flex-column h-100">
 	<?php include("header.php");?>
 <table class="table">
   <caption>成绩统计</caption>

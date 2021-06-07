@@ -30,7 +30,7 @@ th{
 </style>
 
 </head>
-<body>
+<body class="d-flex flex-column h-100">
 <table class="table">
   <caption>我的课表</caption>
   <thead>
