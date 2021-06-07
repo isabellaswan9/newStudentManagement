@@ -28,7 +28,7 @@ if(! isset($_SESSION["username"])){
 
 <div class="contain-wrap">
 	<div class="myForm">
-		<form method="get" action="AddTea1.php">
+		<form method="post" action="AddTea1.php">
 			<fieldset>
 			<legend>请输入教师信息</legend>
 			<div class="form-group">
@@ -57,8 +57,8 @@ if(! isset($_SESSION["username"])){
 			</select>
 			</br>
 			<label for="exampleSelect1" class="form-label mt-4">密码：</label>
-			<input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="Pwd">
-			<label class="form-label mt-4"><font color="red">注意：密码为8位数字</font></label>
+			<!--<input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="Pwd">
+			<label class="form-label mt-4"><font color="red">注意：密码为8位数字</font></label>-->
 			<div class="form-group set-center">
 			<button type="submit" name="B1" id="button" class="btn btn-primary set-padding">确定</button>
 			<button type="reset" name="B2" id="button" class="btn btn-primary set-padding">重置</button>

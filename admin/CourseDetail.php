@@ -27,9 +27,47 @@ if(! isset($_SESSION["username"])){
   }
 include("../conn/db_conn.php");
 include("../conn/db_func.php");
+function chinese($num){
+						$chinese='';
+						switch ($num){
+							case 1:
+							$chinese='一';
+							break;
+							case 2:
+							$chinese='二';
+							break;
+							case 3:
+							$chinese='三';
+							break;
+							case 4:
+							$chinese='四';
+							break;
+							case 5:
+							$chinese='五';
+							break;
+							default:
+							$chinese='';
+							
+						}
+						return $chinese;
+					}
 $ShowDetail_sql="select * from course,department where CouNo='$CouNo' and course.DepartNo=department.DepartNo";
 $ShowDetailResult=db_query($ShowDetail_sql);
 $row=db_fetch_array($ShowDetailResult);
+$num1=($row['time1']%5==0)?5:($row['time1']%5);
+$schooltime1="周".chinese(floor($row['time1']/6+1))."第".chinese($num1)."节<br>";
+							
+if($row['time2']){
+$num2=($row['time2']%5==0)?5:($row['time2']%5);
+$schooltime2="周".chinese(floor($row['time2']/6+1))."第".chinese($num2)."节<br>";
+}
+else $schooltime2='';
+						
+if($row["time3"]){
+$num3=($row['time3']%5==0)?5:($row['time3']%5);
+$schooltime3="周".chinese(floor($row['time3']/6+1))."第".chinese($num3)."节<br>";
+}
+else $schooltime3='';
 ?>
 
 <div class="contain-wrap">
@@ -98,7 +136,7 @@ $row=db_fetch_array($ShowDetailResult);
             <font>上课时间</font>
           </th>
           <th align="center">
-            <font><?php echo $row['SchoolTime']?></font>
+            <font><?php echo $schooltime1.$schooltime2.$schooltime3;?></font>
           </th>
         </tr>
         <tr>

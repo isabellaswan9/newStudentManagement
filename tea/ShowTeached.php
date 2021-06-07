@@ -54,14 +54,54 @@ if(! isset($_SESSION['username']))
 						</tr>
 					</thead>
 <?php
+function chinese($num){
+						$chinese='';
+						switch ($num){
+							case 1:
+							$chinese='一';
+							break;
+							case 2:
+							$chinese='二';
+							break;
+							case 3:
+							$chinese='三';
+							break;
+							case 4:
+							$chinese='四';
+							break;
+							case 5:
+							$chinese='五';
+							break;
+							default:
+							$chinese='';
+							
+						}
+						return $chinese;
+					}
 if(db_num_rows($ShowCourseResult)>0){
 	$number=db_num_rows($ShowCourseResult);
+	
 	if(empty($_GET['p']))
 	$p=0;
 	else {$p=$_GET['p'];}	
 	$check=$p +10;
 	for($i=0;$i<$number;$i++){
 		$row=db_fetch_array($ShowCourseResult);
+		$num1=($row['time1']%5==0)?5:($row['time1']%5);
+		$schooltime1="周".chinese(floor($row['time1']/6+1))."第".chinese($num1)."节<br>";
+							
+		if($row['time2']){
+		$num2=($row['time2']%5==0)?5:($row['time2']%5);
+		$schooltime2="周".chinese(floor($row['time2']/6+1))."第".chinese($num2)."节<br>";
+		}
+		else $schooltime2='';
+						
+		if($row["time3"]){
+		$num3=($row['time3']%5==0)?5:($row['time3']%5);
+		$schooltime3="周".chinese(floor($row['time3']/6+1))."第".chinese($num3)."节<br>";
+		}
+		else $schooltime3='';
+		
 		if($i>=$p && $i < $check){
 			if($i%2 ==0)
 			  echo"<tr bgcolor='#DDDDDD'>";
@@ -72,7 +112,7 @@ if(db_num_rows($ShowCourseResult)>0){
 			  echo"<td width='80'>".$row['Kind']."</td>";
 			  echo"<td width='50'>".$row['Credit']."</td>";
 			  echo"<td width='80'>".$row['Teacher']."</td>";
-			  echo"<td width='100'>".$row['SchoolTime']."</td>";
+			  echo"<td width='100'>".$schooltime1.$schooltime2.$schooltime3."</td>";
 		 	  /*点击查看可以查看学生名单以及录入成绩*/		  
 			  echo"<td width='80'><a href='Showstudent.php?StuNo=".$row['Teacher']."&CouNo=".$row['CouNo']."'>查看学生</a></td>";
 			  echo"</tr>";

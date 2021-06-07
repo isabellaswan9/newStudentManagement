@@ -34,7 +34,6 @@ $CouName=$_POST['CouName'];
 $Kind=$_POST['Kind'];
 $Credit=$_POST['Credit'];
 $Teacher=$_POST['Teacher'];
-$SchoolTime=0;
 
 $week1=$_POST['week1'];
 $time1=$_POST['time1'];
@@ -64,11 +63,10 @@ $CouName=trim($CouName);
 $Kind=trim($Kind);
 $Teacher=trim($Teacher);
 $DepartNo=trim($_POST['DepartNo']);
-$SchoolTime=trim($SchoolTime);
 $LimitNum=trim($LimitNum);
 
 
-$AddCourse_SQL="insert into course (CouNo,CouName,Kind,Credit,Teacher,DepartNo,SchoolTime,time1,time2,time3,LimitNum,WillNum,ChooseNum,Classroom)values('$CouNo','$CouName','$Kind','$Kind','$Teacher','$DepartNo','$SchoolTime','$Time1','$Time2','$Time3','$LimitNum',0,0,'$Classroom')";
+$AddCourse_SQL="insert into course (CouNo,CouName,Kind,Credit,Teacher,DepartNo,time1,time2,time3,LimitNum,WillNum,ChooseNum,Classroom)values('$CouNo','$CouName','$Kind','$Credit','$Teacher','$DepartNo','$Time1','$Time2','$Time3','$LimitNum',0,0,'$Classroom')";
 $AddCourse_Result=db_query($AddCourse_SQL);
 
 
@@ -79,7 +77,7 @@ if($AddCourse_Result){
 	echo"</script>";
 	}else{
 	echo"<script>";
-	echo"alert(\"添加课程失败，请重新添加\");";
+	//echo"alert(\"添加课程失败，请重新添加\");";
 	echo"location. href=\"AddCourse.php\"";
 	echo"</script>";
 		}

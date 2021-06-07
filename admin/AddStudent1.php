@@ -33,13 +33,13 @@ include("../conn/db_func.php");
 $StuNo=$_POST['StuNo'];
 $StuName=$_POST['StuName'];
 $ClassNo=$_POST['ClassNo'];
-$Pwd=$_POST['Pwd'];
+
 
 $StuNo=trim($StuNo);
 $StuName=trim($StuName);
 $ClassNo=trim($ClassNo);
-$Pwd=trim($Pwd);
-$AddStudent_SQL="insert into Student values('$StuNo','$ClassNo','$StuName','$Pwd')";
+
+$AddStudent_SQL="insert into Student values('$StuNo','$ClassNo','$StuName','00000000')";
 $AddStudent_Result=db_query($AddStudent_SQL);
 
 

@@ -1,12 +1,11 @@
 <!DOCTYPE html
 	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<<<<<<< HEAD
+
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>无标题文档</title>
-||||||| b7d1a14
+	<title>查找课程</title>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -21,8 +20,8 @@
 
 
 
-<title>无标题文档</title>
-=======
+<title>查找课程</title>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -30,15 +29,13 @@
 <link rel="stylesheet" href="../style.css">
 <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
 
-<title>无标题文档</title>
->>>>>>> e1ea8e3ca5ff509c418abe9d7368c46f40c15966
+<title>查找课程</title>
 </head>
 <link rel="stylesheet" href="../bootstrap/bootstrap.css" />
 <link rel="stylesheet" href="../css/style.css" />
 <link rel="stylesheet" href="../css/footer.css" />
 
 <body>
-<<<<<<< HEAD
 	<div class="wrap">
 		<div class="header">
 			<?php include("header.php"); ?>
@@ -119,10 +116,9 @@
 									echo "<tr>";
 								echo "<td width='80'><a href='CourseDetail.php?CouNo=".$row['CouNo']."'>".$row['CouNo']."</a></td>";
 						?>
-||||||| b7d1a14
-	<?php include("header.php"); ?>
+
+<?php include("header.php"); ?>
 <?php
-session_start();
 if(!isset($_SESSION['username']))
 {
 	header("Location:../login.php");
@@ -159,7 +155,7 @@ switch($ColumnName)
 }
 $result=db_query($sql);
 ?>
-=======
+
 	<?php include("header.php"); ?>
 <?php
 if (!session_id()) session_start();
@@ -199,7 +195,7 @@ switch($ColumnName)
 }
 $result=db_query($sql);
 ?>
->>>>>>> e1ea8e3ca5ff509c418abe9d7368c46f40c15966
+
 
 					<td width="220" align="center">
 						<?php echo $row['CouName'] ?>

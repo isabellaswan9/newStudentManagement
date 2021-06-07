@@ -7,13 +7,13 @@
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/footer.css" />
-<<<<<<< HEAD
+
   <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
-||||||| b7d1a14
+
   <script type="text/javascript" src="./bootstrap/js/bootstrap.bundle.js"></script>
-=======
+
 <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
->>>>>>> e1ea8e3ca5ff509c418abe9d7368c46f40c15966
+
 	<title>学生端页面</title>
 </head>
 
@@ -44,7 +44,7 @@
 								<font color="#FFFFFF" align="center">任课教师</font>
 							</th>
 							<th width="100">
-								<font color="#FFFFFF" align="center">总分</font>
+								<font color="#FFFFFF" align="center">上课时间</font>
 							</th>
 						</tr>
 					</thead>
@@ -64,14 +64,56 @@
 						$ShowCourseResult=db_query($ShowCourse_sql);
 					?>
 					<?php
+					function chinese($num){
+						$chinese='';
+						switch ($num){
+							case 1:
+							$chinese='一';
+							break;
+							case 2:
+							$chinese='二';
+							break;
+							case 3:
+							$chinese='三';
+							break;
+							case 4:
+							$chinese='四';
+							break;
+							case 5:
+							$chinese='五';
+							break;
+							default:
+							$chinese='';
+							
+						}
+						return $chinese;
+					}
 						if(db_num_rows($ShowCourseResult)>0){
+							
 							$number=db_num_rows($ShowCourseResult);
+							
+							
+							
 							if(empty($_GET['p']))
 							$p=0;
 							else {$p=$_GET['p'];}	
 							$check=$p +10;
 							for($i=0;$i<$number;$i++){
 								$row=db_fetch_array($ShowCourseResult);
+								$num1=($row['time1']%5==0)?5:($row['time1']%5);
+							$schooltime1="周".chinese(floor($row['time1']/6+1))."第".chinese($num1)."节<br>";
+							
+							if($row['time2']){
+							$num2=($row['time2']%5==0)?5:($row['time2']%5);
+							$schooltime2="周".chinese(floor($row['time2']/6+1))."第".chinese($num2)."节<br>";
+							}
+							else $schooltime2='';
+						
+							if($row["time3"]){
+							$num3=($row['time3']%5==0)?5:($row['time3']%5);
+							$schooltime3="周".chinese(floor($row['time3']/6+1))."第".chinese($num3)."节<br>";
+							}
+							else $schooltime3='';
 								if($i>=$p && $i < $check){
 									if($i%2 ==0)
 									echo"<tr bgcolor='#DDDDDD'>";
@@ -82,7 +124,7 @@
 									echo"<td width='80'>".$row['Kind']."</td>";
 									echo"<td width='50'>".$row['Credit']."</td>";
 									echo"<td width='80'>".$row['Teacher']."</td>";
-									echo"<td width='100'>".$row['SchoolTime']."</td>";
+									echo"<td width='100'>".$schooltime1.$schooltime2.$schooltime3."</td>";
 									echo"</tr>";
 									$j=$i+1; 
 								}

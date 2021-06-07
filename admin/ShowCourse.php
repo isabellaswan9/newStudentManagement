@@ -2,10 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
 <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
 <link rel="stylesheet" href="../style.css">
 <script type="text/javascript" src="../bootstrap/js/jquery.min.js"></script>
 <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
+
+
+
 <title>学生选课系统（管理员）</title>
 
 
@@ -60,6 +64,30 @@ if(! isset($_SESSION['username']))
 				</tr>
 
 			<?php
+			function chinese($num){
+						$chinese='';
+						switch ($num){
+							case 1:
+							$chinese='一';
+							break;
+							case 2:
+							$chinese='二';
+							break;
+							case 3:
+							$chinese='三';
+							break;
+							case 4:
+							$chinese='四';
+							break;
+							case 5:
+							$chinese='五';
+							break;
+							default:
+							$chinese='';
+							
+						}
+						return $chinese;
+					}
 			if(db_num_rows($ShowCourseResult)>0){
 				$number=db_num_rows($ShowCourseResult);
 				if(empty($_GET['p']))
@@ -68,7 +96,26 @@ if(! isset($_SESSION['username']))
 				$check=$p +10;
 				for($i=0;$i<$number;$i++){
 					$row=db_fetch_array($ShowCourseResult);
+					$num1=($row['time1']%5==0)?5:($row['time1']%5);
+					$schooltime1="周".chinese(floor($row['time1']/6+1))."第".chinese($num1)."节<br>";
+							
+					if($row['time2']){
+					$num2=($row['time2']%5==0)?5:($row['time2']%5);
+					$schooltime2="周".chinese(floor($row['time2']/6+1))."第".chinese($num2)."节<br>";
+					}
+					else $schooltime2='';
+						
+					if($row["time3"]){
+					$num3=($row['time3']%5==0)?5:($row['time3']%5);
+					$schooltime3="周".chinese(floor($row['time3']/6+1))."第".chinese($num3)."节<br>";
+					}
+					else $schooltime3='';					
 					if($i>=$p && $i < $check){
+			$time1=array();$time2=array();$time3=array();
+
+			$time1[]=array($row['time1']);
+			$time2[]=array($row['time2']);
+			$time3[]=array($row['time3']);
 						if($i%2 ==0)
 						  echo"<tr class='table-active'>";
 					else
@@ -78,7 +125,7 @@ if(! isset($_SESSION['username']))
 						  echo"<td width='80'>".$row['Kind']."</td>";
 						  echo"<td width='50'>".$row['Credit']."</td>";
 						  echo"<td width='80'>".$row['Teacher']."</td>";
-						  echo"<td width='100'>".$row['SchoolTime']."</td>";
+						  echo"<td width='100'>".$schooltime1.$schooltime2.$schooltime3."</td>";
 						  echo"<td width='40'><a href='ModifyCourse.php? CouNo=".$row['CouNo']."'>修改</a></td>";
 						  echo"<td width='40'><a href='DeleteCourse1.php? CouNo=".$row['CouNo']."'>删除</a></td>";
 						  echo"</tr>";

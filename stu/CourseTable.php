@@ -56,9 +56,9 @@ th{
       <td class='coursetime'>第二节</td>
       <td id='2'></td>
       <td id='7'></td>
-	  <td id=''></td>
-	  <td id=''></td>
-	  <td id=''></td>
+	  <td id='12'></td>
+	  <td id='17'></td>
+	  <td id='22'></td>
 	  </tr>
     <tr class="warning">
       <td class='coursetime'>第三节</td>
@@ -88,7 +88,7 @@ th{
 </table>
 </div>
 <?php
-if (!session_id()) session_start();
+session_start();
 if(! isset($_SESSION["username"])){//会话不存在就回去登录
 	header("Location:../login.php");
 	exit();

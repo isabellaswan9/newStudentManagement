@@ -38,7 +38,7 @@ $TeaNo=trim($TeaNo);
 $TeaName=trim($TeaName);
 $DepartNo=trim($DepartNo);
 $Pwd=trim($Pwd);
-$AddTeacher_SQL="insert into Teacher values('$TeaNo','$DepartNo','$TeaName','$Pwd')";
+$AddTeacher_SQL="insert into Teacher values('$TeaNo','$DepartNo','$TeaName','00000000')";
 $AddTeacher_Result=db_query($AddTeacher_SQL);
 
 
