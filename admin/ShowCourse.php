@@ -179,10 +179,7 @@ if(! isset($_SESSION['username']))
 	</div>
 </div>
 
-
-<?php include("../footer.php"); ?>    
-
-
+<div sytle="min-height:100;"></div>
 
 </body>
 </html>

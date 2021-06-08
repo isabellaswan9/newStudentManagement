@@ -38,7 +38,7 @@ th{
 }
 .chart{
 	width: 80%;
-	height:600px;
+	height:1000px;
 	margin:auto; 
 	margin-top:50px
 }

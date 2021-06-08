@@ -32,7 +32,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  min-height: 600px;
+  min-height: 650px;
 }
 
 .contain-pd{
@@ -55,6 +55,7 @@
 
 .myTable{
   min-width: 1000px;
+  max-height: 500px;
 }
 .myForm{
   padding:20px;
@@ -90,7 +91,7 @@ hr{
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  min-height: 600px;
+  min-height: 550px;
 }
 
 .myTable1{
