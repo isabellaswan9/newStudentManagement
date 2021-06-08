@@ -63,7 +63,7 @@ if(! isset($_SESSION["username"])){
          </div>
         </fieldset>
     </form>
-    <form method="post" action="AddStudent2.php" id="myBatch" enctype='multipart/form-data'>
+    <form method="post" action="AddStudent2.php" id="myBatch" enctype='multipart/form-data' onsubmit="return validate()">
         <fieldset>
           <legend>请上传excel文件 <button type="button" name="single" id="single" class="btn btn-primary set-padding">点击单个添加</button></legend>
           <div id="myBatch">
@@ -71,7 +71,7 @@ if(! isset($_SESSION["username"])){
               <input type="file" class="form-control" name="myfile" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
               <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04">上传</button>
             </div>
-            <div id="values"></div>
+            <div id="values" class="text-danger"></div>
          </div>
          </fieldset>
           <hr>
@@ -85,6 +85,7 @@ if(! isset($_SESSION["username"])){
  </div>
 </div>
 <script>
+  var valid = false;
 
  $(document).ready(function(){
    $('#inputGroupFileAddon04').hide();
@@ -94,7 +95,9 @@ if(! isset($_SESSION["username"])){
 
   const url = location.search;//获取？后面的字符串（包括？）
   let theRequest = new Object();//定义一个对象，用来存储参数
-  //转为可用的json格式
+
+  //转为可用的json格式，以便查看参数
+  //这一步也可以使用URLSearchParams实现
   if(url.indexOf('?')!=-1){
     const allPara = url.substr(1);//去掉？
     const allParas = allPara.split("&");
@@ -104,11 +107,12 @@ if(! isset($_SESSION["username"])){
       const attr = paraArr[1];
       theRequest[name]=attr;
     }
-    //如为批量上传后的重定向则转到批量上传界面
+    //判断如type字段为batch,即批量上传后的重定向则，转到批量上传界面
     if(theRequest.type == "batch"){
       $("#myForm").hide();
       $("#myBatch").show();
     }
+    //判断如flag字段为success,则提示成功，否则提示失败
     if(theRequest.flag == "success"){
       $("#success").show();
     }
@@ -121,17 +125,17 @@ if(! isset($_SESSION["username"])){
 
     const realURL = window.location;
     const para = "?type=batch";
-		//realURL = realURL.replace(/(\?|#)[^'"]*/, '');           //去除参数
-		window.history.pushState({},'',realURL.origin + realURL.pathname + para);
-    //window.location.replace(realURL.origin + realURL.pathname);
+		window.history.pushState({},'',realURL.origin + realURL.pathname + para);//pushState将url放入地址栏中
+    //window.location.replace(realURL.origin + realURL.pathname);replace会重新加载所以不使用replace
   }
 
+    //点击批量上传，显示batch表单
     $("#batch").click(function(){
       $("#myForm").hide();
       $("#myBatch").show();
       $("#success").hide();
     });
-
+    //点击单个上传显示single表单
     $("#single").click(function(){
       $("#myForm").show();
       $("#myBatch").hide();
@@ -140,6 +144,7 @@ if(! isset($_SESSION["username"])){
 
     $("#inputGroupFile04").change(function(){
       $("#success").hide();
+      $('#inputGroupFileAddon04').hide();
         var fileReader = new FileReader();
         var file = $(this).prop('files')[0];
         /*if (file) {
@@ -153,16 +158,29 @@ if(! isset($_SESSION["username"])){
         if (file.size > 2000000) {
               $("#values").text('文件大小不得超过 2 M');
               return;
-          };
-          //将多个文件名分开
-          var fullpath = $(this).val();
-          var filename = fullpath.split('\\');
-          //显示上传按钮
-          $('#inputGroupFileAddon04').show();
-    })
+        };
 
-    
+        //判断文件类型
+        const suffix = file.name.split(".")[1];
+        if(!((suffix=="xlsx")||(suffix=="xls"))){
+          $("#values").text('请上传xls/xlsx文件');
+          return;
+        }
+
+        //将多个文件名分开
+        var fullpath = $(this).val();
+        var filename = fullpath.split('\\');
+        //显示上传按钮
+        $('#inputGroupFileAddon04').show();
+        valid = true;
+    })  
   })
+  function validate(){
+      if(valid!=true){
+        return false;
+      }
+    return true;
+  }
 </script>
 </body>
 </html>
