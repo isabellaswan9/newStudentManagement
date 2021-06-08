@@ -104,6 +104,7 @@ if(! isset($_SESSION["username"])){
       const attr = paraArr[1];
       theRequest[name]=attr;
     }
+    //如为批量上传后的重定向则转到批量上传界面
     if(theRequest.type == "batch"){
       $("#myForm").hide();
       $("#myBatch").show();
@@ -117,6 +118,12 @@ if(! isset($_SESSION["username"])){
       $("#success").addClass("alert-danger");
       $("#success").text("添加失败！请重新上传");
     }
+
+    const realURL = window.location;
+    const para = "?type=batch";
+		//realURL = realURL.replace(/(\?|#)[^'"]*/, '');           //去除参数
+		window.history.pushState({},'',realURL.origin + realURL.pathname + para);
+    //window.location.replace(realURL.origin + realURL.pathname);
   }
 
     $("#batch").click(function(){
@@ -153,8 +160,9 @@ if(! isset($_SESSION["username"])){
           //显示上传按钮
           $('#inputGroupFileAddon04').show();
     })
-  })
 
+    
+  })
 </script>
 </body>
 </html>
