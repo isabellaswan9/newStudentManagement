@@ -29,12 +29,12 @@ include("../conn/db_conn.php");
 include("../conn/db_func.php");
 
 
-require_once './PHPExcel/Classes/PHPExcel.php';
-//require_once './PHPExcel/Classes/PHPExcel/IOFactory.php';
-//require_once './PHPExcel/Classes/PHPExcel/Reader/Excel5.php';
+require_once '../PHPExcel/Classes/PHPExcel.php';
+//require_once '../PHPExcel/Classes/PHPExcel/IOFactory.php';
+//require_once '../PHPExcel/Classes/PHPExcel/Reader/Excel5.php';
 //以上三步加载phpExcel的类
 
-include "./PHPExcel/Classes/PHPExcel/IOFactory.php";
+include "../PHPExcel/Classes/PHPExcel/IOFactory.php";
 
 //$objReader = PHPExcel_IOFactory::createReader('Excel5');//use excel2007 for 2007 format 
 
@@ -67,13 +67,13 @@ for($j=2;$j<=$highestRow;$j++)
         if(!$AddStudent_Result){
             echo"<script>";
             echo"alert(\"添加学生失败，请重新添加\");";
-            echo"location. href=\"AddStudent.php?flag=fail\"";
+            echo"location. href=\"AddStudent.php?flag=fail&type=batch\"";
             echo"</script>";
         }
     }
 echo"<script>";
 echo"alert(\"添加学生成功\");";
-echo"location. href=\"AddStudent.php?flag=success\"";
+echo"location. href=\"AddStudent.php?flag=success&type=batch\"";
 echo"</script>";
 ?>
 </body>

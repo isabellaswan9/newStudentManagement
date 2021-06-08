@@ -74,26 +74,65 @@ if(! isset($_SESSION["username"])){
             <div id="values"></div>
          </div>
          </fieldset>
+          <hr>
+          <h5>温馨提示：</h5>
+          <p class="text-muted">1.上传文件格式可以点击<a>模板下载</a>获得，请严格按照系统提供的数据模板填写客户信息，否则有可能导入不成功。</p>
+          <p class="text-muted">2.单次上传文件不超过2M。</p>
+          <p class="text-muted">3.仅支持xls/xlsx文件上传</p>
     </form>
+    <hr>
+    <div class="alert alert-dismissible alert-success" id='success'>添加成功！</div>
  </div>
 </div>
 <script>
+
  $(document).ready(function(){
    $('#inputGroupFileAddon04').hide();
     $("#myForm").show();
     $("#myBatch").hide();
+    $("#success").hide();
+
+  const url = location.search;//获取？后面的字符串（包括？）
+  let theRequest = new Object();//定义一个对象，用来存储参数
+  //转为可用的json格式
+  if(url.indexOf('?')!=-1){
+    const allPara = url.substr(1);//去掉？
+    const allParas = allPara.split("&");
+    for(let i = 0;i < allParas.length; i++){
+      const paraArr = allParas[i].split("=");
+      const name = paraArr[0];
+      const attr = paraArr[1];
+      theRequest[name]=attr;
+    }
+    if(theRequest.type == "batch"){
+      $("#myForm").hide();
+      $("#myBatch").show();
+    }
+    if(theRequest.flag == "success"){
+      $("#success").show();
+    }
+    else if(theRequest.flag == "fail"){
+      $("#success").show();
+      $("#success").removeClass("alert-success");
+      $("#success").addClass("alert-danger");
+      $("#success").text("添加失败！请重新上传");
+    }
+  }
 
     $("#batch").click(function(){
       $("#myForm").hide();
       $("#myBatch").show();
+      $("#success").hide();
     });
 
     $("#single").click(function(){
       $("#myForm").show();
       $("#myBatch").hide();
+      $("#success").hide();
     });
 
     $("#inputGroupFile04").change(function(){
+      $("#success").hide();
         var fileReader = new FileReader();
         var file = $(this).prop('files')[0];
         /*if (file) {
@@ -115,6 +154,7 @@ if(! isset($_SESSION["username"])){
           $('#inputGroupFileAddon04').show();
     })
   })
+
 </script>
 </body>
 </html>
