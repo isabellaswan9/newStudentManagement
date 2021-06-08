@@ -38,12 +38,15 @@ if(! isset($_SESSION['username']))
 					<th width="80" align="center">
 						<font color="#FFFFFF">学生ID</font>
 					</th>
-					<th width="220" align="center">
+					<th width="110" align="center">
 						<font color="#FFFFFF">学生名字</font>
 					</th>
 					<th width="110" align="center">
 						<font color="#FFFFFF">班级编号</font>
 					</th>
+					<th width="110" align="center">
+						<font color="#FFFFFF">所属学院</font>
+					</th>					
 					<th width="50" align="center">
 						<font color="#FFFFFF">操作</font>
 					</th>
@@ -68,6 +71,7 @@ if(db_num_rows($ShowStudentResult)>0){
 			  echo"<td width='80' align='center'>".$row['StuNo']."</td>";
 			  echo"<td width='220'>".$row['StuName']."</td>";
 			  echo"<td width='80'>".$row['ClassNo']."</td>";
+			  echo"<td width='80'>".$row['Depart']."</td>";
 			  echo"<td width='40'><a href='ModifyStudent.php? StuNo=".$row['StuNo']."'>修改</a></td>";
 			  echo"<td width='40'><a href='DeleteStudent1.php? StuNo=".$row['StuNo']."'>删除</a></td>";
 			  echo"</tr>";

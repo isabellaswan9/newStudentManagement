@@ -53,12 +53,16 @@ if(! isset($_SESSION['username']))
 							<th width="80">
 								<font color="#FFFFFF" align="center">序号</font>
 							</th>
+							<th width="100">
+								<font color="#FFFFFF" align="center">学院</font>
+							</th>							
 							<th width="80">
 								<font color="#FFFFFF" align="center">学号</font>
 							</th>
 							<th width="100">
 								<font color="#FFFFFF" align="center">班级</font>
 							</th>
+							
 							<th width="100">
 								<font color="#FFFFFF" align="center">姓名</font>
 							</th>
@@ -88,6 +92,7 @@ if(db_num_rows($ShowCourseResult)>0){
 			  echo"<tr>";
 
 			  echo"<td width='80' align='center'>".($i+1)."</td>";
+			  echo"<td width='80'>".$row['Depart']."</td>";
 			  echo"<td width='80'>".$row['StuNo']."</td>";
 			  echo"<td width='80'>".$row['ClassNo']."</td>";
 			  echo"<td width='80'>".$row['StuName']."</td>";
