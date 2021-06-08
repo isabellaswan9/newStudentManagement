@@ -37,8 +37,9 @@ $DepartNo=$_POST['DepartNo'];
 $TeaNo=trim($TeaNo);
 $TeaName=trim($TeaName);
 $DepartNo=trim($DepartNo);
+$pw='0000'.substr($TeaNo,4,4);
 
-$AddTeacher_SQL="insert into Teacher values('$TeaNo','$DepartNo','$TeaName','00000000')";
+$AddTeacher_SQL="insert into Teacher values('$TeaNo','$DepartNo','$TeaName','$pw')";
 $AddTeacher_Result=db_query($AddTeacher_SQL);
 
 

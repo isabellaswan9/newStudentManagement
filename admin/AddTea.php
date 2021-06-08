@@ -44,16 +44,20 @@ if(! isset($_SESSION["username"])){
 			?>
 			<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="TeaNo" value="<?php echo $TeaNo?>"/>
 
-			<label for="exampleSelect1" class="form-label mt-4">教师名字：</label>
+			<label for="exampleSelect1" class="form-label mt-4">教师姓名：</label>
 			<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="TeaName"/>
 
-			<label for="exampleSelect1" class="form-label mt-4">教师部门：</label>
+			<label for="exampleSelect1" class="form-label mt-4">教师学院：</label>
 			<select id="exampleSelect1" name="DepartNo">
-			<option value="通信工程">通信工程</option>
-			<option value="自动化">自动化</option>
-			<option value="信息工程">信息工程</option>
-			<option value="电子科学与技术">电子科学与技术</option>
-			<option value="电气工程及其自动化">电气工程及其自动化</option>
+			<option value="数学与信息科学学院">数学与信息科学学院</option>
+			<option value="外国语学院">外国语学院</option>
+			<option value="土木建筑学院">土木建筑学院</option>
+			<option value="计算机学院">计算机学院</option>
+			<option value="电气与工程学院">电气与工程学院</option>
+			<option value="化学与材料学院">化学与材料学院</option>
+			<option value="经济与统计学院">经济与统计学院</option>
+			<option value="体育学院">体育学院</option>
+			
 			</select>
 			</br>
 			<!--<label for="exampleSelect1" class="form-label mt-4">密码：</label>
