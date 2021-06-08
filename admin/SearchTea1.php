@@ -47,33 +47,51 @@ $result=db_query($sql);
 ?>
 
 
-<table width="650"  align="center" >
-  <tr  bgcolor="#0066CC">
-    <td width="80"><font color="#FFFFFF">教师ID</font></td>
-    <td width="220" align="center"><font color="#FFFFFF">教师名字</font></td>
-    <td width="80"><font color="#FFFFFF">部门类型</font></td>
-  </tr>
-<?php
-if(db_num_rows($result)>0){
-	$number=db_num_rows($result);
-for($i=0;$i<$number;$i++)
-	{
-		$row=db_fetch_array($result);
-		
-		if($i%2==0)
-			echo "<tr bgcolor='#dddddd'>";
-		else
-			echo "<tr>";
-		echo "<td width='80'>".$row['TeaNo']."</td>";
-?>
 
- <td width="220" align="center"><?php echo $row['TeaName'] ?></td>
-    <td width="80"><?php echo $row['DepartNo']  ?></td>
-    </tr>
-  
-  <?php
-	}
-}?>
+<div class="contain-wrap">
+	<div class="myTable">
+		<table class="table table-hover" width="610" border="0" align="center" cellpadding="0" cellspacing="1">
+			<thead>
+				<tr class="table-primary" bgcolor="#0066CC" align='center'>
+					<th width="80" align="center">
+						<font color="#FFFFFF">教师ID</font>
+					</th>
+					<th width="220" align="center">
+						<font color="#FFFFFF">教师名字</font>
+					</th>
+					<th width="80">
+						<font color="#FFFFFF" align="center">部门类型</font>
+					</th>
+				</tr>
+			</thead>
+			<?php
+			if(db_num_rows($result)>0){
+				$number=db_num_rows($result);
+			for($i=0;$i<$number;$i++)
+				{
+					$row=db_fetch_array($result);
+					
+					if($i%2==0)
+						echo "<tr bgcolor='#dddddd'>";
+					else
+						echo "<tr>";
+					echo "<td width='80' align='center'>".$row['TeaNo']."</td>";
+			?>
+
+			<td width="220" align="center">
+				<?php echo $row['TeaName'] ?>
+			</td>
+			<td width="80"  align="center">
+				<?php echo $row['DepartNo']  ?>
+			</td>
+			</tr>
+
+			<?php
+				}
+			}?>
+		</table>
+	</div>
+</div>
 </table>
 </body>
 </html>

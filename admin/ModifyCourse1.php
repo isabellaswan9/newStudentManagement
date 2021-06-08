@@ -34,7 +34,6 @@ $CouName=$_POST['CouName'];
 $Kind=$_POST['Kind'];
 $Credit=$_POST['Credit'];
 $Teacher=$_POST['Teacher'];
-$SchoolTime=$_POST['SchoolTime'];
 $LimitNum=$_POST['LimitNum'];
 //上课时间
 $week1=$_POST['week1'];
@@ -61,7 +60,6 @@ $CouNo=trim($CouNo);
 $CouName=trim($CouName);
 $Kind=trim($Kind);
 $Teacher=trim($Teacher);
-$SchoolTime=trim($SchoolTime);
 $LimitNum=trim($LimitNum);
 
 $UpdateCourse_SQL="update course set CouNo='$CouNo',CouName='$CouName',Kind='$Kind',Credit='$Credit',Teacher='$Teacher',time1='$Time1',time2='$Time2',time3='$Time3',LimitNum='$LimitNum' where Course.CouNo='$CouNo'";

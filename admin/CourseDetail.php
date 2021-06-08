@@ -72,15 +72,10 @@ else $schooltime3='';
 
 <div class="contain-wrap">
   <div class="myTable">
-    <table  class="table table-hover" width="500" border="0" align="center" cellpadding="0" cellspacing="1" >
+    <table  class="table table-hover" width="500" border="0" align="center" cellpadding="0" cellspacing="1" margin="auto" >
       <thead>
         <tr class="table-primary" bgcolor="#0066CC">
           <th align="center" colspan="3" columspan="2"><div align="center"><font color="#FFFFFF">课程细节</font></div>
-          </th>
-        </tr>
-        <tr class="table-active">
-          <th width="100" rowspan="9">
-            <div align="center"><img width='90'  img src="../uploadpics/<?php echo $CouNo.'.jpg'?>" border="0" ></div>
           </th>
         </tr>
         <tr class="table-active">

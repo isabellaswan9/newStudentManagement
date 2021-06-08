@@ -34,7 +34,7 @@ $row=db_fetch_array($ShowDetailResult);
 
 <div class="contain-wrap">
   <div class="myForm">
-    <form method="get" action="ModifyCourse1.php">
+    <form method="post" action="ModifyTeacher1.php">
         <fieldset>
           <legend>教师信息细节</legend>
           <div class="form-group">

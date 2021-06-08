@@ -30,11 +30,11 @@ if(! isset($_SESSION['username']))
 
 
 
-<div class="contain-wrap">
-	<div class="myTable">
+<div class="contain-wrap" style=" min-height: 650px;">
+	<div class="myTable" style=" min-height: 400px;">
 		<table  class="table table-hover" width="810" border="0" align="center" cellpadding="0" cellspacing="1" >
 			<thead>
-				<tr class="table-primary" bgcolor="#0066CC">
+				<tr class="table-primary" bgcolor="#0066CC" align='center'>
 					<th width="80" align="center">
 						<font color="#FFFFFF">学生ID</font>
 					</th>
@@ -66,10 +66,10 @@ if(db_num_rows($ShowStudentResult)>0){
 		else
 			  echo"<tr>";
 			  echo"<td width='80' align='center'>".$row['StuNo']."</td>";
-			  echo"<td width='220'>".$row['StuName']."</td>";
-			  echo"<td width='80'>".$row['ClassNo']."</td>";
-			  echo"<td width='40'><a href='ModifyStudent.php? StuNo=".$row['StuNo']."'>修改</a></td>";
-			  echo"<td width='40'><a href='DeleteStudent1.php? StuNo=".$row['StuNo']."'>删除</a></td>";
+			  echo"<td width='220' align='center'>".$row['StuName']."</td>";
+			  echo"<td width='80' align='center'>".$row['ClassNo']."</td>";
+			  echo"<td width='40' align='center'><a href='ModifyStudent.php? StuNo=".$row['StuNo']."'>修改</a></td>";
+			  echo"<td width='40' align='center'><a href='DeleteStudent1.php? StuNo=".$row['StuNo']."'>删除</a></td>";
 			  echo"</tr>";
 			  $j=$i+1; 
 		 }
@@ -119,5 +119,7 @@ if(db_num_rows($ShowStudentResult)>0){
 	</div>
 </div>
       
+
+<?php include("../footer.php"); ?>      
 </body>
 </html>

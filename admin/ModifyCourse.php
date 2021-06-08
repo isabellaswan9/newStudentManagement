@@ -40,9 +40,9 @@ $DepartName='DepartName'. strval(intval($row['DepartName']));
 $LimitNum='LimitNum'. strval(intval($row['LimitNum']));
 ?>
 
-<div class="contain-wrap">
+<div class="contain-wrap" style=" min-height: 1100px;">
   <div class="myForm">
-    <form method="get" action="ModifyCourse1.php">
+    <form method="post" action="ModifyCourse1.php">
         <fieldset>
           <legend>修改课程信息</legend>
           <div class="form-group">

@@ -56,6 +56,7 @@ if(! isset($_SESSION["username"])){
        <!--  <label for="exampleSelect1" class="form-label mt-4">密码：</label>
          <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="Pwd">
 		  	<label class="form-label mt-4"><font color="red">注意：密码为8位数字</font></label>-->
+        <p><strong>（初始密码默认为0000加上学号的后4位）</strong></p>
           <div class="form-group set-center">
             <button type="submit" name="B1" id="button" class="btn btn-primary set-padding">确定</button>
               <button type="reset" name="B2" id="button" class="btn btn-primary set-padding">重置</button>
