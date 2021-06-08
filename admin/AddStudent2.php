@@ -55,8 +55,8 @@ $highestColumn = $sheet->getHighestColumn();// 取得总列数
 for($j=2;$j<=$highestRow;$j++)  
     {
         $StuNo = $objPHPExcel->getActiveSheet()->getCell("A".$j)->getValue();//获取StuNo列的值
-        $StuName = $objPHPExcel->getActiveSheet()->getCell("B".$j)->getValue();//获取ClassNo列的值
-        $ClassNo = $objPHPExcel->getActiveSheet()->getCell("C".$j)->getValue();//获取StuName列的值
+        $ClassNo = $objPHPExcel->getActiveSheet()->getCell("B".$j)->getValue();//获取ClassNo列的值
+        $StuName = $objPHPExcel->getActiveSheet()->getCell("C".$j)->getValue();//获取StuName列的值
 
         $StuNo=trim($StuNo);
         $StuName=trim($StuName);
