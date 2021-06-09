@@ -71,7 +71,7 @@ if(db_num_rows($ShowStudentResult)>0){
 							WHERE class.ClassNo=".$row['ClassNo'];
 		$ShowStudentResult3=db_query($ShowStudent_sql3);
 		$class=db_fetch_array($ShowStudentResult2);
-		$department=db_fetch_array($ShowStudentResult2);
+		$department=db_fetch_array($ShowStudentResult3);
 		if($i>=$p && $i < $check){
 			if($i%2 ==0)
 			  echo"<tr bgcolor='#DDDDDD'>";
