@@ -29,7 +29,7 @@ if(! isset($_SESSION['username']))
 <div class="myTable">
 <table class="table table-hover" width="610" border="0" align="center" cellpadding="0" cellspacing="1">
 					<thead>
-						<tr class="table-primary" bgcolor="#0066CC">
+						<tr class="table-primary" bgcolor="#0066CC" valign='middle' align='center'>
 							<th width="80" align="center">
 								<font color="#FFFFFF">课程编码</font>
 							</th>
@@ -107,14 +107,14 @@ if(db_num_rows($ShowCourseResult)>0){
 			  echo"<tr bgcolor='#DDDDDD'>";
 		else
 			  echo"<tr>";
-			  echo"<td width='80' align='center'>".$row['CouNo']."</td>";
-			  echo"<td width='220'>".$row['CouName']."</td>";
-			  echo"<td width='80'>".$row['Kind']."</td>";
-			  echo"<td width='50'>".$row['Credit']."</td>";
-			  echo"<td width='80'>".$row['Teacher']."</td>";
-			  echo"<td width='100'>".$schooltime1.$schooltime2.$schooltime3."</td>";
+			  echo"<td width='80' valign='middle' align='center'>".$row['CouNo']."</td>";
+			  echo"<td width='220' valign='middle' align='center'>".$row['CouName']."</td>";
+			  echo"<td width='80' valign='middle' align='center'>".$row['Kind']."</td>";
+			  echo"<td width='50' valign='middle' align='center'>".$row['Credit']."</td>";
+			  echo"<td width='80' valign='middle' align='center'>".$row['Teacher']."</td>";
+			  echo"<td width='100' valign='middle' align='center'>".$schooltime1.$schooltime2.$schooltime3."</td>";
 		 	  /*点击查看可以查看学生名单以及录入成绩*/		  
-			  echo"<td width='80'><a href='Showstudent.php?StuNo=".$row['Teacher']."&CouNo=".$row['CouNo']."'>查看学生</a></td>";
+			  echo"<td width='80' valign='middle' align='center'><a href='Showstudent.php?StuNo=".$row['Teacher']."&CouNo=".$row['CouNo']."'>查看学生</a></td>";
 			  echo"</tr>";
 			  $j=$i+1; 
 		 }

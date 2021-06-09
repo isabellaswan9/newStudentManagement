@@ -21,8 +21,8 @@
 			<div class="myTable">
 				<table class="table table-hover" width="610" border="0" align="center" cellpadding="0" cellspacing="1">
 					<thead>
-						<tr class="table-primary" bgcolor="#0066CC">
-							<th width="80" align="center">
+						<tr class="table-primary" bgcolor="#0066CC" align="center"  valign="middle">
+							<th width="80" >
 								<font color="#FFFFFF">课程编码</font>
 							</th>
 							<th width="220" align="center">
@@ -112,13 +112,13 @@ if(! isset($_SESSION['username']))
 									if($i%2 ==0)
 									echo"<tr bgcolor='#DDDDDD'>";
 								else
-									echo"<tr>";
-									echo"<td width='80' align='center'><a href='CourseDetail.php? CouNo=".$row['CouNo']."'>".$row['CouNo']."</a></td>";
-									echo"<td width='220'>".$row['CouName']."</td>";
-									echo"<td width='80'>".$row['Kind']."</td>";
-									echo"<td width='50'>".$row['Credit']."</td>";
-									echo"<td width='80'>".$row['Teacher']."</td>";
-									echo"<td width='100'>".$schooltime1.$schooltime2.$schooltime3."</td>";
+									echo"<tr >";
+									echo"<td width='80' align='center' valign='middle'><a href='CourseDetail.php? CouNo=".$row['CouNo']."'>".$row['CouNo']."</a></td>";
+									echo"<td width='220' valign='middle' align='center'>".$row['CouName']."</td>";
+									echo"<td width='80' valign='middle' align='center'>".$row['Kind']."</td>";
+									echo"<td width='50' valign='middle' align='center'>".$row['Credit']."</td>";
+									echo"<td width='80' valign='middle' align='center'>".$row['Teacher']."</td>";
+									echo"<td width='100' valign='middle' align='center'>".$schooltime1.$schooltime2.$schooltime3."</td>";
 									echo"</tr>";
 									$j=$i+1; 
 								}

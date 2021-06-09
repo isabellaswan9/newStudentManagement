@@ -14,12 +14,11 @@ if(! isset($_SESSION["username"])){
 	}
 include("../conn/db_conn.php");
 include("../conn/db_func.php");
-if(!isset($_POST['StuNo']))
+/*if(!isset($_POST['StuNo']))
 $StuNo=12345678;
-else $StuNo=$_POST['StuNo'];
-if(!isset($_POST['CouNo']))
+else $StuNo=$_POST['StuNo'];*/
+$StuNo=$_SESSION['username'];
 $CouNo=$_GET['CouNo'];
-else $CouNo=$_POST['CouNo'];
 	$DeleteCourse="delete from stucou where CouNo='$CouNo' and StuNo='$StuNo'";
 	$DeleteCourse_Result=db_query($DeleteCourse);
 	if($DeleteCourse_Result){

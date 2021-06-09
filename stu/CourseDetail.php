@@ -63,20 +63,15 @@ $row=db_fetch_array($ShowDetailResult);
 							}
 							else $schooltime3='';
 ?>
-<div class="contain-wrap">
-  <div class="myTable">
+<div class="contain-wrap" style="min-height: 1050px;">
+  <div class="myTable" style="min-height:900px;">
     <table  class="table table-hover" width="500" border="0" align="center" cellpadding="0" cellspacing="1" >
       <thead>
-        <tr class="table-primary" bgcolor="#0066CC">
+        <tr class="table-primary" bgcolor="#0066CC" valign='middle' align='center'>
           <th align="center" colspan="3" columspan="2"><div align="center"><font color="#FFFFFF">课程细节</font></div>
           </th>
         </tr>
-        <tr class="table-active">
-          <th width="100" rowspan="9">
-            <div align="center"><img width='90'  img src="../uploadpics/<?php echo $CouNo.'.jpg'?>" border="0" ></div>
-          </th>
-        </tr>
-        <tr class="table-active">
+        <tr class="table-active" valign='middle' align='center'>
           <th width="125" align="center">
             <font>编号</font>
           </th>
@@ -84,7 +79,7 @@ $row=db_fetch_array($ShowDetailResult);
             <font><?php echo $row['CouNo']?></font>
           </th>
         </tr>
-        <tr>
+        <tr valign='middle' align='center'>
           <th align="center">
             <font>名称</font>
           </th>
@@ -92,7 +87,7 @@ $row=db_fetch_array($ShowDetailResult);
             <font><?php echo $row['CouName']?></font>
           </th>
         </tr>
-          <tr class="table-active">
+          <tr class="table-active" valign='middle' align='center'>
           <th  align="center">
             <font>类型</font>
           </th>
@@ -100,7 +95,7 @@ $row=db_fetch_array($ShowDetailResult);
             <font><?php echo $row['Kind']?></font>
           </th>
         </tr>
-          <tr>
+          <tr valign='middle' align='center'>
           <th  align="center">
             <font>学分</font>
           </th>
@@ -108,7 +103,7 @@ $row=db_fetch_array($ShowDetailResult);
             <font><?php echo $row['Credit']?></font>
           </th>
         </tr>
-          <tr class="table-active">
+          <tr class="table-active" valign='middle' align='center'>
           <th  align="center">
             <font>教师</font>
           </th>
@@ -116,7 +111,7 @@ $row=db_fetch_array($ShowDetailResult);
             <font><?php echo $row['Teacher']?></font>
           </th>
         </tr>
-        <tr>
+        <tr valign='middle' align='center'>
           <th align="center">
             <font>开课系部</font>
           </th>
@@ -124,7 +119,7 @@ $row=db_fetch_array($ShowDetailResult);
             <font><?php echo $row['DepartName']?></font>
           </th>
         </tr>
-        <tr class="table-active">
+        <tr class="table-active" valign='middle' align='center'>
           <th align="center">
             <font>上课时间</font>
           </th>
@@ -132,7 +127,7 @@ $row=db_fetch_array($ShowDetailResult);
             <font><?php echo $schooltime1.$schooltime2.$schooltime3 ;?></font>
           </th>
         </tr>
-        <tr>
+        <tr valign='middle' align='center'>
           <th align="center">
             <font>限定人数</font>
           </th>
@@ -145,22 +140,10 @@ $row=db_fetch_array($ShowDetailResult);
     </table>
 
 <br>
-<?php
-$StuNo=$_SESSION["username"];
-$GetTotal_SQL="select * from stucou where StuNo='$StuNo'";
-$GetTotalResult=db_query($GetTotal_SQL);
-if(db_num_rows($GetTotalResult)<5){
-?>
-<form method="post" action="takecourse.php">
-<input type="hidden" name="StuNo" value= <?php echo $_SESSION['username']?>>
-<input type="hidden" name="CouNo" value= <?php echo $CouNo?>>
-<input type="submit" value="选择该课程" name="B1" >
-</form>
-<a href="ShowCourse.php">返回课程列表页</a>
+
+
 <?php include("../footer.php"); ?>   
-<?php
-}
-?>
+
   </div>
 </div>
 </body>

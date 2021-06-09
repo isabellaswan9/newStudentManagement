@@ -30,11 +30,11 @@
       $sql="select * from course,stucou where course.CouNo=stucou.CouNo and StuNo='$StuNo' ";
       $result=db_query($sql);
     ?>
-    <div class="contain-wrap">
+    <div class="contain-wrap" >
       <div class="myTable">
         <table class="table table-hover" width="610" border="0" align="center" cellpadding="0" cellspacing="1">
 					<thead>
-						<tr class="table-primary" bgcolor="#0066CC">
+						<tr class="table-primary" bgcolor="#0066CC" valign='middle' align='center'>
 							<th width="80" align="center">
 								<font color="#FFFFFF">课程编码</font>
 							</th>
@@ -108,22 +108,22 @@
                 echo "<tr bgcolor='#dddddd'>";
                 else
                 echo "<tr>";
-                echo "<td width='40'><a href='CourseDetail.php?CouNo=".$row['CouNo']."'>".$row['CouNo']."</a></td>";
-                      echo"<td width='40'><a href='delCourse.php?CouNo=".$row['CouNo']."'>删除</a></td>";
+                echo "<td width='40' valign='middle' align='center'><a href='CourseDetail.php?CouNo=".$row['CouNo']."'>".$row['CouNo']."</a></td>";
+                      echo"<td width='40' valign='middle' align='center'><a href='delCourse.php?CouNo=".$row['CouNo']."'>删除</a></td>";
             ?>
-            <td width="108" align="center">
+            <td width="108" valign='middle' align='center'>
               <?php echo $row['CouName'] ?>
             </td>
-            <td width="127">
+            <td width="127" valign='middle' align='center'>
               <?php echo $row['Kind']  ?>
             </td>
-            <td width="105">
+            <td width="105" valign='middle' align='center'>
               <?php echo $row['Credit']  ?>
             </td>
-            <td width="56">
+            <td width="56" valign='middle' align='center'>
               <?php echo $row['Teacher'] ?>
             </td>
-            <td width="83">
+            <td width="83" valign='middle' align='center'>
               <?php echo $schooltime1.$schooltime2.$schooltime3;  ?>
             </td>
           </tr>

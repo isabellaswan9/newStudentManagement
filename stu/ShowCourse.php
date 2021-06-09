@@ -14,16 +14,15 @@
 </head>
 
 <body class="d-flex flex-column h-100">
-	<div class="wrap">
 		<div class="header">
 			<?php include("header.php"); ?>
 			<hr>
 		</div>
-		<div class="contain-wrap">
-			<div class="myTable">
+		<div class="contain-wrap" style="min-height: 1020px;">
+			<div class="myTable"style="min-height: 600px;">
 				<table class="table table-hover" width="610" border="0" align="center" cellpadding="0" cellspacing="1">
 					<thead>
-						<tr class="table-primary" bgcolor="#0066CC">
+						<tr class="table-primary" bgcolor="#0066CC" valign='middle' align='center'>
 							<th width="80" align="center">
 								<font color="#FFFFFF">课程编码</font>
 							</th>
@@ -42,6 +41,13 @@
 							<th width="100">
 								<font color="#FFFFFF" align="center">上课时间</font>
 							</th>
+							<th width="100">
+				            <font color="#FFFFFF">限定人数</font>
+				          	</th>
+							<th width="100">
+								<font color="#FFFFFF" align="center">操作</font>
+							</th>
+							
 						</tr>
 					</thead>
 					<?php
@@ -115,12 +121,25 @@
 									echo"<tr bgcolor='#DDDDDD'>";
 								else
 									echo"<tr>";
-									echo"<td width='80' align='center'><a href='CourseDetail.php? CouNo=".$row['CouNo']."'>".$row['CouNo']."</a></td>";
-									echo"<td width='220'>".$row['CouName']."</td>";
-									echo"<td width='80'>".$row['Kind']."</td>";
-									echo"<td width='50'>".$row['Credit']."</td>";
-									echo"<td width='80'>".$row['Teacher']."</td>";
-									echo"<td width='100'>".$schooltime1.$schooltime2.$schooltime3."</td>";
+									echo"<td width='80'valign='middle' align='center'><a href='CourseDetail.php? CouNo=".$row['CouNo']."'>".$row['CouNo']."</a></td>";
+									echo"<td width='220' valign='middle' align='center'>".$row['CouName']."</td>";
+									echo"<td width='80' valign='middle' align='center'>".$row['Kind']."</td>";
+									echo"<td width='50' valign='middle' align='center'>".$row['Credit']."</td>";
+									echo"<td width='80' valign='middle' align='center'>".$row['Teacher']."</td>";
+									echo"<td width='100' valign='middle' align='center'>".$schooltime1.$schooltime2.$schooltime3."</td>";
+									echo"<td width='80' valign='middle' align='center'>".$row['LimitNum']."人</td>";
+									$StuNo=$_SESSION["username"];
+									$GetTotal_SQL="select * from stucou where StuNo='$StuNo'";
+									$GetTotalResult=db_query($GetTotal_SQL);
+									if(db_num_rows($GetTotalResult)<10){
+									echo"<td width='100' valign='middle' align='center'><form method='post' action='takecourse.php'>
+										<input type='hidden' name='StuNo' value= ".$_SESSION['username'].">
+										<input type='hidden' name='CouNo' value= ".$row['CouNo'].">
+										<input type='submit' value='选课' name='B1' >
+										</form></td>";}
+									else{
+										echo "<td width='100' valign='middle' align='center'><input type='button' disabled='disabled' value='选课' name='B1' ></td>";
+									}
 									echo"</tr>";
 									$j=$i+1; 
 								}
@@ -128,9 +147,11 @@
 							}
 						?>
 				</table>
+			</br>
 				<div class="alert alert-dismissible alert-light set-center">
 					点击<strong>课程编码链接</strong>可以查看课程细节
 				</div>
+				</br>
 				<div class="set-center">
 					<ul class="pagination">
 						<?php

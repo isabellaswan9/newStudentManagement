@@ -49,7 +49,7 @@ if(! isset($_SESSION['username']))
 		
 	</font></caption>
 					<thead>
-						<tr class="table-primary" bgcolor="#0066CC">
+						<tr class="table-primary" bgcolor="#0066CC" valign='middle' align='center'>
 							<th width="80">
 								<font color="#FFFFFF" align="center">序号</font>
 							</th>				
@@ -102,15 +102,15 @@ if(db_num_rows($ShowCourseResult)>0){
 			else
 			  echo"<tr>";
 
-			  echo"<td width='80' align='center'>".($i+1)."</td>";
-			  echo"<td width='80'>".$department[0]."</td>";
-			  echo"<td width='80'>".$class[0]."</td>";
-			  echo"<td width='80'>".$row['StuNo']."</td>";
+			  echo"<td width='80' valign='middle' align='center'>".($i+1)."</td>";
+			  echo"<td width='80' valign='middle' align='center'>".$department[0]."</td>";
+			  echo"<td width='80' valign='middle' align='center'>".$class[0]."</td>";
+			  echo"<td width='80' valign='middle' align='center'>".$row['StuNo']."</td>";
 			  
-			  echo"<td width='80'>".$row['StuName']."</td>";
-			  echo"<td width='80'>".$row['score']."</td>";
+			  echo"<td width='80' valign='middle' align='center'>".$row['StuName']."</td>";
+			  echo"<td width='80' valign='middle' align='center'>".$row['score']."</td>";
 		 	  /*点击查看可以查看学生名单以及录入成绩*/		  
-			 echo"<td width='55' name='hiden' ><form method='POST' action='ChangeAllScore.php'>       					 	
+			 echo"<td width='55' name='hiden' valign='middle' align='center' ><form method='POST' action='ChangeAllScore.php'>       					 	
 			 <input type='text' name='CJ[]'/>
         	</a></td>
         	";
