@@ -33,13 +33,13 @@ if(! isset($_SESSION['username']))
 			<thead>
 				<tr class="table-primary" bgcolor="#0066CC" align='center'>
 					<th width="80" align="center">
-						<font color="#FFFFFF">教师ID</font>
+						<font color="#FFFFFF">工号</font>
 					</th>
 					<th width="220" align="center">
-						<font color="#FFFFFF">教师名字</font>
+						<font color="#FFFFFF">教师姓名</font>
 					</th>
 					<th width="110" align="center">
-						<font color="#FFFFFF">部门类型</font>
+						<font color="#FFFFFF">学院</font>
 					</th>
 					<th width="50" align="center">
 						<font color="#FFFFFF">操作</font>

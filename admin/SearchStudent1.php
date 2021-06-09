@@ -43,6 +43,8 @@ switch($ColumnName)
 		break;
 }
 $result=db_query($sql);
+
+
 ?>
 
 
@@ -52,13 +54,16 @@ $result=db_query($sql);
 			<thead>
 				<tr class="table-primary" bgcolor="#0066CC" align='center'>
 					<th width="80" align="center">
-						<font color="#FFFFFF">学生ID</font>
+						<font color="#FFFFFF">学号</font>
 					</th>
 					<th width="220" align="center">
-						<font color="#FFFFFF">学生姓名</font>
+						<font color="#FFFFFF">姓名</font>
 					</th>
 					<th width="80">
-						<font color="#FFFFFF" align="center">班级编号</font>
+						<font color="#FFFFFF" align="center">班级</font>
+					</th>
+					<th width="80">
+						<font color="#FFFFFF" align="center">学院</font>
 					</th>
 				</tr>
 			</thead>
@@ -68,7 +73,14 @@ $result=db_query($sql);
 			for($i=0;$i<$number;$i++)
 				{
 					$row=db_fetch_array($result);
-					
+					$ShowStudent_sql2="SELECT class.ClassName from student LEFT JOIN class ON class.ClassNo=student.ClassNo WHERE student.ClassNo=".$row['ClassNo'];
+						$ShowStudentResult2=db_query($ShowStudent_sql2);
+						$ShowStudent_sql3="SELECT department.DepartName from class
+							LEFT JOIN department ON department.DepartNo=class.DepartNo
+							WHERE class.ClassNo=".$row['ClassNo'];
+								$ShowStudentResult3=db_query($ShowStudent_sql3);
+								$class=db_fetch_array($ShowStudentResult2);
+								$department=db_fetch_array($ShowStudentResult2);
 					if($i%2==0)
 						echo "<tr bgcolor='#dddddd'>";
 					else
@@ -80,7 +92,10 @@ $result=db_query($sql);
 				<?php echo $row['StuName'] ?>
 			</td>
 			<td width="80"  align="center">
-				<?php echo $row['ClassNo']  ?>
+				<?php echo $class[0]  ?>
+			</td>
+			<td width="80"  align="center">
+				<?php echo $department[0]  ?>
 			</td>
 			</tr>
 

@@ -48,19 +48,19 @@ $result=db_query($sql);
 
 
 
-<div class="contain-wrap">
+<div class="contain-wrap" style=" min-height: 400px;">
 	<div class="myTable">
 		<table class="table table-hover" width="610" border="0" align="center" cellpadding="0" cellspacing="1">
 			<thead>
-				<tr class="table-primary" bgcolor="#0066CC" align='center'>
+				<tr class="table-primary" bgcolor="#0066CC" align='center' >
 					<th width="80" align="center">
-						<font color="#FFFFFF">教师ID</font>
+						<font color="#FFFFFF">工号</font>
 					</th>
 					<th width="220" align="center">
-						<font color="#FFFFFF">教师名字</font>
+						<font color="#FFFFFF">教师姓名</font>
 					</th>
 					<th width="80">
-						<font color="#FFFFFF" align="center">部门类型</font>
+						<font color="#FFFFFF" align="center">学院</font>
 					</th>
 				</tr>
 			</thead>

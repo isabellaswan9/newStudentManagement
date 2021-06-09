@@ -49,7 +49,7 @@ $LimitNum='LimitNum'. strval(intval($row['LimitNum']));
           <label for="exampleSelect1" class="form-label mt-4">编号：</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder=""  name="CouNo" value="<?php echo $row['CouNo']?>"/>
 
-          <label for="exampleSelect1" class="form-label mt-4">名称:</label>
+          <label for="exampleSelect1" class="form-label mt-4">课程名称:</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="CouName" value="<?php echo $row['CouName']?>" />
 
           <label for="exampleSelect1" class="form-label mt-4">类型:</label>
@@ -58,7 +58,7 @@ $LimitNum='LimitNum'. strval(intval($row['LimitNum']));
           <label for="exampleSelect1" class="form-label mt-4">学分:</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="Credit" value="<?php echo $row['Credit']?>"/>
 
-          <label for="exampleSelect1" class="form-label mt-4">教师:</label>
+          <label for="exampleSelect1" class="form-label mt-4">教师姓名:</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="Teacher" value="<?php echo $row['Teacher']?>"/>
 
           <label for="exampleSelect1" class="form-label mt-4">上课时间：</label>

@@ -35,7 +35,7 @@ if(! isset($_SESSION['username']))
 			<thead>
 				<tr class="table-primary" bgcolor="#0066CC" align="center">
 					<th width="80" >
-						<font color="#FFFFFF">课程编码</font>
+						<font color="#FFFFFF">课程号</font>
 					</th>
 					<th width="220">
 						<font color="#FFFFFF">课程名称</font>
