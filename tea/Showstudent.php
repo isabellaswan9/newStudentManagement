@@ -52,20 +52,22 @@ if(! isset($_SESSION['username']))
 						<tr class="table-primary" bgcolor="#0066CC">
 							<th width="80">
 								<font color="#FFFFFF" align="center">序号</font>
-							</th>
-							<th width="100">
+							</th>				
+														<th width="100">
 								<font color="#FFFFFF" align="center">学院</font>
-							</th>							
+							</th>
+																					<th width="100">
+								<font color="#FFFFFF" align="center">班级</font>
+							</th>
+
+							
 							<th width="80">
 								<font color="#FFFFFF" align="center">学号</font>
 							</th>
 							<th width="100">
-								<font color="#FFFFFF" align="center">班级</font>
-							</th>
-							
-							<th width="100">
 								<font color="#FFFFFF" align="center">姓名</font>
 							</th>
+
 							<th width="100">
 								<font color="#FFFFFF" align="center">成绩</font>
 							</th>
@@ -84,7 +86,16 @@ if(db_num_rows($ShowCourseResult)>0){
 		}
 		else{
 					$row = db_fetch_array($ShowCourseResult);
+					
 		}
+		$ShowStudent_sql2="SELECT class.ClassName from student LEFT JOIN class ON class.ClassNo=student.ClassNo WHERE student.ClassNo=".$row['ClassNo'];
+		$ShowStudentResult2=db_query($ShowStudent_sql2);
+		$ShowStudent_sql3="SELECT department.DepartName from class
+							LEFT JOIN department ON department.DepartNo=class.DepartNo
+							WHERE class.ClassNo=".$row['ClassNo'];
+		$ShowStudentResult3=db_query($ShowStudent_sql3);
+		$class=db_fetch_array($ShowStudentResult2);
+		$department=db_fetch_array($ShowStudentResult3);
 		$data[] = $row['StuNo'];
 			if($i%2 ==0)
 			  echo"<tr bgcolor='#DDDDDD'>";
@@ -92,9 +103,10 @@ if(db_num_rows($ShowCourseResult)>0){
 			  echo"<tr>";
 
 			  echo"<td width='80' align='center'>".($i+1)."</td>";
-			  echo"<td width='80'>".$row['Depart']."</td>";
+			  echo"<td width='80'>".$department[0]."</td>";
+			  echo"<td width='80'>".$class[0]."</td>";
 			  echo"<td width='80'>".$row['StuNo']."</td>";
-			  echo"<td width='80'>".$row['ClassNo']."</td>";
+			  
 			  echo"<td width='80'>".$row['StuName']."</td>";
 			  echo"<td width='80'>".$row['score']."</td>";
 		 	  /*点击查看可以查看学生名单以及录入成绩*/		  
