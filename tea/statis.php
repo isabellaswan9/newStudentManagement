@@ -13,8 +13,10 @@
 <style>
 caption{
 	text-align:center;
+	caption-side: top;
 	font-size:40px;
 	color:#000000;
+	table-layout: top;
 	margin:2%;
 
 }
@@ -25,7 +27,7 @@ caption{
 	border:2px solid #ccc;	
 }
 td{
-	height:60px;
+	height:40px;
 	width:20%;
 	border:1px solid #ccc;
 }
@@ -42,6 +44,12 @@ th{
 	margin:auto; 
 	margin-top:50px
 }
+#box{
+	 display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 </style>
 
 </head>
@@ -50,7 +58,7 @@ th{
 <table class="table">
   <caption>成绩统计</caption>
   <thead>
-    <tr>
+    <tr align="center">
       <th >最高分</th>
 	  <th>最低分</th>
 	  <th>平均分</th>
@@ -59,9 +67,9 @@ th{
       </tr>
   </thead>
  <tbody>
-    <tr >
-      <td class="success" id='maxscore'></td>
-	  <td class="danger" id='minscore'></td>
+    <tr valign="middle">
+      <td class="success" id='maxscore' valign="middle"></td>
+	  <td class="danger" id='minscore' valign="middle"></td>
 	  <td class="info" id='avgscore'></td>
 	  <td class='warning' id='passnum'></td>
 	  <td  class="active" id='stunum'></td>
@@ -86,6 +94,7 @@ if(! isset($_SESSION["username"])){//会话不存在就回去登录
 	$all_sql="select * from statistic where CouNo='$CuoNo'";//查看该课程的统计情况
 	$allgradeResult=db_query($all_sql);
 	$detail=mysql_fetch_array($allgradeResult);
+
 	//将结果返回到页面上
 	echo"<script>document.getElementById('maxscore').innerHTML='".$detail['maxscore']."'</script>";
 	echo"<script>document.getElementById('minscore').innerHTML='".$detail['minscore']."'</script>";
@@ -213,10 +222,11 @@ option2 && myChart2.setOption(option2);
 
 }
 
-
 </script>
+<div class="box">
 <div id='bar_graph' class='chart' ></div>
 <br>
 <div id='pie_graph' class='chart' ></div>
+</div>
 </body>
 </html>
