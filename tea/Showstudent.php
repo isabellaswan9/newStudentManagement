@@ -126,6 +126,7 @@ if(db_num_rows($ShowCourseResult)>0){
 </table>
 	<div class='form-group set-center'>
 	<?php
+		if(db_num_rows($ShowCourseResult)>0){
 			if($row['flag'] == 0){
 					$_SESSION['data'] = $data;
 		    echo" 
@@ -140,7 +141,15 @@ if(db_num_rows($ShowCourseResult)>0){
               <button type='submit'  class='btn btn-primary set-padding'>成绩已提交，点击查看统计详情
               </button>
             </form>";
-		}?>
+		}
+	}
+		else{
+				echo"<script>";
+				echo"alert(\"暂无学生选课\");";
+				echo"location.href=\"ShowTeached.php\"";
+				echo"</script>";
+				}
+		?>
 		</div>
 	</br>
 

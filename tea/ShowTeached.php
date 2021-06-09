@@ -22,7 +22,7 @@ if(! isset($_SESSION['username']))
 	include("../conn/db_conn.php");
 	include("../conn/db_func.php");
 	$StuNo=$_SESSION['username'];
-	$ShowCourse_sql="select * from course where Teacher in(select TeaName from Teacher) ORDER BY CouNo";
+	$ShowCourse_sql="select * from course where Teacher in(select TeaName from Teacher where TeaNo='$StuNo') ORDER BY CouNo";
 	$ShowCourseResult=db_query($ShowCourse_sql);
 ?>
 <div class="contain-wrap">
