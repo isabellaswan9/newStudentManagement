@@ -177,6 +177,7 @@ if(! isset($_SESSION["username"])){
   })
   function validate(){
       if(valid!=true){
+        $("#values").text('请上传满足条件的文件哦');
         return false;
       }
     return true;
