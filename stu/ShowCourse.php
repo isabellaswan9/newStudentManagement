@@ -102,19 +102,21 @@
 							for($i=0;$i<$number;$i++){
 								$row=db_fetch_array($ShowCourseResult);
 								$num1=($row['time1']%5==0)?5:($row['time1']%5);
-							$schooltime1="周".chinese(floor($row['time1']/6+1))."第".chinese($num1)."节<br>";
+								$schooltime1="周".chinese(ceil($row['time1']/5))."第".chinese($num1)."节<br>";
+								
+								if($row['time2']){
+								$num2=($row['time2']%5==0)?5:($row['time2']%5);
+								$schooltime2="周".chinese(ceil($row['time2']/5))."第".chinese($num2)."节<br>";
+								}
+								else $schooltime2='';
 							
-							if($row['time2']){
-							$num2=($row['time2']%5==0)?5:($row['time2']%5);
-							$schooltime2="周".chinese(floor($row['time2']/6+1))."第".chinese($num2)."节<br>";
-							}
-							else $schooltime2='';
-						
-							if($row["time3"]){
-							$num3=($row['time3']%5==0)?5:($row['time3']%5);
-							$schooltime3="周".chinese(floor($row['time3']/6+1))."第".chinese($num3)."节<br>";
-							}
-							else $schooltime3='';
+								if($row["time3"]){
+								$num3=($row['time3']%5==0)?5:($row['time3']%5);
+								$schooltime3="周".chinese(ceil($row['time3']/5))."第".chinese($num3)."节<br>";
+								}
+								else $schooltime3='';
+
+								
 								if($i>=$p && $i < $check){
 									if($i%2 ==0)
 									echo"<tr bgcolor='#DDDDDD'>";
@@ -154,7 +156,7 @@
 						</li>
 						<?php
 						if($p>9){
-							$last=(floor($p/10)*10)-10;
+							$last=(ceil($p/10)*10)-10;
 							echo "<li class='page-item'><a href='ShowCourse.php? p=$last' class='page-link'>上一页</a></li>";
 							}
 							else
@@ -173,7 +175,7 @@
 							<?php
 				      if($i>9)
 				      {
-				      $final=floor($number/10)*10;
+				      $final=ceil($number/10)*10;
 				      echo"<a class='page-link' href='ShowCourse.php? p=$final'>最后一页</a>";
 				      }
 				      else
