@@ -77,7 +77,7 @@ if($AddCourse_Result){
 	echo"</script>";
 	}else{
 	echo"<script>";
-	//echo"alert(\"添加课程失败，请重新添加\");";
+	echo"alert(\"添加课程失败，请重新添加(请检查课程号是否已经存在）\");";
 	echo"location. href=\"AddCourse.php\"";
 	echo"</script>";
 		}

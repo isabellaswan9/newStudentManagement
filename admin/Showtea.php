@@ -31,15 +31,15 @@ if(! isset($_SESSION['username']))
 	<div class="myTable">
 		<table  class="table table-hover" width="810" border="0" align="center" cellpadding="0" cellspacing="1" >
 			<thead>
-				<tr class="table-primary" bgcolor="#0066CC">
+				<tr class="table-primary" bgcolor="#0066CC" align='center'>
 					<th width="80" align="center">
-						<font color="#FFFFFF">教师ID</font>
+						<font color="#FFFFFF">工号</font>
 					</th>
 					<th width="220" align="center">
-						<font color="#FFFFFF">教师名字</font>
+						<font color="#FFFFFF">教师姓名</font>
 					</th>
 					<th width="110" align="center">
-						<font color="#FFFFFF">部门类型</font>
+						<font color="#FFFFFF">学院</font>
 					</th>
 					<th width="50" align="center">
 						<font color="#FFFFFF">操作</font>
@@ -63,10 +63,10 @@ if(db_num_rows($ShowTeacherResult)>0){
 		else
 			  echo"<tr>";
 			  echo"<td width='80' align='center'>".$row['TeaNo']."</td>";
-			  echo"<td width='220'>".$row['TeaName']."</td>";
-			  echo"<td width='80'>".$row['DepartNo']."</td>";
-			  echo"<td width='40'><a href='ModifyTeacher.php? TeaNo=".$row['TeaNo']."'>修改</a></td>";
-			  echo"<td width='40'><a href='DeleteTeacher1.php? TeaNo=".$row['TeaNo']."'>删除</a></td>";
+			  echo"<td width='220' align='center'>".$row['TeaName']."</td>";
+			  echo"<td width='80' align='center'>".$row['DepartNo']."</td>";
+			  echo"<td width='40' align='center'><a href='ModifyTeacher.php? TeaNo=".$row['TeaNo']."'>修改</a></td>";
+			  echo"<td width='40' align='center'><a href='DeleteTeacher1.php? TeaNo=".$row['TeaNo']."'>删除</a></td>";
 			  echo"</tr>";
 			  $j=$i+1; 
 		 }

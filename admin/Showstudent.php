@@ -23,26 +23,30 @@ if(! isset($_SESSION['username']))
 	include("../conn/db_conn.php");
 	include("../conn/db_func.php");
 	$StuNo=$_SESSION['username'];
-	$ShowStudent_sql="select * from student";
+	$ShowStudent_sql="SELECT * from student";
 	$ShowStudentResult=db_query($ShowStudent_sql);
+
 ?>
 
 
 
 
-<div class="contain-wrap">
-	<div class="myTable">
+<div class="contain-wrap" style=" min-height: 650px;">
+	<div class="myTable" style=" min-height: 400px;">
 		<table  class="table table-hover" width="810" border="0" align="center" cellpadding="0" cellspacing="1" >
 			<thead>
-				<tr class="table-primary" bgcolor="#0066CC">
+				<tr class="table-primary" bgcolor="#0066CC" align='center'>
 					<th width="80" align="center">
-						<font color="#FFFFFF">学生ID</font>
+						<font color="#FFFFFF">学号</font>
+					</th>
+					<th width="220" align="center">
+						<font color="#FFFFFF">学生姓名</font>
 					</th>
 					<th width="110" align="center">
-						<font color="#FFFFFF">学生名字</font>
+						<font color="#FFFFFF">班级</font>
 					</th>
-					<th width="110" align="center">
-						<font color="#FFFFFF">班级编号</font>
+										<th width="110" align="center">
+						<font color="#FFFFFF">学院</font>
 					</th>
 					<th width="110" align="center">
 						<font color="#FFFFFF">所属学院</font>
@@ -63,17 +67,26 @@ if(db_num_rows($ShowStudentResult)>0){
 	$check=$p +10;
 	for($i=0;$i<$number;$i++){
 		$row=db_fetch_array($ShowStudentResult);
+		$ShowStudent_sql2="SELECT class.ClassName from student LEFT JOIN class ON class.ClassNo=student.ClassNo WHERE student.ClassNo=".$row['ClassNo'];
+		$ShowStudentResult2=db_query($ShowStudent_sql2);
+		$ShowStudent_sql3="SELECT department.DepartName from class
+							LEFT JOIN department ON department.DepartNo=class.DepartNo
+							WHERE class.ClassNo=".$row['ClassNo'];
+		$ShowStudentResult3=db_query($ShowStudent_sql3);
+		$class=db_fetch_array($ShowStudentResult2);
+		$department=db_fetch_array($ShowStudentResult3);
 		if($i>=$p && $i < $check){
 			if($i%2 ==0)
 			  echo"<tr bgcolor='#DDDDDD'>";
 		else
 			  echo"<tr>";
 			  echo"<td width='80' align='center'>".$row['StuNo']."</td>";
-			  echo"<td width='220'>".$row['StuName']."</td>";
-			  echo"<td width='80'>".$row['ClassNo']."</td>";
-			  echo"<td width='80'>".$row['Depart']."</td>";
-			  echo"<td width='40'><a href='ModifyStudent.php? StuNo=".$row['StuNo']."'>修改</a></td>";
-			  echo"<td width='40'><a href='DeleteStudent1.php? StuNo=".$row['StuNo']."'>删除</a></td>";
+			  echo"<td width='220' align='center'>".$row['StuName']."</td>";
+			  echo"<td width='80' align='center'>".$class[0]."</td>";
+			  echo"<td width='80' align='center'>".$department[0]."</td>";
+			  echo"<td width='40' align='center'><a href='ModifyStudent.php? StuNo=".$row['StuNo']."'>修改</a></td>";
+			  echo"<td width='40' align='center'><a href='DeleteStudent1.php? StuNo=".$row['StuNo']."'>删除</a></td>";
+
 			  echo"</tr>";
 			  $j=$i+1; 
 		 }
@@ -123,5 +136,7 @@ if(db_num_rows($ShowStudentResult)>0){
 	</div>
 </div>
       
+
+<?php include("../footer.php"); ?>      
 </body>
 </html>

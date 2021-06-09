@@ -1,5 +1,5 @@
 ﻿<?php
-	$DB_HOST	= "localhost";	  //数据库主机位置
+	$DB_HOST	= "127.0.0.1";	  //数据库主机位置
 	$DB_LOGIN	= "root";	  //数据库的使用账号
 	$DB_PASSWORD	= "root";	  //数据库的使用密码
 	$DB_NAME	= "xk";           //数据库名称

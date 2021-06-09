@@ -28,7 +28,7 @@ if(! isset($_SESSION["username"])){
 		}
 ?>
 
-<div class="contain-wrap">
+<div class="contain-wrap" style=" min-height: 1200px;">
     <div class="myForm">
         <form method="post" action="AddCourse1.php">
             <fieldset>

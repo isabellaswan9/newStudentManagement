@@ -43,37 +43,69 @@ switch($ColumnName)
 		break;
 }
 $result=db_query($sql);
+
+
 ?>
 
 
-<table width="650"  align="center" >
-  <tr  bgcolor="#0066CC">
-    <td width="80"><font color="#FFFFFF">学生ID</font></td>
-    <td width="220" align="center"><font color="#FFFFFF">学生名字</font></td>
-    <td width="80"><font color="#FFFFFF">班级编号</font></td>
-  </tr>
-<?php
-if(db_num_rows($result)>0){
-	$number=db_num_rows($result);
-for($i=0;$i<$number;$i++)
-	{
-		$row=db_fetch_array($result);
-		
-		if($i%2==0)
-			echo "<tr bgcolor='#dddddd'>";
-		else
-			echo "<tr>";
-		echo "<td width='80'>".$row['StuNo']."</td>";
-?>
+<div class="contain-wrap" style=" min-height: 450px;">
+	<div class="myTable">
+		<table class="table table-hover" width="610" border="0" align="center" cellpadding="0" cellspacing="1">
+			<thead>
+				<tr class="table-primary" bgcolor="#0066CC" align='center'>
+					<th width="80" align="center">
+						<font color="#FFFFFF">学号</font>
+					</th>
+					<th width="220" align="center">
+						<font color="#FFFFFF">姓名</font>
+					</th>
+					<th width="80">
+						<font color="#FFFFFF" align="center">班级</font>
+					</th>
+					<th width="80">
+						<font color="#FFFFFF" align="center">学院</font>
+					</th>
+				</tr>
+			</thead>
+			<?php
+			if(db_num_rows($result)>0){
+				$number=db_num_rows($result);
+			for($i=0;$i<$number;$i++)
+				{
+					$row=db_fetch_array($result);
+					$ShowStudent_sql2="SELECT class.ClassName from student LEFT JOIN class ON class.ClassNo=student.ClassNo WHERE student.ClassNo=".$row['ClassNo'];
+						$ShowStudentResult2=db_query($ShowStudent_sql2);
+						$ShowStudent_sql3="SELECT department.DepartName from class
+							LEFT JOIN department ON department.DepartNo=class.DepartNo
+							WHERE class.ClassNo=".$row['ClassNo'];
+								$ShowStudentResult3=db_query($ShowStudent_sql3);
+								$class=db_fetch_array($ShowStudentResult2);
+								$department=db_fetch_array($ShowStudentResult2);
+					if($i%2==0)
+						echo "<tr bgcolor='#dddddd'>";
+					else
+						echo "<tr  >";
+					echo "<td width='80' align='center'>".$row['StuNo']."</td>";
+			?>
 
- <td width="220" align="center"><?php echo $row['StuName'] ?></td>
-    <td width="80"><?php echo $row['ClassNo']  ?></td>
-    </tr>
-  
-  <?php
-	}
-}?>
-</table>
+			<td width="220" align="center">
+				<?php echo $row['StuName'] ?>
+			</td>
+			<td width="80"  align="center">
+				<?php echo $class[0]  ?>
+			</td>
+			<td width="80"  align="center">
+				<?php echo $department[0]  ?>
+			</td>
+			</tr>
+
+			<?php
+				}
+			}?>
+		</table>
+	</div>
+</div>
+
 <?php include("../footer.php"); ?>   
 </body>
 </html>

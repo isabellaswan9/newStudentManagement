@@ -34,17 +34,17 @@ $row=db_fetch_array($ShowDetailResult);
 
 <div class="contain-wrap">
   <div class="myForm">
-    <form method="get" action="ModifyCourse1.php">
+    <form method="post" action="ModifyTeacher1.php">
         <fieldset>
-          <legend>教师信息细节</legend>
+          <legend>教师信息</legend>
           <div class="form-group">
-          <label for="exampleSelect1" class="form-label mt-4">教师ID</label>
+          <label for="exampleSelect1" class="form-label mt-4">教师工号：</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder=""  name="TeaNo" value="<?php echo $row['TeaNo']?>"/>
 
-          <label for="exampleSelect1" class="form-label mt-4">教师名字:</label>
+          <label for="exampleSelect1" class="form-label mt-4">教师姓名：</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="TeaName" value="<?php echo $row['TeaName']?>" />
 
-          <label for="exampleSelect1" class="form-label mt-4">教师部门:</label>
+          <label for="exampleSelect1" class="form-label mt-4">所属部门：</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="DepartNo" value="<?php echo $row['DepartNo']?>"/>
 
           <div class="form-group set-center">
