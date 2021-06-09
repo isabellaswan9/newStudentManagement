@@ -2,9 +2,14 @@
 <head>
 <meta charset='UTF-8'>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
 <style>
 caption{
 	text-align:center;
+	caption-side: top;
 	font-size:40px;
 	color:#000000;
 	margin:2%;
@@ -31,6 +36,9 @@ th{
 
 </head>
 <body class="d-flex flex-column h-100">
+<?php include("header.php"); ?>
+		</br>
+<div style="min-height: 900px;">
 <table class="table">
   <caption>我的课表</caption>
   <thead>
@@ -87,8 +95,9 @@ th{
  </tbody>
 </table>
 </div>
+
 <?php
-session_start();
+if (!session_id()) session_start();
 if(! isset($_SESSION["username"])){//会话不存在就回去登录
 	header("Location:../login.php");
 	exit();

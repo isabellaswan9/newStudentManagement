@@ -111,19 +111,19 @@
                 echo "<td width='40' valign='middle' align='center'><a href='CourseDetail.php?CouNo=".$row['CouNo']."'>".$row['CouNo']."</a></td>";
                       echo"<td width='40' valign='middle' align='center'><a href='delCourse.php?CouNo=".$row['CouNo']."'>删除</a></td>";
             ?>
-            <td width="108" valign='middle' align='center'>
+            <td  valign='middle' align='center'>
               <?php echo $row['CouName'] ?>
             </td>
-            <td width="127" valign='middle' align='center'>
+            <td valign='middle' align='center'>
               <?php echo $row['Kind']  ?>
             </td>
-            <td width="105" valign='middle' align='center'>
+            <td valign='middle' align='center'>
               <?php echo $row['Credit']  ?>
             </td>
-            <td width="56" valign='middle' align='center'>
+            <td  valign='middle' align='center'>
               <?php echo $row['Teacher'] ?>
             </td>
-            <td width="83" valign='middle' align='center'>
+            <td  valign='middle' align='center'>
               <?php echo $schooltime1.$schooltime2.$schooltime3;  ?>
             </td>
           </tr>

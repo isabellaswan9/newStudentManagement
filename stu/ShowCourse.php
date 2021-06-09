@@ -16,7 +16,6 @@
 <body class="d-flex flex-column h-100">
 		<div class="header">
 			<?php include("header.php"); ?>
-			<hr>
 		</div>
 		<div class="contain-wrap" style="min-height: 1020px;">
 			<div class="myTable"style="min-height: 600px;">
@@ -148,34 +147,38 @@
 						?>
 				</table>
 			</br>
-				<div class="alert alert-dismissible alert-light set-center">
-					点击<strong>课程编码链接</strong>可以查看课程细节
-				</div>
-				</br>
 				<div class="set-center">
 					<ul class="pagination">
+						<li class="page-item">
+							<a class="page-link" href="ShowCourse.php? p=0">第一页</a>
+						</li>
 						<?php
 						if($p>9){
 							$last=(floor($p/10)*10)-10;
-							echo "<li class='page-item'><a href='ShowCourse.php? p=$last' class='page-link'>&laquo;</a></li>";
+							echo "<li class='page-item'><a href='ShowCourse.php? p=$last' class='page-link'>上一页</a></li>";
 							}
 							else
-							echo "<li class='page-item disabled'><a href='' class='page-link'>&laquo;</a></li>";
+							echo "<li class='page-item disabled'><a href='' class='page-link'>上一页</a></li>";
 						?>
-						<li class="page-item">
-							<a class="page-link" href="ShowCourse.php? p=0">1</a>
-						</li>
-						<li class="page-item">
-							<a class="page-link" href="ShowCourse.php? p=11">2</a>
-						</li>
 						<li class="page-item">
 							<?php
 								if($i>9 and $number>$check){
-										echo"<li class='page-item'><a href='ShowCourse.php? p=$j' class='page-link'>&raquo;</a></li>";
+										echo"<li class='page-item'><a href='ShowCourse.php? p=$j' class='page-link'>下一页</a></li>";
 									}
 								else
-									echo"<li class='page-item disabled'><a href='ShowCourse.php? p=$j' class='page-link'>&raquo;</a></li>";
-								?>	  
+									echo"<li class='page-item disabled'><a href='ShowCourse.php? p=$j' class='page-link'>下一页</a></li>";
+								?>
+						</li>
+						<li class="page-item">
+							<?php
+				      if($i>9)
+				      {
+				      $final=floor($number/10)*10;
+				      echo"<a class='page-link' href='ShowCourse.php? p=$final'>最后一页</a>";
+				      }
+				      else
+				        echo"<li class='page-item disabled'><a href='' class='page-link'>最后一页</a></li>";
+						?>
 						</li>
 					</ul>
 				</div>

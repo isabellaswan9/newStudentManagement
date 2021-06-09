@@ -114,7 +114,8 @@ if(db_num_rows($ShowCourseResult)>0){
 			  echo"<td width='80' valign='middle' align='center'>".$row['Teacher']."</td>";
 			  echo"<td width='100' valign='middle' align='center'>".$schooltime1.$schooltime2.$schooltime3."</td>";
 		 	  /*点击查看可以查看学生名单以及录入成绩*/		  
-			  echo"<td width='80' valign='middle' align='center'><a href='Showstudent.php?StuNo=".$row['Teacher']."&CouNo=".$row['CouNo']."'>查看学生</a></td>";
+			  echo"<td width='80' valign='middle' align='center'><a href='Showstudent.php?CouNo=".$row['CouNo']."'>查看学生</a></td>";
+
 			  echo"</tr>";
 			  $j=$i+1; 
 		 }
@@ -122,6 +123,7 @@ if(db_num_rows($ShowCourseResult)>0){
 	}
 ?>
 </table>
+</br>
 
 <div class="set-center">
 					<ul class="pagination">

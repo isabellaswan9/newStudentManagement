@@ -21,6 +21,9 @@
         <li class="nav-item">
           <a class="nav-link" href="showscore.php">查询成绩</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="CourseTable.php">查看课表</a>
+        </li>
       </ul>
       <form class="d-flex">
            <ul class="navbar-nav me-auto">
