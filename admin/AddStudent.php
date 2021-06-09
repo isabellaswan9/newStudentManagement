@@ -77,7 +77,7 @@ if(! isset($_SESSION["username"])){
          </fieldset>
           <hr>
           <h5>温馨提示：</h5>
-          <p class="text-muted">1.上传文件格式可以点击<a>模板下载</a>获得，请严格按照系统提供的数据模板填写客户信息，否则有可能导入不成功。</p>
+          <p class="text-muted">1.上传文件格式可以点击<a href="./student.xlsx" download="student上传模板.xlsx">模板下载</a>获得，请严格按照系统提供的数据模板填写客户信息，否则有可能导入不成功。</p>
           <p class="text-muted">2.单次上传文件不超过2M。</p>
           <p class="text-muted">3.仅支持xls/xlsx文件上传</p>
     </form>
