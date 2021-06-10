@@ -146,6 +146,13 @@
 								}
 								}
 							}
+								else{
+									echo"<script>";
+									echo"alert(\"暂无课程安排！\");";
+									echo"location.href=\"ShowCourse.php\"";
+									echo"</script>";
+									}
+
 						?>
 				</table>
 			</br>
@@ -155,6 +162,7 @@
 							<a class="page-link" href="ShowCourse.php? p=0">第一页</a>
 						</li>
 						<?php
+
 						if($p>9){
 							$last=(ceil($p/10)*10)-10;
 							echo "<li class='page-item'><a href='ShowCourse.php? p=$last' class='page-link'>上一页</a></li>";
@@ -162,20 +170,23 @@
 							else
 							echo "<li class='page-item disabled'><a href='' class='page-link'>上一页</a></li>";
 						?>
-						<li class="page-item">
+						</li class="page-item">
 							<?php
+							$next=(ceil($p/10)*10)+10;
 								if($i>9 and $number>$check){
-										echo"<li class='page-item'><a href='ShowCourse.php? p=$j' class='page-link'>下一页</a></li>";
+									
+										echo"<li class='page-item'><a href='ShowCourse.php? p=$next' class='page-link'>下一页</a></li>";
 									}
 								else
-									echo"<li class='page-item disabled'><a href='ShowCourse.php? p=$j' class='page-link'>下一页</a></li>";
+									echo"<li class='page-item disabled'><a href='ShowCourse.php? p=$next' class='page-link'>下一页</a></li>";
 								?>
 						</li>
 						<li class="page-item">
 							<?php
 				      if($i>9)
 				      {
-				      $final=ceil($number/10)*10;
+
+				      $final=floor($number/10)*10;
 				      echo"<a class='page-link' href='ShowCourse.php? p=$final'>最后一页</a>";
 				      }
 				      else
