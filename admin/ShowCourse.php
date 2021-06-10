@@ -33,7 +33,7 @@ if(! isset($_SESSION['username']))
 	<div class="myTable" style=" min-height: 750px;">
 		<table  class="table table-hover" width="810" border="0" align="center" cellpadding="0" cellspacing="1" >
 			<thead>
-				<tr class="table-primary" bgcolor="#0066CC" align="center">
+				<tr class="table-primary" bgcolor="#0066CC" valign='middle' align='center'>
 					<th width="80" >
 						<font color="#FFFFFF">课程号</font>
 					</th>
@@ -117,14 +117,14 @@ if(! isset($_SESSION['username']))
 						  echo"<tr class='table-active'>";
 					else
 						  echo"<tr>";
-						  echo"<td width='80' align='center'><a href='CourseDetail.php? CouNo=".$row['CouNo']."'>".$row['CouNo']."</a></td>";
-						  echo"<td width='220' align='center'>".$row['CouName']."</td>";
-						  echo"<td width='80' align='center'>".$row['Kind']."</td>";
-						  echo"<td width='50' align='center'>".$row['Credit']."</td>";
-						  echo"<td width='80' align='center'>".$row['Teacher']."</td>";
-						  echo"<td width='100' align='center'>".$schooltime1.$schooltime2.$schooltime3."</td>";
-						  echo"<td width='40' align='center'><a href='ModifyCourse.php? CouNo=".$row['CouNo']."'>修改</a></td>";
-						  echo"<td width='40' align='center'><a href='DeleteCourse1.php? CouNo=".$row['CouNo']."'>删除</a></td>";
+						  echo"<td width='80' align='center' valign='middle'><a href='CourseDetail.php? CouNo=".$row['CouNo']."'>".$row['CouNo']."</a></td>";
+						  echo"<td width='220' valign='middle' align='center'>".$row['CouName']."</td>";
+						  echo"<td width='80' align='center' valign='middle'>".$row['Kind']."</td>";
+						  echo"<td width='50' align='center' valign='middle'>".$row['Credit']."</td>";
+						  echo"<td width='80' align='center' valign='middle'>".$row['Teacher']."</td>";
+						  echo"<td width='100' align='center' valign='middle'>".$schooltime1.$schooltime2.$schooltime3."</td>";
+						  echo"<td width='40' align='center' valign='middle'><a href='ModifyCourse.php? CouNo=".$row['CouNo']."'>修改</a></td>";
+						  echo"<td width='40' align='center' valign='middle'><a href='DeleteCourse1.php? CouNo=".$row['CouNo']."'>删除</a></td>";
 						  echo"</tr>";
 						  $j=$i+1; 
 					 }
