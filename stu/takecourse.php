@@ -53,6 +53,9 @@ if(! isset($_SESSION["username"])){//会话不存在就回去登录
 		$WillOrder=db_num_rows($ShowDetailResult)+1;//该学生报名的课的数量
 		$insertCourse="insert into stucou(StuNo,CouNo,WillOrder,State) values ('$StuNo','$CouNo','$WillOrder','报名')";//报名课程
 		$insertCourse_Result=mysql_query($insertCourse);
+
+		$insertCourse2="insert into score(StuNo,CouNo,score,flag) values ('$StuNo','$CouNo','','0')";//报名课程
+		$insertCourse_Result2=mysql_query($insertCourse2);
 		for($k = 0; $k < 3; $k++)
 		{
 			if($Coursetimearray[$k] != 0){

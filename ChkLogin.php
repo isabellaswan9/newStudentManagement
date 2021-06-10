@@ -15,7 +15,6 @@ $userpwd=$_POST['userpwd'];
 if($role=="teacher")
 {
 	$ChkLogin="SELECT * from teacher where TeaNo='$username' and Pwd=SHA1(".$userpwd.")";
-	echo $ChkLogin;
 	}
 	else
 	{
