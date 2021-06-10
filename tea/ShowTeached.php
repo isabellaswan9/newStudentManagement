@@ -171,7 +171,7 @@ if(db_num_rows($ShowCourseResult)>0){
 				      }
 				      else
 				        echo"<li class='page-item disabled'><a href='' class='page-link'>最后一页</a></li>";
-				}
+				
 						?>
 						</li>
 					</ul>
