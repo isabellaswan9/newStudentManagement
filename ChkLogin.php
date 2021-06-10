@@ -14,11 +14,12 @@ $username=$_POST['username'];
 $userpwd=$_POST['userpwd'];
 if($role=="teacher")
 {
-	$ChkLogin="select * from teacher where TeaNo='$username' and Pwd=SHA1('$userpwd')";
+	$ChkLogin="SELECT * from teacher where TeaNo='$username' and Pwd=SHA1(".$userpwd.")";
+	echo $ChkLogin;
 	}
 	else
 	{
-		$ChkLogin="select * from student where StuNo='$username' and Pwd=SHA1('$userpwd')";
+		$ChkLogin="SELECT * from student where StuNo='$username' and Pwd=SHA1(".$userpwd.")";
 		}
 		$ChkLoginResult=db_query($ChkLogin);
 		$number=db_num_rows($ChkLoginResult);
