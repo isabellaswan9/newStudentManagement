@@ -29,7 +29,7 @@ if($role=="admin")
 			}else{
 				echo"<script>";
 				echo"alert(\"错误的用户名或者密码，请重新登录\");";
-				echo"location.href=\"login.php\"";
+				echo"location.href=\"admin.php\"";
 				echo"</script>";
 				}
 ?>

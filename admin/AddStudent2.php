@@ -61,8 +61,9 @@ for($j=2;$j<=$highestRow;$j++)
         $StuNo=trim($StuNo);
         $StuName=trim($StuName);
         $ClassNo=trim($ClassNo);
+        $pw='0000'.substr($StuNo,4,4);
 
-        $AddStudent_SQL="insert into Student values('$StuNo','$ClassNo','$StuName','00000000')";
+        $AddStudent_SQL="insert into Student values('$StuNo','$ClassNo','$StuName',SHA1('$pw'))";
         $AddStudent_Result=db_query($AddStudent_SQL);
         if(!$AddStudent_Result){
             echo"<script>";
