@@ -22,12 +22,19 @@
       <form class="d-flex">
         <ul class="navbar-nav me-auto">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-              </svg>
-            你好！<?php if (!session_id()) session_start(); echo $_SESSION['username']?></a>
+
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">你好！
+              <?php 
+              if (!session_id()) session_start(); 
+                include("../conn/db_conn.php");
+                include("../conn/db_func.php");
+                $Namemun = $_SESSION['username'];
+                $Name_Search = "SELECT TeaName FROM teacher WHERE TeaNo = '$Namemun'";
+                $Name_Result = db_query($Name_Search);
+                $Name = mysql_fetch_array($Name_Result);
+                echo $Name[0];
+                ?></a>
+
             <div class="dropdown-menu">
               <a class="dropdown-item" href="Changepwd.php">修改密码</a>
               <div class="dropdown-divider"></div>

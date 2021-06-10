@@ -22,8 +22,6 @@ if(! isset($_SESSION['username']))
 	header("Location:../login.php");
 	exit();
 	}
-	include("../conn/db_conn.php");
-	include("../conn/db_func.php");
 	$StuNo=$_SESSION['username'];
 	$ShowCourse_sql="select * from course where CouNo not in(select CouNo from stucou where StuNo='$StuNo')ORDER BY CouNo";
 	$ShowCourseResult=db_query($ShowCourse_sql);
@@ -37,7 +35,7 @@ if(! isset($_SESSION['username']))
 					<th width="80" >
 						<font color="#FFFFFF">课程号</font>
 					</th>
-					<th width="220">
+					<th width="200">
 						<font color="#FFFFFF">课程名称</font>
 					</th>
 					<th width="110" >
@@ -49,7 +47,7 @@ if(! isset($_SESSION['username']))
 					<th width="80">
 						<font color="#FFFFFF">任课教师</font>
 					</th>
-					<th width="100">
+					<th width="120">
 						<font color="#FFFFFF">上课时间</font>
 					</th>
 					<th width="50">
@@ -117,14 +115,14 @@ if(! isset($_SESSION['username']))
 						  echo"<tr class='table-active'>";
 					else
 						  echo"<tr>";
-						  echo"<td width='80' align='center' valign='middle'><a href='CourseDetail.php? CouNo=".$row['CouNo']."'>".$row['CouNo']."</a></td>";
-						  echo"<td width='220' valign='middle' align='center'>".$row['CouName']."</td>";
-						  echo"<td width='80' align='center' valign='middle'>".$row['Kind']."</td>";
-						  echo"<td width='50' align='center' valign='middle'>".$row['Credit']."</td>";
-						  echo"<td width='80' align='center' valign='middle'>".$row['Teacher']."</td>";
-						  echo"<td width='100' align='center' valign='middle'>".$schooltime1.$schooltime2.$schooltime3."</td>";
-						  echo"<td width='40' align='center' valign='middle'><a href='ModifyCourse.php? CouNo=".$row['CouNo']."'>修改</a></td>";
-						  echo"<td width='40' align='center' valign='middle'><a href='DeleteCourse1.php? CouNo=".$row['CouNo']."'>删除</a></td>";
+						  echo"<td  align='center' valign='middle'><a href='CourseDetail.php? CouNo=".$row['CouNo']."'>".$row['CouNo']."</a></td>";
+						  echo"<td valign='middle' align='center'>".$row['CouName']."</td>";
+						  echo"<td  align='center' valign='middle'>".$row['Kind']."</td>";
+						  echo"<td align='center' valign='middle'>".$row['Credit']."</td>";
+						  echo"<td align='center' valign='middle'>".$row['Teacher']."</td>";
+						  echo"<td align='center' valign='middle'>".$schooltime1.$schooltime2.$schooltime3."</td>";
+						  echo"<td  align='center' valign='middle'><a href='ModifyCourse.php? CouNo=".$row['CouNo']."'>修改</a></td>";
+						  echo"<td align='center' valign='middle'><a href='DeleteCourse1.php? CouNo=".$row['CouNo']."'>删除</a></td>";
 						  echo"</tr>";
 						  $j=$i+1; 
 					 }

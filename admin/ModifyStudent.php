@@ -24,8 +24,6 @@ if(! isset($_SESSION["username"])){
   header("Location:../login.php");
   exit();
   }
-include("../conn/db_conn.php");
-include("../conn/db_func.php");
 $ShowDetail_sql="select * from student where StuNo='$StuNo'";
 $ShowDetailResult=db_query($ShowDetail_sql);
 $row=db_fetch_array($ShowDetailResult);

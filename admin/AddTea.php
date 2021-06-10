@@ -35,8 +35,6 @@ if(! isset($_SESSION["username"])){
 			<div class="form-group">
 			<label for="exampleSelect1" class="form-label mt-4">教师工号：</label>
 			<?php
-			include("../conn/db_conn.php");
-			include("../conn/db_func.php");
 			$adminNo=$_SESSION['username'];
 			$ShowTeacher_sql="select * from teacher order by TeaNo desc";
 			$ShowTeacherResult=db_query($ShowTeacher_sql);

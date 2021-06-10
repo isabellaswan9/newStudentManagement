@@ -14,7 +14,7 @@ $username=$_POST['username'];
 $userpwd=$_POST['userpwd'];
 if($role=="admin")
 {
-	$ChkLogin="select * from admin where adminNo='$username' and Pwd='$userpwd'";
+	$ChkLogin="select * from admin where adminNo='$username' and Pwd=SHA1('$userpwd')";
 	}
 		$ChkLoginResult=db_query($ChkLogin);
 		$number=db_num_rows($ChkLoginResult);

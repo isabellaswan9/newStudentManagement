@@ -22,8 +22,6 @@ if(! isset($_SESSION['username']))
 	unset($_SESSION['CouNo']);
 
 	unset($_SESSION['data']);*/
-	include("../conn/db_conn.php");
-	include("../conn/db_func.php");
 	$StuNo=$_SESSION['username'];/*教师编号*/
 	$CouNo=$_GET['CouNo'];/*课程编号*/
 	$_SESSION['CouNo'] = $CouNo;
@@ -33,7 +31,7 @@ if(! isset($_SESSION['username']))
 	$ShowCourseResult=db_query($ShowCourse_sql);
 
 ?>
-<div class="contain-wrap">
+<div class="contain-wrap" style="min-height: 2600px;">
 <div class="myTable">
 <table class="table table-hover" width="610" border="0" align="center" cellpadding="0" cellspacing="1">
 	<caption align="top" style="text-align:center"><font size="5" color="black">

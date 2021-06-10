@@ -22,8 +22,6 @@ if(!isset($_SESSION['username']))
 	header("Location:../login.php");
 	exit();
 }
-include("../conn/db_conn.php");
-include("../conn/db_func.php");
 $StuNo=$_SESSION['username'];
 $sql="select * from course,score where course.CouNo=score.CouNo and StuNo='$StuNo' ";
 $result=db_query($sql);

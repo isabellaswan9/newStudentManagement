@@ -29,18 +29,16 @@ if(!isset($_SESSION['username']))
 $keyWord=$_GET['keyWord'];
 $ColumnName=$_GET['ColumnName'];
 $keyWord=trim($keyWord);
-include("../conn/db_conn.php");
-include("../conn/db_func.php");
 switch($ColumnName)
 {
 	case "TeaNo";
-		$sql="select * from teacher where TeaNo LIKE \"%".$keyWord."%\"";
+		$sql="select * from teacher where TeaNo='$keyWord'";
 		break;
 	case "TeaName";
 		$sql="select * from teacher where TeaName LIKE \"%".$keyWord."%\"";
 		break;
 	case "DepartNo";
-		$sql="select * from teacher where DepartNo LIKE \"%".$keyWord."%\"";
+		$sql="SELECT * from teacher INNER JOIN department ON department.DepartNo = teacher.DepartNo where department.DepartName LIKE \"%".$keyWord."%\"";
 		break;
 }
 $result=db_query($sql);
@@ -48,18 +46,18 @@ $result=db_query($sql);
 
 
 
-<div class="contain-wrap" style=" min-height: 400px;">
+<div class="contain-wrap" style=" min-height: 650px;">
 	<div class="myTable">
 		<table class="table table-hover" width="610" border="0" align="center" cellpadding="0" cellspacing="1">
 			<thead>
 				<tr class="table-primary" bgcolor="#0066CC" align='center' >
-					<th width="80" align="center">
+					<th width=30% align="center">
 						<font color="#FFFFFF">工号</font>
 					</th>
-					<th width="220" align="center">
+					<th width=30% align="center">
 						<font color="#FFFFFF">教师姓名</font>
 					</th>
-					<th width="80">
+					<th width=40%>
 						<font color="#FFFFFF" align="center">学院</font>
 					</th>
 				</tr>
@@ -75,15 +73,17 @@ $result=db_query($sql);
 						echo "<tr bgcolor='#dddddd'>";
 					else
 						echo "<tr>";
-					echo "<td width='80' align='center'>".$row['TeaNo']."</td>";
+					echo "<td  align='center'>".$row['TeaNo']."</td>";
 			?>
 
-			<td width="220" align="center">
+			<td align="center">
 				<?php echo $row['TeaName'] ?>
 			</td>
-			<td width="80"  align="center">
-				<?php echo $row['DepartNo']  ?>
-			</td>
+			<?php $Search_Depart = "SELECT DepartName FROM department WHERE DepartNo='".$row['DepartNo']."' ";
+			  $Search_Result = db_query($Search_Depart);
+			  $DepartName = db_fetch_array($Search_Result);
+			  echo"<td  align='center'>".$DepartName[0]."</td>";?>
+		
 			</tr>
 
 			<?php

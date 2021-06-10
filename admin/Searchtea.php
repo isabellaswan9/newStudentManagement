@@ -18,8 +18,6 @@ if(! isset($_SESSION['username']))
 	header("Location:../login.php");
 	exit();
 	}
-	include("../conn/db_conn.php");
-	include("../conn/db_func.php");
 	$adminNo=$_SESSION['username'];
 ?>
 
@@ -33,7 +31,7 @@ if(! isset($_SESSION['username']))
               <select id="exampleSelect1" name="ColumnName">
                 <option value="TeaNo">教师编号</option>
                 <option value="TeaName">教师名字</option>
-                <option value="DepartNo">部门类型</option>
+                <option value="DepartNo">所属学院</option>
               </select>
             </div>    
             <div class="form-group">

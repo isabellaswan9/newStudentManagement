@@ -32,6 +32,7 @@ include("../conn/db_func.php");
 $CouNo=$_POST['CouNo'];
 $CouName=$_POST['CouName'];
 $Kind=$_POST['Kind'];
+$DepartNo=$_POST['DepartNo'];
 $Credit=$_POST['Credit'];
 $Teacher=$_POST['Teacher'];
 
@@ -62,7 +63,8 @@ $CouNo=trim($CouNo);
 $CouName=trim($CouName);
 $Kind=trim($Kind);
 $Teacher=trim($Teacher);
-$DepartNo=trim($_POST['DepartNo']);
+$Kind=trim($Kind);
+$DepartNo=trim($DepartNo);
 $LimitNum=trim($LimitNum);
 
 

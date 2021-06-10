@@ -11,9 +11,6 @@
 
 <title>添加学生</title>
 
-<script>
-  
-</script>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -38,8 +35,6 @@ if(! isset($_SESSION["username"])){
           <div class="form-group">
           <label for="exampleSelect1" class="form-label mt-4">学号：</label>
             <?php
-            include("../conn/db_conn.php");
-            include("../conn/db_func.php");
             $adminNo=$_SESSION['username'];
             $ShowStudent_sql="select * from student order by StuNo desc";
             $ShowStudentResult=db_query($ShowStudent_sql);
@@ -50,13 +45,77 @@ if(! isset($_SESSION["username"])){
 
           <label for="exampleSelect1" class="form-label mt-4">学生名字：</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="StuName"/>
-          <label for="exampleSelect1" class="form-label mt-4">学生班级：</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="ClassNo"/>
+          <script language = "JavaScript">
+                function Dsy(){
+                this.Items = {};
+                }
+                Dsy.prototype.add = function(id,iArray) {
+                this.Items[id] = iArray;
+                }
+                Dsy.prototype.Exists = function(id) {
+                if(typeof(this.Items[id]) == "undefined") return false;
+                return true; }
+                function change(v){
+                var str="0";
+                for(i=0;i<v;i++){ str+=("_"+(document.getElementById(s[i]).selectedIndex-1));};
+                var ss=document.getElementById(s[v]);
+                with(ss){
+                length = 0;
+                options[0]=new Option(opt0[v],opt0[v]);
+                if(v && document.getElementById(s[v-1]).selectedIndex>0 || !v) {
+                if(dsy.Exists(str)){
+                ar = dsy.Items[str];
+                for(i=0;i<ar.length;i++)options[length]=new Option(ar[i],ar[i]);
+                if(v)options[1].selected = true;
+                }
+                }
+                if(++v<s.length){change(v);
+                }
+                }
+                }
+
+                var dsy = new Dsy();
+                dsy.add ("0",["数学与信息科学学院","外国语学院","土木建筑学院","计算机学院","电气与工程学院","化学与材料学院","经济与统计学院","人文学院","体育学院"]);
+                dsy.add("0_0",["信计1班","精算2班","数学3班"]);
+                dsy.add("0_1",["英语1班","口译2班","商英3班"]);
+                dsy.add("0_2",["土木1班","土木2班"]);
+                dsy.add("0_3",["软工1班","网安2班"]);
+                dsy.add("0_4",["机械1班","自动化2班"]);
+                dsy.add("0_5",["化学1班"]);
+                dsy.add("0_6",["统计1班"]);
+                dsy.add("0_7",["汉语1班","文学2班"]);
+                dsy.add("0_8",["体育1班","体育2班"]);
+                dsy.add("0_9",[""]);
+                </script>
+
+                <script language = "JavaScript">
+                var s=["department","classnam"];
+                var opt0 = ["==请选择==","==请选择=="];
+                function setup(){
+                for(i=0;i<s.length-1;i++)
+                document.getElementById(s[i]).onchange=new Function("change("+(i+1)+")");
+                change(0);
+                }
+                </script>
+                <script language="javascript" src="1.js"></script>
+                <form id="Form1" method="post" runat="server">
+                </br>
+                <label for="exampleSelect1" classnam="form-label mt-4">学院：</label><Select id="department" runat="server" NAME="department"></Select>
+              </br></br>
+                <label for="exampleSelect1" classnam="form-label mt-4">班级：</label>
+                <Select id="classnam" runat="server" NAME="classnam"></Select>
+                </form>
+                <SCRIPT language="javascript">
+                setup()
+                </SCRIPT>
+          
+
+
 
        <!--  <label for="exampleSelect1" class="form-label mt-4">密码：</label>
          <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="Pwd">
 		  	<label class="form-label mt-4"><font color="red">注意：密码为8位数字</font></label>-->
-        <p><strong>（初始密码默认为0000加上学号的后4位）</strong></p>
+        <p><strong></br>（初始密码默认为0000加上学号的后4位）</strong></p>
           <div class="form-group set-center">
             <button type="submit" name="B1" id="button" class="btn btn-primary set-padding">确定</button>
               <button type="reset" name="B2" id="button" class="btn btn-primary set-padding">重置</button>

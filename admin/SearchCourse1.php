@@ -32,8 +32,6 @@
 				$keyWord=$_GET['keyWord'];
 				$ColumnName=$_GET['ColumnName'];
 				$keyWord=trim($keyWord);
-				include("../conn/db_conn.php");
-				include("../conn/db_func.php");
 				switch($ColumnName)
 				{
 					case "CouNo";
@@ -61,7 +59,7 @@
 				$result=db_query($sql);
 				?>
 		</div>
-		<div class="contain-wrap2" style=" min-height: 450px;">
+		<div class="contain-wrap2" style=" min-height: 600px;">
 			<div class="myTable">
 				<table class="table table-hover" width="610" border="0" align="center" cellpadding="0" cellspacing="1" >
 					<thead>
@@ -69,7 +67,7 @@
 							<th width="80" align="center">
 								<font color="#FFFFFF">课程编码</font>
 							</th>
-							<th width="220" align="center">
+							<th width="180" align="center">
 								<font color="#FFFFFF">课程名称</font>
 							</th>
 							<th width="80">
@@ -81,7 +79,7 @@
 							<th width="80">
 								<font color="#FFFFFF" align="center">任课教师</font>
 							</th>
-							<th width="100">
+							<th width="120">
 								<font color="#FFFFFF" align="center">上课时间</font>
 							</th>
 						</tr>
@@ -135,23 +133,23 @@
 									echo "<tr bgcolor='#dddddd'>";
 								else
 									echo "<tr>";
-								echo "<td width='80' align='center'><a href='CourseDetail.php?CouNo=".$row['CouNo']."'>".$row['CouNo']."</a></td>";
+								echo "<td valign='middle' align='center'><a href='CourseDetail.php?CouNo=".$row['CouNo']."'>".$row['CouNo']."</a></td>";
 						?>
 
 
-					<td width="220" align="center">
+					<td valign='middle' align='center'>
 						<?php echo $row['CouName'] ?>
 					</td>
-					<td width="80" align='center'>
+					<td valign='middle' align='center'>
 						<?php echo $row['Kind']  ?>
 					</td>
-					<td width="50" align='center'>
+					<td valign='middle' align='center'>
 						<?php echo $row['Credit']  ?>
 					</td>
-					<td width="80" align='center'>
+					<td valign='middle' align='center'>
 						<?php echo $row['Teacher'] ?>
 					</td>
-					<td width="120" align='center'>
+					<td valign='middle' align='center'>
 						<?php echo $schooltime1.$schooltime2.$schooltime3;  ?>
 					</td>
 					</tr>

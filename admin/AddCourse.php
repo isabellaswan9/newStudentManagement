@@ -36,8 +36,6 @@ if(! isset($_SESSION["username"])){
                 <div class="form-group">
                     <label for="exampleSelect1" class="form-label mt-4">课程编号：</label>
                     <?php
-                    include("../conn/db_conn.php");
-                    include("../conn/db_func.php");
                     $adminNo=$_SESSION['username'];
                     $ShowCourse_sql="select * from course order by CouNo desc";
                     $ShowCourseResult=db_query($ShowCourse_sql);
@@ -60,9 +58,19 @@ if(! isset($_SESSION["username"])){
 
                     <label for="exampleSelect1" class="form-label mt-4">学分：</label>
                     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="Credit">
-                    <label for="exampleSelect1" class="form-label mt-4">课程所属学院编号：</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="DepartNo">
-                    <label for="exampleSelect1" class="form-label mt-4">教师姓名：</label>
+                    <label for="exampleSelect1" class="form-label mt-4">课程所属学院：</label>
+                    <select id="exampleSelect1" name="DepartNo">
+                    <option value="01">数学与信息科学学院</option>
+                    <option value="02">外国语学院</option>
+                    <option value="03">土木建筑学院</option>
+                    <option value="04">计算机学院</option>
+                    <option value="05">电气与工程学院</option>
+                    <option value="06">化学与材料学院</option>
+                    <option value="07">经济与统计学院</option>
+                    <option value="08">人文学院</option>
+                    <option value="09">体育学院</option>
+                    </select>
+                    <label for="exampleSelect1" class="form-label mt-4">授课教师姓名：</label>
                     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="Teacher">
 
                     <label for="exampleSelect1" class="form-label mt-4">上课时间：</label>

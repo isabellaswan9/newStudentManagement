@@ -28,8 +28,6 @@ if(!isset($_SESSION['username']))
 $keyWord=$_GET['keyWord'];
 $ColumnName=$_GET['ColumnName'];
 $keyWord=trim($keyWord);
-include("../conn/db_conn.php");
-include("../conn/db_func.php");
 switch($ColumnName)
 {
 	case "StuNo";
@@ -48,8 +46,8 @@ $result=db_query($sql);
 ?>
 
 
-<div class="contain-wrap" style=" min-height: 450px;">
-	<div class="myTable">
+<div class="contain-wrap" style=" min-height: 850px;">
+	<div class="myTable" style=" min-height: 700px;">
 		<table class="table table-hover" width="610" border="0" align="center" cellpadding="0" cellspacing="1">
 			<thead>
 				<tr class="table-primary" bgcolor="#0066CC" align='center'>
@@ -106,6 +104,5 @@ $result=db_query($sql);
 	</div>
 </div>
 
-<?php include("../footer.php"); ?>   
 </body>
 </html>

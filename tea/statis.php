@@ -88,8 +88,6 @@ if(! isset($_SESSION["username"])){//会话不存在就回去登录
 	header("Location:../login.php");
 	exit();
 	}
-	include("../conn/db_conn.php");
-	include("../conn/db_func.php");
 	$CuoNo=$_SESSION['CouNo'] ;
 	$all_sql="select * from statistic where CouNo='$CuoNo'";//查看该课程的统计情况
 	$allgradeResult=db_query($all_sql);

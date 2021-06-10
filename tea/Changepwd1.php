@@ -25,7 +25,7 @@ $oldPwd=trim($oldPwd);
 $username=$_SESSION["username"];
 $userpwd=$oldPwd;
 
-$ChkLogin="select * from teacher where TeaNo='$username' and Pwd='$userpwd'";
+$ChkLogin="SELECT * from teacher where TeaNo='$username' and Pwd=SHA1('$userpwd')";
 $ChkLoginResult=db_query($ChkLogin);
 $number=db_num_rows($ChkLoginResult);
 $row=db_fetch_array($ChkLoginResult);
@@ -35,7 +35,7 @@ if($number<=0){
 	echo"location. href=\"Changepwd.php?flag=false\"";
 	echo"</script>";
 }else{
-	$UpdateTeacher_SQL="Update teacher set Pwd='$Pwd' where 1";
+	$UpdateTeacher_SQL="UPDATE teacher set Pwd=SHA1('$Pwd') where  TeaNo='$username'";
 	$UpdateTeacher_Result=db_query($UpdateTeacher_SQL); 
 	if($UpdateTeacher_Result){
 		echo"<script>";

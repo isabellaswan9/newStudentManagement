@@ -105,8 +105,6 @@ if(! isset($_SESSION["username"])){//会话不存在就回去登录
 	header("Location:../login.php");
 	exit();
 	}
-	include("../conn/db_conn.php");
-	include("../conn/db_func.php");
 	//$StuNo=$_POST[StuNo];//学号
 	$StuNo = $_SESSION['username'];
 	//$StuNo='12345678';

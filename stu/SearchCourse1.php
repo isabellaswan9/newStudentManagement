@@ -20,8 +20,6 @@ if(!isset($_SESSION['username']))
 $keyWord=$_GET['keyWord'];
 $ColumnName=$_GET['ColumnName'];
 $keyWord=trim($keyWord);
-include("../conn/db_conn.php");
-include("../conn/db_func.php");
 switch($ColumnName)
 {
 	case "CouNo";
