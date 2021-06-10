@@ -24,6 +24,13 @@ if(! isset($_SESSION['username']))
 	$StuNo=$_SESSION['username'];
 	$ShowCourse_sql="select * from course where Teacher in(select TeaName from Teacher where TeaNo='$StuNo') ORDER BY CouNo";
 	$ShowCourseResult=db_query($ShowCourse_sql);
+if(empty($ShowCourseResult))
+{
+	echo"<script>";
+	echo"alert(\"暂无学生选课\");";
+	echo"location.href=\"ShowCourse.php\"";
+	echo"</script>";
+}
 ?>
 <div class="contain-wrap">
 <div class="myTable">
@@ -82,7 +89,7 @@ if(db_num_rows($ShowCourseResult)>0){
 	$number=db_num_rows($ShowCourseResult);
 	
 	if(empty($_GET['p']))
-	$p=0;
+		$p=0;
 	else {$p=$_GET['p'];}	
 	$check=$p +10;
 	for($i=0;$i<$number;$i++){
@@ -121,6 +128,12 @@ if(db_num_rows($ShowCourseResult)>0){
 		 }
 		}
 	}
+	else{
+				echo"<script>";
+				echo"alert(\"暂无学生选课\");";
+				echo"location.href=\"ShowCourse.php\"";
+				echo"</script>";
+				}
 ?>
 </table>
 </br>
