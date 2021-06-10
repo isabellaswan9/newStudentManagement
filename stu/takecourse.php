@@ -36,8 +36,7 @@ if(! isset($_SESSION["username"])){//会话不存在就回去登录
 	}
 	$CanI=0;//冲突标志，0表示不冲突，1表示冲突
 	foreach($Coursetimearray as $x){//遍历该课程的所有时间
-		echo '这门课的时间：'.$x.'  ';
-		echo "</br>";
+		//echo '这门课的时间：'.$x.'  ';
 		if(in_array($x,$StuTimearray)){//如果该时间在学生现有的课表中，冲突
 			$CanI=1;		
 			break;//满足冲突就不再继续遍历，直接退出
@@ -47,7 +46,7 @@ if(! isset($_SESSION["username"])){//会话不存在就回去登录
 	if($CanI==1){//冲突标志为1
 		echo"<script>";
 		    echo"alert(\"课程时间冲突\");";
-			echo"location.href=\"showchoosed.php\"";	
+			echo"location.href=\"ShowCourse.php\"";	
 			echo"</script>";
 	}
 	else{//冲突标志为0，选课
@@ -65,7 +64,6 @@ if(! isset($_SESSION["username"])){//会话不存在就回去登录
 					mysql_query($updateCoursetime);
 				}
 				$updateCoursetime="update coursetime set `$Coursetimearray[$k]`='$CouNo'  where StuNo='$StuNo'";
-				echo $updateCoursetime;
 				$updateCoursetime_Result=mysql_query($updateCoursetime);
 
 				

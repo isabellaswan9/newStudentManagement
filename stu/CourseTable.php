@@ -16,17 +16,20 @@ caption{
 
 }
 .table{
+	vertical-align: middle!important;
 	width:80%;
 	margin:auto;
 	text-align:center;
 	border:2px solid #ccc;	
 }
 td{
+	vertical-align: middle!important;
 	height:120px;
 	width:18%;
 	border:1px solid #ccc;
 }
 th{
+	vertical-align: middle!important;
 	text-align:center;
 }
 .coursetime{
@@ -85,7 +88,7 @@ th{
 	  <td id='24'></td>
 	  </tr>
 	<tr class="info">
-      <td class='coursetime'>第五节</td>
+      <td class='coursetime' >第五节</td>
       <td id='5'></td>
       <td id='10'></td>
 	  <td id='15'></td>
@@ -105,7 +108,8 @@ if(! isset($_SESSION["username"])){//会话不存在就回去登录
 	include("../conn/db_conn.php");
 	include("../conn/db_func.php");
 	//$StuNo=$_POST[StuNo];//学号
-	$StuNo='12345678';
+	$StuNo = $_SESSION['username'];
+	//$StuNo='12345678';
 	$ShowDetail_sql="select * from coursetable where StuNo='$StuNo'";//查看该学生选了什么课
 	$ShowDetailResult=db_query($ShowDetail_sql);
 	//获取StuNo, course.CouNo,CouName,Classroom,time1,time2,time3，一门课一行

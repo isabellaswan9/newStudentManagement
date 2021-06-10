@@ -127,6 +127,7 @@ if(db_num_rows($ShowCourseResult)>0){
 			  $j=$i+1; 
 		 }
 		}
+
 	}
 	else{
 				echo"<script>";
@@ -134,6 +135,7 @@ if(db_num_rows($ShowCourseResult)>0){
 				echo"location.href=\"ShowCourse.php\"";
 				echo"</script>";
 				}
+
 ?>
 </table>
 </br>
@@ -169,6 +171,7 @@ if(db_num_rows($ShowCourseResult)>0){
 				      }
 				      else
 				        echo"<li class='page-item disabled'><a href='' class='page-link'>最后一页</a></li>";
+				}
 						?>
 						</li>
 					</ul>

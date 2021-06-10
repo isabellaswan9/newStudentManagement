@@ -132,7 +132,7 @@
 									$StuNo=$_SESSION["username"];
 									$GetTotal_SQL="select * from stucou where StuNo='$StuNo'";
 									$GetTotalResult=db_query($GetTotal_SQL);
-									if(db_num_rows($GetTotalResult)<10){
+									if(db_num_rows($GetTotalResult)<26){
 									echo"<td width='100' valign='middle' align='center'><form method='post' action='takecourse.php'>
 										<input type='hidden' name='StuNo' value= ".$_SESSION['username'].">
 										<input type='hidden' name='CouNo' value= ".$row['CouNo'].">
