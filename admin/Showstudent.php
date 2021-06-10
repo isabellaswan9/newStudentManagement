@@ -45,9 +45,9 @@ if(! isset($_SESSION['username']))
 					<th width="110" align="center">
 						<font color="#FFFFFF">班级</font>
 					</th>
-										<th width="110" align="center">
+					<th width="110" align="center">
 						<font color="#FFFFFF">学院</font>
-					</th>			
+					</th>				
 					<th width="50" align="center">
 						<font color="#FFFFFF">操作</font>
 					</th>
