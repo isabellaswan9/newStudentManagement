@@ -28,12 +28,12 @@ if(! isset($_SESSION['username']))
             <div class="form-group">
               <label for="exampleSelect1" class="form-label mt-4">查询类型：</label>
               <select id="exampleSelect1" name="ColumnName">
-                <option value="CouNo">课程编号</option>
+                <option value="CouNo">课程号</option>
                 <option value="CouName">课程名称</option>
                 <option value="Kind">类型</option>
                 <option value="Credit">学分</option>
-                <option value="Teacher">教师</option>
-                <option value="DepartName">开课系部</option>
+                <option value="Teacher">授课教师姓名</option>
+                <option value="DepartName">开课学院</option>
               </select>
             </div>    
             <div class="form-group">

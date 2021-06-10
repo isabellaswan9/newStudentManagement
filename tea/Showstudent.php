@@ -31,9 +31,9 @@ if(! isset($_SESSION['username']))
 	$ShowCourseResult=db_query($ShowCourse_sql);
 
 ?>
-<div class="contain-wrap" style="min-height: 2600px;">
+<div class="contain-wrap" style="min-height: 3000px;">
 <div class="myTable">
-<table class="table table-hover" width="610" border="0" align="center" cellpadding="0" cellspacing="1">
+<table class="table table-hover"  border="0" align="center" cellpadding="0" cellspacing="1">
 	<caption align="top" style="text-align:center"><font size="5" color="black">
 		<?php
 		if(db_num_rows($ShowCourseResult)>0){
@@ -48,13 +48,13 @@ if(! isset($_SESSION['username']))
 	</font></caption>
 					<thead>
 						<tr class="table-primary" bgcolor="#0066CC" valign='middle' align='center'>
-							<th width="80">
+							<th width="50">
 								<font color="#FFFFFF" align="center">序号</font>
 							</th>				
-														<th width="100">
+							<th width="150">
 								<font color="#FFFFFF" align="center">学院</font>
 							</th>
-																					<th width="100">
+							<th width="80">
 								<font color="#FFFFFF" align="center">班级</font>
 							</th>
 
@@ -62,14 +62,14 @@ if(! isset($_SESSION['username']))
 							<th width="80">
 								<font color="#FFFFFF" align="center">学号</font>
 							</th>
-							<th width="100">
+							<th width="50">
 								<font color="#FFFFFF" align="center">姓名</font>
 							</th>
 
-							<th width="100">
+							<th width="50">
 								<font color="#FFFFFF" align="center">成绩</font>
 							</th>
-							<th width="100" name="hiden">
+							<th width="30" name="hiden">
 								<font color="#FFFFFF" align="center">添加成绩</font>
 							</th>
 						</tr>
@@ -100,15 +100,15 @@ if(db_num_rows($ShowCourseResult)>0){
 			else
 			  echo"<tr>";
 
-			  echo"<td width='80' valign='middle' align='center'>".($i+1)."</td>";
-			  echo"<td width='80' valign='middle' align='center'>".$department[0]."</td>";
-			  echo"<td width='80' valign='middle' align='center'>".$class[0]."</td>";
-			  echo"<td width='80' valign='middle' align='center'>".$row['StuNo']."</td>";
+			  echo"<td valign='middle' align='center'>".($i+1)."</td>";
+			  echo"<td valign='middle' align='center'>".$department[0]."</td>";
+			  echo"<td valign='middle' align='center'>".$class[0]."</td>";
+			  echo"<td  valign='middle' align='center'>".$row['StuNo']."</td>";
 			  
-			  echo"<td width='80' valign='middle' align='center'>".$row['StuName']."</td>";
-			  echo"<td width='80' valign='middle' align='center'>".$row['score']."</td>";
+			  echo"<td valign='middle' align='center'>".$row['StuName']."</td>";
+			  echo"<td valign='middle' align='center'>".$row['score']."</td>";
 		 	  /*点击查看可以查看学生名单以及录入成绩*/		  
-			 echo"<td width='55' name='hiden' valign='middle' align='center' ><form method='POST' action='ChangeAllScore.php'>       					 	
+			 echo"<td  name='hiden' valign='middle' align='center' ><form method='POST' action='ChangeAllScore.php'>       					 	
 			 <input type='text' name='CJ[]'/>
         	</a></td>
         	";
@@ -153,8 +153,6 @@ if(db_num_rows($ShowCourseResult)>0){
 
 				</div>
 					</div>
-<?php include("../footer.php"); ?>   
-
 
 <script type="text/javascript">
 	if(document.getElementById("get")!=null){

@@ -34,7 +34,7 @@
 					<thead>
 						<tr class="table-primary" bgcolor="#0066CC" valign='middle' align='center'>
 							<th width="80" align="center">
-								<font color="#FFFFFF">课程编码</font>
+								<font color="#FFFFFF">课程号</font>
 							</th>
               <th width="80" align="center">
 								<font color="#FFFFFF">操作</font>

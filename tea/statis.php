@@ -40,7 +40,7 @@ th{
 }
 .chart{
 	width: 80%;
-	height:600px;
+	height:500px;
 	margin:auto; 
 	margin-top:50px
 }
@@ -99,7 +99,7 @@ if(! isset($_SESSION["username"])){//会话不存在就回去登录
 	echo"<script>document.getElementById('avgscore').innerHTML='".$detail['avgscore']."'</script>";
 	echo"<script>document.getElementById('passnum').innerHTML='".$detail['passnum']."'</script>";
 	echo"<script>document.getElementById('stunum').innerHTML='".$detail['stunum']."'</script>";
-	echo"<script>document.getElementById('over').innerHTML='".$detail['over90'].$detail['over80'].$detail['over70'].$detail['over60'].$detail['over50'].$detail['over40'].$detail['over30'].$detail['over20'].$detail['over10'].$detail['over0']."'</script>";
+	echo"<script>document.getElementById('over').innerHTML='".$detail['over90'].','.$detail['over80'].','.$detail['over70'].','.$detail['over60'].','.$detail['over50'].','.$detail['over40'].','.$detail['over30'].','.$detail['over20'].','.$detail['over10'].','.$detail['over0']."'</script>";
 	
 	
 
@@ -112,7 +112,9 @@ window.onload =function bargraph(){
 var chartDom = document.getElementById('bar_graph');
 var myChart = echarts.init(chartDom);
 var option;
-var over=document.getElementById('over').innerHTML;
+var over_collect=document.getElementById('over').innerHTML;
+ over=over_collect.split(",");
+
 option = {
 		title:{
 		text:'学生成绩分布图',
@@ -158,7 +160,8 @@ var option2;
 
 option2 = {
     legend: {
-        top: 'bottom'
+        orient: 'vertical',
+        left: 'left',
     },
     toolbox: {
         show: true,
@@ -180,12 +183,7 @@ option2 = {
 		},
             
             type: 'pie',
-            radius: [50, 250],
-            center: ['50%', '50%'],
-            roseType: 'area',
-            itemStyle: {
-                borderRadius: 8
-            },
+            radius: '80%',
 			label:{            //饼图图形上的文本标签
                             normal:{
                                 show:true,
@@ -194,9 +192,7 @@ option2 = {
                                     fontWeight : 300 ,
                                     fontSize : 16    //文字的字体大小
                                 },
-                                formatter:'{d}%'
-
-                                
+                                formatter:'{d}%'                                
                             }
                         },
 			
