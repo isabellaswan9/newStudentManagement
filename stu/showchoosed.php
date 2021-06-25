@@ -24,19 +24,17 @@
         header("Location:../login.php");
         exit();
       }
-      include("../conn/db_conn.php");
-      include("../conn/db_func.php");
       $StuNo=$_SESSION['username'];
       $sql="select * from course,stucou where course.CouNo=stucou.CouNo and StuNo='$StuNo' ";
       $result=db_query($sql);
     ?>
-    <div class="contain-wrap">
+    <div class="contain-wrap" >
       <div class="myTable">
         <table class="table table-hover" width="610" border="0" align="center" cellpadding="0" cellspacing="1">
 					<thead>
-						<tr class="table-primary" bgcolor="#0066CC">
+						<tr class="table-primary" bgcolor="#0066CC" valign='middle' align='center'>
 							<th width="80" align="center">
-								<font color="#FFFFFF">课程编码</font>
+								<font color="#FFFFFF">课程号</font>
 							</th>
               <th width="80" align="center">
 								<font color="#FFFFFF">操作</font>
@@ -89,41 +87,41 @@
             {
               $row=db_fetch_array($result);
 			  
-			$num1=($row['time1']%5==0)?5:($row['time1']%5);
-			$schooltime1="周".chinese(floor($row['time1']/6+1))."第".chinese($num1)."节<br>";
-							
-			if($row['time2']){
-			$num2=($row['time2']%5==0)?5:($row['time2']%5);
-			$schooltime2="周".chinese(floor($row['time2']/6+1))."第".chinese($num2)."节<br>";
-			}
-			else $schooltime2='';
-						
-			if($row["time3"]){
-			$num3=($row['time3']%5==0)?5:($row['time3']%5);
-			$schooltime3="周".chinese(floor($row['time3']/6+1))."第".chinese($num3)."节<br>";
-			}
-			else $schooltime3='';
+			           $num1=($row['time1']%5==0)?5:($row['time1']%5);
+                $schooltime1="周".chinese(ceil($row['time1']/5))."第".chinese($num1)."节<br>";
+                
+                if($row['time2']){
+                $num2=($row['time2']%5==0)?5:($row['time2']%5);
+                $schooltime2="周".chinese(ceil($row['time2']/5))."第".chinese($num2)."节<br>";
+                }
+                else $schooltime2='';
+              
+                if($row["time3"]){
+                $num3=($row['time3']%5==0)?5:($row['time3']%5);
+                $schooltime3="周".chinese(ceil($row['time3']/5))."第".chinese($num3)."节<br>";
+                }
+                else $schooltime3='';
 							
                 if($i%2==0)
                 echo "<tr bgcolor='#dddddd'>";
                 else
                 echo "<tr>";
-                echo "<td width='40'><a href='CourseDetail.php?CouNo=".$row['CouNo']."'>".$row['CouNo']."</a></td>";
-                      echo"<td width='40'><a href='delCourse.php?CouNo=".$row['CouNo']."'>删除</a></td>";
+                echo "<td width='40' valign='middle' align='center'><a href='CourseDetail.php?CouNo=".$row['CouNo']."'>".$row['CouNo']."</a></td>";
+                      echo"<td width='40' valign='middle' align='center'><a href='delCourse.php?CouNo=".$row['CouNo']."'>退课</a></td>";
             ?>
-            <td width="108" align="center">
+            <td  valign='middle' align='center'>
               <?php echo $row['CouName'] ?>
             </td>
-            <td width="127">
+            <td valign='middle' align='center'>
               <?php echo $row['Kind']  ?>
             </td>
-            <td width="105">
+            <td valign='middle' align='center'>
               <?php echo $row['Credit']  ?>
             </td>
-            <td width="56">
+            <td  valign='middle' align='center'>
               <?php echo $row['Teacher'] ?>
             </td>
-            <td width="83">
+            <td  valign='middle' align='center'>
               <?php echo $schooltime1.$schooltime2.$schooltime3;  ?>
             </td>
           </tr>

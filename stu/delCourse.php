@@ -14,14 +14,27 @@ if(! isset($_SESSION["username"])){
 	}
 include("../conn/db_conn.php");
 include("../conn/db_func.php");
-if(!isset($_POST['StuNo']))
+/*if(!isset($_POST['StuNo']))
 $StuNo=12345678;
-else $StuNo=$_POST['StuNo'];
-if(!isset($_POST['CouNo']))
+else $StuNo=$_POST['StuNo'];*/
+$StuNo=$_SESSION['username'];
 $CouNo=$_GET['CouNo'];
-else $CouNo=$_POST['CouNo'];
 	$DeleteCourse="delete from stucou where CouNo='$CouNo' and StuNo='$StuNo'";
 	$DeleteCourse_Result=db_query($DeleteCourse);
+	$DeleteCourse2="delete from score where CouNo='$CouNo' and StuNo='$StuNo'";
+	$DeleteCourse_Result2=db_query($DeleteCourse2);
+
+
+$StuTime_sql="select * from CourseTime where StuNo='$StuNo'";
+$StuTimeResult=mysql_query($StuTime_sql);
+$StuTimeRow=db_fetch_array($StuTimeResult);
+for($i=1;$i<25;$i++){
+		if($StuTimeRow[$i] == $CouNo){
+			$DeleteCourse3="update coursetime set `".$i."`='' where StuNo='$StuNo'";
+			$DeleteCourse_Result3=db_query($DeleteCourse3);
+		}
+	}
+
 	if($DeleteCourse_Result){
 		echo"<script>";
 		echo"alert(\"所选课程删除成功\");";

@@ -32,15 +32,18 @@ include("../conn/db_conn.php");
 include("../conn/db_func.php");
 $StuNo=$_POST['StuNo'];
 $StuName=$_POST['StuName'];
-$ClassNo=$_POST['ClassNo'];
+$classnam=$_POST['classnam'];
 
 
 $StuNo=trim($StuNo);
 $StuName=trim($StuName);
-$ClassNo=trim($ClassNo);
+$classnam=trim($classnam);
 $pw='0000'.substr($StuNo,4,4);
 
-$AddStudent_SQL="insert into Student values('$StuNo','$ClassNo','$StuName','$pw')";
+$Search_ClassNo = "SELECT ClassNo FROM class WHERE ClassName='$classnam'";
+$Search_Result = db_query($Search_ClassNo);
+$row = mysql_fetch_array($Search_Result);
+$AddStudent_SQL="insert into Student values('$StuNo','".$row[0]."','$StuName',SHA1('$pw'))";
 $AddStudent_Result=db_query($AddStudent_SQL);
 
 

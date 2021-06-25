@@ -21,11 +21,24 @@
         <li class="nav-item">
           <a class="nav-link" href="showscore.php">查询成绩</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="CourseTable.php">查看课表</a>
+        </li>
       </ul>
       <form class="d-flex">
            <ul class="navbar-nav me-auto">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">你好！<?php if (!session_id()) session_start(); echo $_SESSION['username']?></a>
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">你好！
+              <?php 
+                if (!session_id()) session_start(); 
+                include("../conn/db_conn.php");
+                include("../conn/db_func.php");
+                $Namemun = $_SESSION['username'];
+                $Name_Search = "SELECT StuName FROM student WHERE StuNo = '$Namemun'";
+                $Name_Result = db_query($Name_Search);
+                $Name = mysql_fetch_array($Name_Result);
+                echo $Name[0];
+              ?></a>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="Changepwd.php">修改密码</a>
               <div class="dropdown-divider"></div>

@@ -24,8 +24,6 @@ if(! isset($_SESSION["username"])){
   header("Location:../login.php");
   exit();
   }
-include("../conn/db_conn.php");
-include("../conn/db_func.php");
 $ShowDetail_sql="select * from student where StuNo='$StuNo'";
 $ShowDetailResult=db_query($ShowDetail_sql);
 $row=db_fetch_array($ShowDetailResult);
@@ -34,7 +32,7 @@ $row=db_fetch_array($ShowDetailResult);
 
 <div class="contain-wrap">
   <div class="myForm">
-    <form method="get" action="ModifyCourse1.php">
+    <form method="post" action="ModifyStudent1.php">
         <fieldset>
           <legend>修改学生信息</legend>
           <div class="form-group">

@@ -32,6 +32,7 @@ include("../conn/db_func.php");
 $CouNo=$_POST['CouNo'];
 $CouName=$_POST['CouName'];
 $Kind=$_POST['Kind'];
+$DepartNo=$_POST['DepartNo'];
 $Credit=$_POST['Credit'];
 $Teacher=$_POST['Teacher'];
 
@@ -62,7 +63,8 @@ $CouNo=trim($CouNo);
 $CouName=trim($CouName);
 $Kind=trim($Kind);
 $Teacher=trim($Teacher);
-$DepartNo=trim($_POST['DepartNo']);
+$Kind=trim($Kind);
+$DepartNo=trim($DepartNo);
 $LimitNum=trim($LimitNum);
 
 
@@ -77,7 +79,7 @@ if($AddCourse_Result){
 	echo"</script>";
 	}else{
 	echo"<script>";
-	//echo"alert(\"添加课程失败，请重新添加\");";
+	echo"alert(\"添加课程失败，请重新添加(请检查课程号是否已经存在）\");";
 	echo"location. href=\"AddCourse.php\"";
 	echo"</script>";
 		}

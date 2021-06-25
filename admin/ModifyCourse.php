@@ -26,8 +26,6 @@ if(! isset($_SESSION["username"])){
   header("Location:../login.php");
   exit();
   }
-include("../conn/db_conn.php");
-include("../conn/db_func.php");
 $ShowDetail_sql="select * from course,department where CouNo='$CouNo' and course.DepartNo=department.DepartNo";
 $ShowDetailResult=db_query($ShowDetail_sql);
 $row=db_fetch_array($ShowDetailResult);
@@ -40,16 +38,16 @@ $DepartName='DepartName'. strval(intval($row['DepartName']));
 $LimitNum='LimitNum'. strval(intval($row['LimitNum']));
 ?>
 
-<div class="contain-wrap">
+<div class="contain-wrap" style=" min-height: 1100px;">
   <div class="myForm">
-    <form method="get" action="ModifyCourse1.php">
+    <form method="post" action="ModifyCourse1.php">
         <fieldset>
           <legend>修改课程信息</legend>
           <div class="form-group">
           <label for="exampleSelect1" class="form-label mt-4">编号：</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder=""  name="CouNo" value="<?php echo $row['CouNo']?>"/>
 
-          <label for="exampleSelect1" class="form-label mt-4">名称:</label>
+          <label for="exampleSelect1" class="form-label mt-4">课程名称:</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="CouName" value="<?php echo $row['CouName']?>" />
 
           <label for="exampleSelect1" class="form-label mt-4">类型:</label>
@@ -58,7 +56,7 @@ $LimitNum='LimitNum'. strval(intval($row['LimitNum']));
           <label for="exampleSelect1" class="form-label mt-4">学分:</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="Credit" value="<?php echo $row['Credit']?>"/>
 
-          <label for="exampleSelect1" class="form-label mt-4">教师:</label>
+          <label for="exampleSelect1" class="form-label mt-4">教师姓名:</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="Teacher" value="<?php echo $row['Teacher']?>"/>
 
           <label for="exampleSelect1" class="form-label mt-4">上课时间：</label>

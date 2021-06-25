@@ -14,7 +14,8 @@ $username=$_POST['username'];
 $userpwd=$_POST['userpwd'];
 if($role=="admin")
 {
-	$ChkLogin="select * from admin where adminNo='$username' and Pwd='$userpwd'";
+	$ChkLogin="SELECT * from admin where adminNo='$username' and Pwd=SHA1(".$userpwd.")";
+
 	}
 		$ChkLoginResult=db_query($ChkLogin);
 		$number=db_num_rows($ChkLoginResult);
@@ -28,7 +29,7 @@ if($role=="admin")
 			}else{
 				echo"<script>";
 				echo"alert(\"错误的用户名或者密码，请重新登录\");";
-				echo"location.href=\"login.php\"";
+				echo"location.href=\"admin.php\"";
 				echo"</script>";
 				}
 ?>

@@ -22,8 +22,6 @@ if(! isset($_SESSION['username']))
 	unset($_SESSION['CouNo']);
 
 	unset($_SESSION['data']);*/
-	include("../conn/db_conn.php");
-	include("../conn/db_func.php");
 	$StuNo=$_SESSION['username'];/*教师编号*/
 	$CouNo=$_GET['CouNo'];/*课程编号*/
 	$_SESSION['CouNo'] = $CouNo;
@@ -33,9 +31,9 @@ if(! isset($_SESSION['username']))
 	$ShowCourseResult=db_query($ShowCourse_sql);
 
 ?>
-<div class="contain-wrap">
+<div class="contain-wrap" style="min-height: 3000px;">
 <div class="myTable">
-<table class="table table-hover" width="610" border="0" align="center" cellpadding="0" cellspacing="1">
+<table class="table table-hover"  border="0" align="center" cellpadding="0" cellspacing="1">
 	<caption align="top" style="text-align:center"><font size="5" color="black">
 		<?php
 		if(db_num_rows($ShowCourseResult)>0){
@@ -49,23 +47,29 @@ if(! isset($_SESSION['username']))
 		
 	</font></caption>
 					<thead>
-						<tr class="table-primary" bgcolor="#0066CC">
-							<th width="80">
+						<tr class="table-primary" bgcolor="#0066CC" valign='middle' align='center'>
+							<th width="50">
 								<font color="#FFFFFF" align="center">序号</font>
+							</th>				
+							<th width="150">
+								<font color="#FFFFFF" align="center">学院</font>
 							</th>
+							<th width="80">
+								<font color="#FFFFFF" align="center">班级</font>
+							</th>
+
+							
 							<th width="80">
 								<font color="#FFFFFF" align="center">学号</font>
 							</th>
-							<th width="100">
-								<font color="#FFFFFF" align="center">班级</font>
-							</th>
-							<th width="100">
+							<th width="50">
 								<font color="#FFFFFF" align="center">姓名</font>
 							</th>
-							<th width="100">
+
+							<th width="50">
 								<font color="#FFFFFF" align="center">成绩</font>
 							</th>
-							<th width="100" name="hiden">
+							<th width="30" name="hiden">
 								<font color="#FFFFFF" align="center">添加成绩</font>
 							</th>
 						</tr>
@@ -80,20 +84,31 @@ if(db_num_rows($ShowCourseResult)>0){
 		}
 		else{
 					$row = db_fetch_array($ShowCourseResult);
+					
 		}
+		$ShowStudent_sql2="SELECT class.ClassName from student LEFT JOIN class ON class.ClassNo=student.ClassNo WHERE student.ClassNo=".$row['ClassNo'];
+		$ShowStudentResult2=db_query($ShowStudent_sql2);
+		$ShowStudent_sql3="SELECT department.DepartName from class
+							LEFT JOIN department ON department.DepartNo=class.DepartNo
+							WHERE class.ClassNo=".$row['ClassNo'];
+		$ShowStudentResult3=db_query($ShowStudent_sql3);
+		$class=db_fetch_array($ShowStudentResult2);
+		$department=db_fetch_array($ShowStudentResult3);
 		$data[] = $row['StuNo'];
 			if($i%2 ==0)
 			  echo"<tr bgcolor='#DDDDDD'>";
 			else
 			  echo"<tr>";
 
-			  echo"<td width='80' align='center'>".($i+1)."</td>";
-			  echo"<td width='80'>".$row['StuNo']."</td>";
-			  echo"<td width='80'>".$row['ClassNo']."</td>";
-			  echo"<td width='80'>".$row['StuName']."</td>";
-			  echo"<td width='80'>".$row['score']."</td>";
+			  echo"<td valign='middle' align='center'>".($i+1)."</td>";
+			  echo"<td valign='middle' align='center'>".$department[0]."</td>";
+			  echo"<td valign='middle' align='center'>".$class[0]."</td>";
+			  echo"<td  valign='middle' align='center'>".$row['StuNo']."</td>";
+			  
+			  echo"<td valign='middle' align='center'>".$row['StuName']."</td>";
+			  echo"<td valign='middle' align='center'>".$row['score']."</td>";
 		 	  /*点击查看可以查看学生名单以及录入成绩*/		  
-			 echo"<td width='55' name='hiden' ><form method='POST' action='ChangeAllScore.php'>       					 	
+			 echo"<td  name='hiden' valign='middle' align='center' ><form method='POST' action='ChangeAllScore.php'>       					 	
 			 <input type='text' name='CJ[]'/>
         	</a></td>
         	";
@@ -109,6 +124,7 @@ if(db_num_rows($ShowCourseResult)>0){
 </table>
 	<div class='form-group set-center'>
 	<?php
+		if(db_num_rows($ShowCourseResult)>0){
 			if($row['flag'] == 0){
 					$_SESSION['data'] = $data;
 		    echo" 
@@ -123,14 +139,20 @@ if(db_num_rows($ShowCourseResult)>0){
               <button type='submit'  class='btn btn-primary set-padding'>成绩已提交，点击查看统计详情
               </button>
             </form>";
-		}?>
+		}
+	}
+		else{
+				echo"<script>";
+				echo"alert(\"暂无学生选课\");";
+				echo"location.href=\"ShowTeached.php\"";
+				echo"</script>";
+				}
+		?>
 		</div>
 	</br>
 
 				</div>
 					</div>
-<?php include("../footer.php"); ?>   
-
 
 <script type="text/javascript">
 	if(document.getElementById("get")!=null){

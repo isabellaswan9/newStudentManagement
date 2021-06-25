@@ -21,8 +21,8 @@
 			<div class="myTable">
 				<table class="table table-hover" width="610" border="0" align="center" cellpadding="0" cellspacing="1">
 					<thead>
-						<tr class="table-primary" bgcolor="#0066CC">
-							<th width="80" align="center">
+						<tr class="table-primary" bgcolor="#0066CC" align="center"  valign="middle">
+							<th width="80" >
 								<font color="#FFFFFF">课程编码</font>
 							</th>
 							<th width="220" align="center">
@@ -50,8 +50,6 @@ if(! isset($_SESSION['username']))
 	header("Location:../login.php");
 	exit();
 	}
-	include("../conn/db_conn.php");
-	include("../conn/db_func.php");
 	$StuNo=$_SESSION['username'];
 	$ShowCourse_sql="select * from course where CouNo not in(select CouNo from stucou where StuNo='$StuNo')ORDER BY CouNo";
 	$ShowCourseResult=db_query($ShowCourse_sql);
@@ -112,13 +110,13 @@ if(! isset($_SESSION['username']))
 									if($i%2 ==0)
 									echo"<tr bgcolor='#DDDDDD'>";
 								else
-									echo"<tr>";
-									echo"<td width='80' align='center'><a href='CourseDetail.php? CouNo=".$row['CouNo']."'>".$row['CouNo']."</a></td>";
-									echo"<td width='220'>".$row['CouName']."</td>";
-									echo"<td width='80'>".$row['Kind']."</td>";
-									echo"<td width='50'>".$row['Credit']."</td>";
-									echo"<td width='80'>".$row['Teacher']."</td>";
-									echo"<td width='100'>".$schooltime1.$schooltime2.$schooltime3."</td>";
+									echo"<tr >";
+									echo"<td width='80' align='center' valign='middle'><a href='CourseDetail.php? CouNo=".$row['CouNo']."'>".$row['CouNo']."</a></td>";
+									echo"<td width='220' valign='middle' align='center'>".$row['CouName']."</td>";
+									echo"<td width='80' valign='middle' align='center'>".$row['Kind']."</td>";
+									echo"<td width='50' valign='middle' align='center'>".$row['Credit']."</td>";
+									echo"<td width='80' valign='middle' align='center'>".$row['Teacher']."</td>";
+									echo"<td width='100' valign='middle' align='center'>".$schooltime1.$schooltime2.$schooltime3."</td>";
 									echo"</tr>";
 									$j=$i+1; 
 								}
@@ -126,33 +124,43 @@ if(! isset($_SESSION['username']))
 							}
 						?>
 				</table>
+			</br>
 				<div class="alert alert-dismissible alert-light set-center">
 					点击<strong>课程编码链接</strong>可以查看课程细节
 				</div>
+				</br>
 				<div class="set-center">
 					<ul class="pagination">
+						<li class="page-item">
+							<a class="page-link" href="ShowCourse.php? p=0">第一页</a>
+						</li>
 						<?php
 						if($p>9){
 							$last=(floor($p/10)*10)-10;
-							echo "<li class='page-item'><a href='ShowCourse.php? p=$last' class='page-link'>&laquo;</a></li>";
+							echo "<li class='page-item'><a href='ShowCourse.php? p=$last' class='page-link'>上一页</a></li>";
 							}
 							else
-							echo "<li class='page-item disabled'><a href='' class='page-link'>&laquo;</a></li>";
+							echo "<li class='page-item disabled'><a href='' class='page-link'>上一页</a></li>";
 						?>
-						<li class="page-item">
-							<a class="page-link" href="ShowCourse.php? p=0">1</a>
-						</li>
-						<li class="page-item">
-							<a class="page-link" href="ShowCourse.php? p=11">2</a>
-						</li>
 						<li class="page-item">
 							<?php
 								if($i>9 and $number>$check){
-										echo"<li class='page-item'><a href='ShowCourse.php? p=$j' class='page-link'>&raquo;</a></li>";
+										echo"<li class='page-item'><a href='ShowCourse.php? p=$j' class='page-link'>下一页</a></li>";
 									}
 								else
-									echo"<li class='page-item disabled'><a href='ShowCourse.php? p=$j' class='page-link'>&raquo;</a></li>";
-								?>	  
+									echo"<li class='page-item disabled'><a href='ShowCourse.php? p=$j' class='page-link'>下一页</a></li>";
+								?>
+						</li>
+						<li class="page-item">
+							<?php
+				      if($i>9)
+				      {
+				      $final=floor($number/10)*10;
+				      echo"<a class='page-link' href='ShowCourse.php? p=$final'>最后一页</a>";
+				      }
+				      else
+				        echo"<li class='page-item disabled'><a href='' class='page-link'>最后一页</a></li>";
+						?>
 						</li>
 					</ul>
 				</div>

@@ -18,8 +18,6 @@ if(! isset($_SESSION['username']))
 	header("Location:../login.php");
 	exit();
 	}
-	include("../conn/db_conn.php");
-	include("../conn/db_func.php");
 	$adminNo=$_SESSION['username'];
 ?>
 
@@ -50,6 +48,5 @@ if(! isset($_SESSION['username']))
    </div>
   </div>
 
-<?php include("../footer.php"); ?>
 </body>
 </html>

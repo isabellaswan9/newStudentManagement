@@ -12,7 +12,9 @@
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
 <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
 
-<title>批量添加课程操作程序</title>
+
+
+<title>完成添加课程操作程序</title>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -28,53 +30,43 @@ if(! isset($_SESSION["username"])){
 include("../conn/db_conn.php");
 include("../conn/db_func.php");
 
-
 require_once '../PHPExcel/Classes/PHPExcel.php';
-//require_once '../PHPExcel/Classes/PHPExcel/IOFactory.php';
-//require_once '../PHPExcel/Classes/PHPExcel/Reader/Excel5.php';
-//以上三步加载phpExcel的类
-
 include "../PHPExcel/Classes/PHPExcel/IOFactory.php";
 
-//$objReader = PHPExcel_IOFactory::createReader('Excel5');//use excel2007 for 2007 format 
-
-//接收存在缓存中的excel表格
 $filename = $_FILES['myfile']['name'];
 $inputFileType = PHPExcel_IOFactory::identify($filename);
 $objReader = PHPExcel_IOFactory::createReader($inputFileType);
-$objPHPExcel = $objReader->load($filename); //$filename可以是上传的表格，或者是指定的表格
-
+$objPHPExcel = $objReader->load($filename); 
 
 $sheet = $objPHPExcel->getSheet(0); 
 $highestRow = $sheet->getHighestRow();// 取得总行数 
 $highestColumn = $sheet->getHighestColumn();// 取得总列数
-//循环读取excel表格,读取一条,插入一条
-//j表示从哪一行开始读取  从第二行开始读取，因为第一行是标题不保存
-//$a表示列号
 
 for($j=2;$j<=$highestRow;$j++)  
     {
-        $StuNo = $objPHPExcel->getActiveSheet()->getCell("A".$j)->getValue();//获取StuNo列的值
-        $ClassNo = $objPHPExcel->getActiveSheet()->getCell("B".$j)->getValue();//获取ClassNo列的值
-        $StuName = $objPHPExcel->getActiveSheet()->getCell("C".$j)->getValue();//获取StuName列的值
+        $TeaNo = $objPHPExcel->getActiveSheet()->getCell("A".$j)->getValue();//获取TeaNo列的值
+        $DepartNo = $objPHPExcel->getActiveSheet()->getCell("B".$j)->getValue();//获取TeaName列的值
+        $TeaName = $objPHPExcel->getActiveSheet()->getCell("C".$j)->getValue();//获取DepartNo列的值
 
-        $StuNo=trim($StuNo);
-        $StuName=trim($StuName);
-        $ClassNo=trim($ClassNo);
-        $pw='0000'.substr($StuNo,4,4);
+        $TeaNo=trim($TeaNo);
+        $TeaName=trim($TeaName);
+        $DepartNo=trim($DepartNo);
+        $pw='0000'.substr($TeaNo,4,4);
 
-        $AddStudent_SQL="insert into Student values('$StuNo','$ClassNo','$StuName',SHA1('$pw'))";
-        $AddStudent_Result=db_query($AddStudent_SQL);
-        if(!$AddStudent_Result){
+        $AddTeacher_SQL="insert into Teacher values('$TeaNo','$DepartNo','$TeaName',SHA1('$pw'))";
+        $AddTeacher_Result=db_query($AddTeacher_SQL);
+
+
+        if(!$AddTeacher_Result){
             echo"<script>";
-            echo"alert(\"添加学生失败，请重新添加\");";
-            echo"location. href=\"AddStudent.php?flag=fail&type=batch\"";
+            echo"alert(\"添加老师失败，请重新添加\");";
+            echo"location. href=\"Addtea.php?flag=fail&type=batch\"";
             echo"</script>";
         }
     }
-echo"<script>";
-echo"alert(\"添加学生成功\");";
-echo"location. href=\"AddStudent.php?flag=success&type=batch\"";
+    echo"<script>";
+echo"alert(\"添加老师成功\");";
+echo"location. href=\"AddTea.php?flag=success&type=batch\"";
 echo"</script>";
 ?>
 </body>

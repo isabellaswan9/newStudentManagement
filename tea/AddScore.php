@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <?php
+php include("header.php");
 if (!session_id()) session_start();
 if(! isset($_GET['StuNo']))
   {$StuNo=001;}
@@ -14,8 +15,6 @@ if(! isset($_SESSION["username"])){
 		header("Location:..//login.php");
 		exit();
 		}
-include("../conn/db_conn.php");
-include("../conn/db_func.php");
 $ShowDetail_sql="select * from stucou where StuNo='$StuNo' and CouNo='$CouNo'";
 $ShowDetailResult=db_query($ShowDetail_sql);
 $row=db_fetch_array($ShowDetailResult);
@@ -28,7 +27,7 @@ $row=db_fetch_array($ShowDetailResult);
 
 <body class="d-flex flex-column h-100">
 <center>
-<?php include("header.php"); ?>
+
 <br>
 请输入成绩信息
 <form method="post" action="AddScore1.php" enctype="multipart/fromdata">

@@ -22,7 +22,19 @@
       <form class="d-flex">
         <ul class="navbar-nav me-auto">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">你好！<?php if (!session_id()) session_start(); echo $_SESSION['username']?></a>
+
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">你好！
+              <?php 
+              if (!session_id()) session_start(); 
+                include("../conn/db_conn.php");
+                include("../conn/db_func.php");
+                $Namemun = $_SESSION['username'];
+                $Name_Search = "SELECT TeaName FROM teacher WHERE TeaNo = '$Namemun'";
+                $Name_Result = db_query($Name_Search);
+                $Name = mysql_fetch_array($Name_Result);
+                echo $Name[0];
+                ?></a>
+
             <div class="dropdown-menu">
               <a class="dropdown-item" href="Changepwd.php">修改密码</a>
               <div class="dropdown-divider"></div>

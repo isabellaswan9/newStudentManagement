@@ -21,8 +21,6 @@ if(! isset($_SESSION['username']))
 	header("Location:../login.php");
 	exit();
 	}
-	include("../conn/db_conn.php");
-	include("../conn/db_func.php");
 	$adminNo=$_SESSION['username'];
 ?>
   <div class="contain-wrap">
@@ -39,7 +37,6 @@ if(! isset($_SESSION['username']))
                 <option value="Credit">学分</option>
                 <option value="Teacher">教师</option>
                 <option value="DepartName">开课系部</option>
-                <option value="SchoolTime">上课时间</option>
               </select>
             </div>    
             <div class="form-group">
@@ -56,7 +53,5 @@ if(! isset($_SESSION['username']))
    </div>
   </div>
 
-
-<?php include("../footer.php"); ?>
 </body>
 </html>

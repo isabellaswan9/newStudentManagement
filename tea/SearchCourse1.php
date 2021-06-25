@@ -25,8 +25,6 @@
 				$keyWord=$_GET['keyWord'];
 				$ColumnName=$_GET['ColumnName'];
 				$keyWord=trim($keyWord);
-				include("../conn/db_conn.php");
-				include("../conn/db_func.php");
 				switch($ColumnName)
 				{
 					case "CouNo";
@@ -58,7 +56,7 @@
 			<div class="myTable">
 				<table class="table table-hover" width="610" border="0" align="center" cellpadding="0" cellspacing="1">
 					<thead>
-						<tr class="table-primary" bgcolor="#0066CC">
+						<tr class="table-primary" bgcolor="#0066CC" valign='middle' align='center'>
 							<th width="80" align="center">
 								<font color="#FFFFFF">课程编码</font>
 							</th>
@@ -128,22 +126,22 @@
 									echo "<tr bgcolor='#dddddd'>";
 								else
 									echo "<tr>";
-								echo "<td width='80'><a href='CourseDetail.php?CouNo=".$row['CouNo']."'>".$row['CouNo']."</a></td>";
+								echo "<td width='80' valign='middle' align='center'><a href='CourseDetail.php?CouNo=".$row['CouNo']."'>".$row['CouNo']."</a></td>";
 						?>
 
-					<td width="220" align="center">
+					<td width="220" valign='middle' align='center'>
 						<?php echo $row['CouName'] ?>
 					</td>
-					<td width="80">
+					<td width="80" valign='middle' align='center'>
 						<?php echo $row['Kind']  ?>
 					</td>
-					<td width="50">
+					<td width="50" valign='middle' align='center'>
 						<?php echo $row['Credit']  ?>
 					</td>
-					<td width="80">
+					<td width="80" valign='middle' align='center'>
 						<?php echo $row['Teacher'] ?>
 					</td>
-					<td width="120">
+					<td width="120" valign='middle' align='center'>
 						<?php echo $schooltime1.$schooltime2.$schooltime3;  ?>
 					</td>
 					</tr>

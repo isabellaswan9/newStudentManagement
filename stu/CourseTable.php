@@ -1,36 +1,95 @@
 <html>
 <head>
 <meta charset='UTF-8'>
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
 <style>
 caption{
 	text-align:center;
+	caption-side: top;
 	font-size:40px;
 	color:#000000;
 	margin:2%;
 
 }
 .table{
+	vertical-align: middle!important;
 	width:80%;
 	margin:auto;
 	text-align:center;
 	border:2px solid #ccc;	
 }
 td{
+	vertical-align: middle!important;
 	height:120px;
 	width:18%;
 	border:1px solid #ccc;
 }
 th{
+	vertical-align: middle!important;
 	text-align:center;
 }
 .coursetime{
 	width:10%;
 }
+.active {
+  --bs-table-accent-bg: var(--bs-table-active-bg);
+  color: var(--bs-table-active-color);
+}
+.success {
+  --bs-table-bg: #d1e7dd;
+  --bs-table-striped-bg: #c7dbd2;
+  --bs-table-striped-color: #000;
+  --bs-table-active-bg: #bcd0c7;
+  --bs-table-active-color: #000;
+  --bs-table-hover-bg: #c1d6cc;
+  --bs-table-hover-color: #000;
+  color: #000;
+  border-color: #bcd0c7;
+}
+.info {
+  --bs-table-bg: #cff4fc;
+  --bs-table-striped-bg: #c5e8ef;
+  --bs-table-striped-color: #000;
+  --bs-table-active-bg: #badce3;
+  --bs-table-active-color: #000;
+  --bs-table-hover-bg: #bfe2e9;
+  --bs-table-hover-color: #000;
+  color: #000;
+  border-color: #badce3;
+}
+.warning {
+  --bs-table-bg: #fff3cd;
+  --bs-table-striped-bg: #f2e7c3;
+  --bs-table-striped-color: #000;
+  --bs-table-active-bg: #e6dbb9;
+  --bs-table-active-color: #000;
+  --bs-table-hover-bg: #ece1be;
+  --bs-table-hover-color: #000;
+  color: #000;
+  border-color: #e6dbb9;
+}
+.danger {
+  --bs-table-bg: #f8d7da;
+  --bs-table-striped-bg: #eccccf;
+  --bs-table-striped-color: #000;
+  --bs-table-active-bg: #dfc2c4;
+  --bs-table-active-color: #000;
+  --bs-table-hover-bg: #e5c7ca;
+  --bs-table-hover-color: #000;
+  color: #000;
+  border-color: #dfc2c4;
+}
 </style>
 
 </head>
 <body class="d-flex flex-column h-100">
+<?php include("header.php"); ?>
+		</br>
+<div style="min-height: 900px;">
 <table class="table">
   <caption>我的课表</caption>
   <thead>
@@ -77,7 +136,7 @@ th{
 	  <td id='24'></td>
 	  </tr>
 	<tr class="info">
-      <td class='coursetime'>第五节</td>
+      <td class='coursetime' >第五节</td>
       <td id='5'></td>
       <td id='10'></td>
 	  <td id='15'></td>
@@ -87,16 +146,16 @@ th{
  </tbody>
 </table>
 </div>
+
 <?php
-session_start();
+if (!session_id()) session_start();
 if(! isset($_SESSION["username"])){//会话不存在就回去登录
 	header("Location:../login.php");
 	exit();
 	}
-	include("../conn/db_conn.php");
-	include("../conn/db_func.php");
 	//$StuNo=$_POST[StuNo];//学号
-	$StuNo='12345678';
+	$StuNo = $_SESSION['username'];
+	//$StuNo='12345678';
 	$ShowDetail_sql="select * from coursetable where StuNo='$StuNo'";//查看该学生选了什么课
 	$ShowDetailResult=db_query($ShowDetail_sql);
 	//获取StuNo, course.CouNo,CouName,Classroom,time1,time2,time3，一门课一行

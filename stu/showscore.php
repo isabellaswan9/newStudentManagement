@@ -22,8 +22,6 @@ if(!isset($_SESSION['username']))
 	header("Location:../login.php");
 	exit();
 }
-include("../conn/db_conn.php");
-include("../conn/db_func.php");
 $StuNo=$_SESSION['username'];
 $sql="select * from course,score where course.CouNo=score.CouNo and StuNo='$StuNo' ";
 $result=db_query($sql);
@@ -32,7 +30,7 @@ $result=db_query($sql);
 			<div class="myTable">
 <table class="table table-hover" width="610" border="0" align="center" cellpadding="0" cellspacing="1">
 					<thead>
-						<tr class="table-primary" bgcolor="#0066CC">
+						<tr class="table-primary" bgcolor="#0066CC" valign='middle' align='center'>
 							<th width="80" align="center">
 								<font color="#FFFFFF">课程编码</font>
 							</th>
@@ -63,13 +61,13 @@ $result=db_query($sql);
 			echo "<tr bgcolor='#dddddd'>";
 			else
 			 echo "<tr>";
-			 echo "<td width='80'><a href='CourseDetail.php?CouNo=".$row['CouNo']."'>".$row['CouNo']."</a></td>";
+			 echo "<td width='80' valign='middle' align='center'><a href='CourseDetail.php?CouNo=".$row['CouNo']."'>".$row['CouNo']."</a></td>";
  ?>       
-    <td width="108" align="center"><?php echo $row['CouName'] ?></td>
-    <td width="127"><?php echo $row['Kind']  ?></td>
-    <td width="105"><?php echo $row['Credit']  ?></td>
-    <td width="56"><?php echo $row['Teacher'] ?></td>
-    <td width="83"><?php echo $row['score']  ?></td>
+    <td width="108"  valign='middle' align='center'><?php echo $row['CouName'] ?></td>
+    <td width="127" valign='middle' align='center'><?php echo $row['Kind']  ?></td>
+    <td width="105" valign='middle' align='center'><?php echo $row['Credit']  ?></td>
+    <td width="56" valign='middle' align='center'><?php echo $row['Teacher'] ?></td>
+    <td width="83" valign='middle' align='center'><?php echo $row['score']  ?></td>
     </tr>
     
 <?php		
