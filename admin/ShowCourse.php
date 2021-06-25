@@ -27,11 +27,11 @@ if(! isset($_SESSION['username']))
 	$ShowCourseResult=db_query($ShowCourse_sql);
 ?>
 
-<div class="contain-wrap" style=" min-height: 900px;">
-	<div class="myTable" style=" min-height: 750px;">
+<div class="contain-wrap" style=" min-height: 1500px;">
+	<div class="myTable" style=" min-height: 1300px;">
 		<table  class="table table-hover" width="810" border="0" align="center" cellpadding="0" cellspacing="1" >
 			<thead>
-				<tr class="table-primary" bgcolor="#0066CC" valign='middle' align='center'>
+				<tr class="table-dark" bgcolor="#0066CC" valign='middle' align='center'>
 					<th width="80" >
 						<font color="#FFFFFF">课程号</font>
 					</th>

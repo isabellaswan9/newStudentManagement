@@ -29,7 +29,7 @@ if(! isset($_SESSION['username']))
 	<div class="myTable">
 		<table  class="table table-hover" width="810" border="0" align="center" cellpadding="0" cellspacing="1" >
 			<thead>
-				<tr class="table-primary" bgcolor="#0066CC" align='center'>
+				<tr class="table-dark" bgcolor="#0066CC" align='center'>
 					<th width="200" align="center">
 						<font color="#FFFFFF">学院</font>
 					</th>

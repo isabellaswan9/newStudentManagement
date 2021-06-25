@@ -29,11 +29,11 @@ if(! isset($_SESSION['username']))
 
 
 
-<div class="contain-wrap" style=" min-height: 650px;">
-	<div class="myTable" style=" min-height: 400px;">
+<div class="contain-wrap" style=" min-height: 1200px;">
+	<div class="myTable" style=" min-height: 1100px;">
 		<table  class="table table-hover" width="810" border="0" align="center" cellpadding="0" cellspacing="1" >
 			<thead>
-				<tr class="table-primary" bgcolor="#0066CC" align='center'>
+				<tr class="table-dark" bgcolor="#0066CC" align='center'>
 					<th width="230" align="center">
 						<font color="#FFFFFF">学院</font>
 					</th>			
