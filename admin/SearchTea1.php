@@ -92,6 +92,5 @@ $result=db_query($sql);
 		</table>
 	</div>
 </div>
-</table>
 </body>
 </html>

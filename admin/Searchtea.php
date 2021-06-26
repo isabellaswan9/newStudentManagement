@@ -23,7 +23,7 @@ if(! isset($_SESSION['username']))
 
   <div class="contain-wrap">
     <div class="myForm">
-      <form method="get" action="SearchTea1.php">
+      <form method="get" id="myForm" onkeydown="if(event.keyCode==13){return false;}">
           <fieldset>
             <legend>请输入查询信息</legend>
             <div class="form-group">
@@ -40,13 +40,46 @@ if(! isset($_SESSION['username']))
                   placeholder="" name="keyWord">
             </div>
             <div class="form-group set-center">
-              <button type="submit" name="button" id="button" class="btn btn-primary set-padding">确定</button>
-                <button type="reset" name="button" id="button" class="btn btn-primary set-padding">重置</button>
+              <button type="button" onclick="loadXMLDoc()" name="button" id="b1" class="btn btn-primary set-padding">确定</button>
+                <button type="reset" name="button" id="b2" class="btn btn-primary set-padding">重置</button>
             </div>
           </fieldset>
       </form>
    </div>
+   <div id="myTable" class="myTable"></div>
   </div>
-
+<script>
+  //监听回车事件
+  document.onkeydown=function(event){
+    var e = event || window.event || arguments.callee.caller.arguments[0];
+    if(e && e.keyCode==13){
+         document.getElementById("b1").click();
+    }
+    };
+  function loadXMLDoc(){
+    var myForm = document.getElementById("myForm");
+    var formdata=new FormData(myForm);
+    var xmlhttp;
+    if (window.XMLHttpRequest)
+    {
+        //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+        xmlhttp=new XMLHttpRequest();
+    }
+    else
+    {
+        // IE6, IE5 浏览器执行代码
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange=function()
+    {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            document.getElementById("myTable").innerHTML=xmlhttp.responseText;
+        }
+    }
+    xmlhttp.open("POST","SearchTea2.php",true);
+    xmlhttp.send(formdata);
+  }
+</script>
 </body>
 </html>

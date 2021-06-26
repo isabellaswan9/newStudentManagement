@@ -50,6 +50,9 @@
   box-shadow: 1px 2px 3px #ddd;
   width:400px;
 }
+.myDiv{
+
+}
 .contain-pd{
   grid-area: content;
   display: flex;
@@ -66,8 +69,6 @@
   box-shadow: 1px 2px 3px #ddd;
   width:400px;
 }
-
-
 
 
 hr{
