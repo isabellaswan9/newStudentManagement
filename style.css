@@ -33,8 +33,23 @@
   justify-content: center;
   align-items: center;
   min-height: 650px;
+  flex-wrap: wrap;
+  margin: 10px;
 }
-
+.addModal1{
+  min-width: 80%;
+}
+.myTable{
+  min-width: 80%;
+  min-height: 80%;
+}
+.myForm{
+  padding:20px;
+  border: 1px solid lightslategray;
+  border-radius: 5px;
+  box-shadow: 1px 2px 3px #ddd;
+  width:400px;
+}
 .contain-pd{
   grid-area: content;
   display: flex;
@@ -53,17 +68,7 @@
 }
 
 
-.myTable{
-  min-width: 1000px;
-  max-height: 500px;
-}
-.myForm{
-  padding:20px;
-  border: 1px solid lightslategray;
-  border-radius: 5px;
-  box-shadow: 1px 2px 3px #ddd;
-  width:400px;
-}
+
 
 hr{
     border: 1px dashed #ddd;
@@ -76,6 +81,12 @@ hr{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.set-right{
+  display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    
 }
 .set-padding{
   margin:10px
