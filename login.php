@@ -20,29 +20,7 @@
   canvas{
     
   }
-  .myFormControl {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #55595c;
-  background-color: #f7f7f9;
-  background-clip: padding-box;
-  border: 0 solid #ced4da;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border-radius: 0;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-.myFormControl:focus {
-  color: #55595c;
-  background-color: #f7f7f9;
-  border-color: #8d8d8d;
-  outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(26, 26, 26, 0.25);
-}
+  
 </style>
 <body class="d-flex flex-column h-100">
   <div class="wrap">
@@ -69,7 +47,7 @@
     </div>
     <div class="contain-wrap">
       <div id="myForm" class="myForm">
-        <form method="post" action="ChkLogin.php" onsubmit="return verified()" enctype="multipart/fromdata">
+        <form method="post" action="ChkLogin.php" onsubmit="return new draw().isNum()" enctype="multipart/fromdata">
           <fieldset>
             <legend>用户登录</legend>
             <div class="form-group">
@@ -117,7 +95,7 @@
         var button = document.getElementById("submit");//获取按钮
         var input = document.getElementById("verify");//获取输入框
 
-        var num //定义容器接收验证码,注意定义为全局变量
+        //var num //定义容器接收验证码,注意定义为全局变量
 
         draw();
         canvas.onclick = function () {
@@ -173,7 +151,19 @@
                 context.strokeStyle = getColor();
                 context.stroke();
             }
-        }
+            this.isNum = function(x)
+              {
+                var text = input.value //获取输入框的值
+                      if (text === num) {
+                          alert('验证通过')
+                          return true;
+                      } else {
+                          alert('验证失败')
+                          return false;
+                      }
+                return true;
+              }
+          }
     function verified(){
       var text = input.value //获取输入框的值
                 if (text === num) {
