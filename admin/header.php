@@ -11,18 +11,18 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">课程管理</a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="ShowCourse.php">课程列表</a>
-            <a class="dropdown-item" href="SearchCourse.php">查询课程</a>
-            <a class="dropdown-item" href="AddCourse.php">添加课程</a>
+            <a class="dropdown-item" href="../ManageCourse/ShowCourse.php">课程列表</a>
+            <a class="dropdown-item" href="../ManageCourse/SearchCourse.php">查询课程</a>
+            <a class="dropdown-item" href="./ManageCourse/AddCourse.php">添加课程</a>
           </div>
         </li>
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">教师管理</a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="Showtea.php#">教师列表</a>
-            <a class="dropdown-item" href="Searchtea.php">查询教师</a>
-            <a class="dropdown-item" href="Addtea.php">添加教师</a>
+            <a class="dropdown-item" href="../ManageTeacher/Showtea.php">教师列表</a>
+            <a class="dropdown-item" href="../ManageTeacher/Searchtea.php">查询教师</a>
+            <a class="dropdown-item" href="../ManageTeacher/Addtea.php">添加教师</a>
           </div>
         </li>
 
@@ -42,8 +42,8 @@
 <?php 
 if (!session_id()) session_start();
 
-  include("../conn/db_conn.php");
-  include("../conn/db_func.php");
+  include("../../conn/db_conn.php");
+  include("../../conn/db_func.php");
 $Namemun = $_SESSION['username'];
 $Name_Search = "SELECT adminName FROM admin WHERE adminNo = '$Namemun'";
 $Name_Result = db_query($Name_Search);

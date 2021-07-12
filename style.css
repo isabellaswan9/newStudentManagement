@@ -38,6 +38,7 @@
 }
 .addModal1{
   min-width: 80%;
+  align-self: flex-end;
 }
 .myTable{
   min-width: 80%;
@@ -84,10 +85,7 @@ hr{
     align-items: center;
 }
 .set-right{
-  display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    
+    text-align: right;
 }
 .set-padding{
   margin:10px

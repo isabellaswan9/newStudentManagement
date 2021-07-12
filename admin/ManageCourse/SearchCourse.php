@@ -3,10 +3,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="../../style.css">
 
-<script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
+<script type="text/javascript" src="../../bootstrap/js/bootstrap.bundle.js"></script>
 
 
 
@@ -18,7 +18,7 @@
 if (!session_id()) session_start();
 if(! isset($_SESSION['username']))
 {
-	header("Location:../login.php");
+	header("Location:../../login.php");
 	exit();
 	}
 	$adminNo=$_SESSION['username'];

@@ -3,19 +3,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-<link rel="stylesheet" href="../style.css">
-<script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
+<link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="../../style.css">
+<script type="text/javascript" src="../../bootstrap/js/bootstrap.bundle.js"></script>
 
 <title>查询教师-超级管理员</title>
 </head>
 <body class="d-flex flex-column h-100">
-	<?php include("header.php"); ?>
+	<?php include("./header.php"); ?>
 <?php
 if (!session_id()) session_start();
 if(! isset($_SESSION['username']))
 {
-	header("Location:../login.php");
+	header("Location:../../login.php");
 	exit();
 	}
 	$adminNo=$_SESSION['username'];
@@ -40,7 +40,7 @@ if(! isset($_SESSION['username']))
                   placeholder="" name="keyWord">
             </div>
             <div class="form-group set-center">
-              <button type="button" onclick="loadXMLDoc()" name="button" id="b1" class="btn btn-primary set-padding">确定</button>
+              <button type="button" onclick="loadTable()" name="button" id="b1" class="btn btn-primary set-padding">确定</button>
                 <button type="reset" name="button" id="b2" class="btn btn-primary set-padding">重置</button>
             </div>
           </fieldset>
@@ -55,14 +55,18 @@ if(! isset($_SESSION['username']))
     if(e && e.keyCode==13){
          document.getElementById("b1").click();
     }
-    };
-  function loadXMLDoc(){
+  };
+  
+  function loadTable(){
+    //使用formdata方法获取表单的内容
     var myForm = document.getElementById("myForm");
     var formdata=new FormData(myForm);
+
     var xmlhttp;
-    if (window.XMLHttpRequest)
+    if (window.XMLHttpRequest)//检查浏览器是否支持XMLHttpRequest
     {
         //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+        //创建XMLHttpRequest 对象
         xmlhttp=new XMLHttpRequest();
     }
     else
@@ -74,9 +78,11 @@ if(! isset($_SESSION['username']))
     {
         if (xmlhttp.readyState==4 && xmlhttp.status==200)
         {
+          //responseText:获得字符串形式的响应数据
             document.getElementById("myTable").innerHTML=xmlhttp.responseText;
         }
     }
+    //规定请求的类型、URL 以及是否异步处理请求
     xmlhttp.open("POST","SearchTea2.php",true);
     xmlhttp.send(formdata);
   }

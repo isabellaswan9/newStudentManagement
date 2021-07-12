@@ -3,10 +3,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-<link rel="stylesheet" href="../style.css">
-<script type="text/javascript" src="../bootstrap/js/jquery.min.js"></script>
-<script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
+<link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="../../style.css">
+<script type="text/javascript" src="../../bootstrap/js/jquery.min.js"></script>
+<script type="text/javascript" src="../../bootstrap/js/bootstrap.bundle.js"></script>
 
 
 
@@ -14,12 +14,12 @@
 
 </head>
 <body class="d-flex flex-column h-100">
-	<?php include("header.php"); ?>
+	<?php include("../header.php"); ?>
 <?php
 if (!session_id()) session_start();
 if(! isset($_SESSION['username']))
 {
-	header("Location:../login.php");
+	header("Location:../../login.php");
 	exit();
 	}
 	$StuNo=$_SESSION['username'];
@@ -173,6 +173,6 @@ if(! isset($_SESSION['username']))
 </table>  
 	</div>
 </div>
-<?php include("../footer.php"); ?>      
+<?php include("../../footer.php"); ?>      
 </body>
 </html>

@@ -112,6 +112,7 @@
         }
 
         function draw() {
+            context.clearRect(0, 0, 120, 40); 
             context.strokeRect(0, 0, 120, 40);//绘制矩形（无填充）
             var aCode = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"];
             // 绘制字母

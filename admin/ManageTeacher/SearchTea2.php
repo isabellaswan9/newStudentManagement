@@ -1,11 +1,11 @@
 
 <?php
 if (!session_id()) session_start();
-include("../conn/db_conn.php");
-include("../conn/db_func.php");
+include("../../conn/db_conn.php");
+include("../../conn/db_func.php");
 if(!isset($_SESSION['username']))
 {
-	header("Location:../login.php");
+	header("Location:../../login.php");
 	exit();
 }
 $keyWord=$_POST['keyWord'];

@@ -6,9 +6,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-<link rel="stylesheet" href="../style.css">
-<script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
+<link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="../../style.css">
+<script type="text/javascript" src="../../bootstrap/js/bootstrap.bundle.js"></script>
 
 
 
@@ -23,7 +23,7 @@ if(! isset($_GET['CouNo']))
   {$CouNo=001;}
  else{$CouNo=$_GET['CouNo'];} 
 if(! isset($_SESSION["username"])){
-  header("Location:../login.php");
+  header("Location:../../login.php");
   exit();
   }
 $ShowDetail_sql="select * from course,department where CouNo='$CouNo' and course.DepartNo=department.DepartNo";

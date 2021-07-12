@@ -4,24 +4,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-<link rel="stylesheet" href="../style.css">
-<script type="text/javascript" src="../bootstrap/js/jquery.min.js"></script>
-<script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
+<link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="../../style.css">
+<script type="text/javascript" src="../../bootstrap/js/jquery.min.js"></script>
+<script type="text/javascript" src="../../bootstrap/js/bootstrap.bundle.js"></script>
 
 <title>添加教师</title>
 </head>
 
 <body class="d-flex flex-column h-100">
-<?php include("header.php"); ?>
+<?php include("./header.php"); ?>
 
 <?php
 if (!session_id()) session_start();
 if(! isset($_SESSION["username"])){
-	header("Location:..//login.php");
+	header("Location:../..//login.php");
 	exit();
 	}else if($_SESSION["role"]<>"admin"){
-		header("Location:..//login.php");
+		header("Location:../..//login.php");
 		exit();
 		}
 ?>
@@ -63,8 +63,8 @@ if(! isset($_SESSION["username"])){
 			<input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="" name="Pwd">
 			<label class="form-label mt-4"><font color="red">注意：密码为8位数字</font></label>-->
 			<div class="form-group set-center">
-			<button type="submit" name="B1" id="button" class="btn btn-primary set-padding">确定</button>
-			<button type="reset" name="B2" id="button" class="btn btn-primary set-padding">重置</button>
+			<button type="submit" name="B1" id="B1" onclick="AddTeacher()"class="btn btn-primary set-padding">确定</button>
+			<button type="reset" name="B2" id="B2" class="btn btn-primary set-padding">重置</button>
 			</div>
 			</div>
 			</fieldset>

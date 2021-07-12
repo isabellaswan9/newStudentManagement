@@ -8,13 +8,13 @@
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>无标题文档</title>
-<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-<link rel="stylesheet" href="../style.css">
-<script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.js"></script>
+<link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="../../style.css">
+<script type="text/javascript" src="../../bootstrap/js/bootstrap.bundle.js"></script>
 
-<link rel="stylesheet" href="../bootstrap/bootstrap.css" />
-<link rel="stylesheet" href="../css/style.css" />
-<link rel="stylesheet" href="../css/footer.css" />
+<link rel="stylesheet" href="../../bootstrap/bootstrap.css" />
+<link rel="stylesheet" href="../../css/style.css" />
+<link rel="stylesheet" href="../../css/footer.css" />
 
 <body>
 </head>
@@ -26,7 +26,7 @@
 				//if (!session_id()) session_start();
 				if(!isset($_SESSION['username']))
 				{
-					header("Location:../login.php");
+					header("Location:../../login.php");
 					exit();
 				}
 				$keyWord=$_GET['keyWord'];

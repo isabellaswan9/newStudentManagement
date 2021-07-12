@@ -9,14 +9,14 @@
 <?php
 if (!session_id()) session_start();
 if(! isset($_SESSION["username"])){
-	header("Location:..//login.php");
+	header("Location:../..//login.php");
 	exit();
 	}else if($_SESSION["role"]<>"admin"){
-	header("Location:..//login.php");
+	header("Location:../..//login.php");
 	exit();
 		}
-include("../conn/db_conn.php");
-include("../conn/db_func.php");
+include("../../conn/db_conn.php");
+include("../../conn/db_func.php");
 $TeaNo=$_GET['TeaNo'];
 
 $DeleteTeacher_SQL="delete from teacher where TeaNo='$TeaNo'";
